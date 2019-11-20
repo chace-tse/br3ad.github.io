@@ -1,10 +1,9 @@
-# br3ad.github.io
+[TOC]
 
-<center>:computer: Br3ad's blog</center>
+#</center>:computer: Br3ad's blog</center>
 
 ## How to use
 ---
-
 1、`Git clone` the Repo and **Install** the **Dependencies**.
 ```
 $ git init
@@ -43,7 +42,6 @@ $ npm install
 
 ## How to write and deploy with `[Hexo](https://hexo.io/)`
 ---
-
 1、Generate static pages to the `public` directory.
 ```
 $ hexo generate // For abbr: hexo g
@@ -54,7 +52,6 @@ $ hexo generate // For abbr: hexo g
 $ hexo server // For abbr: hexo s
 ```
 Local address: *http://localhost:4000/*
-
 
 3、You just edit the markdown document in the `/source/_posts/` directory.
 ```
