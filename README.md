@@ -9,7 +9,6 @@ $ git clone git@github.com:br3ad/br3ad.github.io.git
 $ cd br3ad.github.io
 $ npm install
 ```
-
 2、Complete project directory structure.
 ```
 ├── README.md
@@ -38,18 +37,16 @@ $ npm install
     └── landscape
 ```
 
-## How to write and deploy with `[Hexo](https://hexo.io/)`
+## How to write and deploy with *[Hexo](https://hexo.io/).*
 1、Generate static pages to the `public` directory.
 ```
 $ hexo generate // For abbr: hexo g
 ```
-
 2、Start run hexo service.
 ```
 $ hexo server // For abbr: hexo s
 ```
 Local address: *http://localhost:4000/*
-
 3、You just edit the markdown document in the `/source/_posts/` directory.
 ```
 ..
@@ -57,7 +54,6 @@ Local address: *http://localhost:4000/*
 │   └── _posts
 │       └── `New post.md`
 ```
-
 4、Deploy to the github Page Blog.
 ```
 $ hexo deploy // For abbr: hexo g
