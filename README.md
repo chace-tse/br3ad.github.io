@@ -1,9 +1,7 @@
-[TOC]
+<center>#:computer: Br3ad's blog</center>
 
-#</center>:computer: Br3ad's blog</center>
 
 ## How to use
----
 1、`Git clone` the Repo and **Install** the **Dependencies**.
 ```
 $ git init
@@ -41,7 +39,6 @@ $ npm install
 ```
 
 ## How to write and deploy with `[Hexo](https://hexo.io/)`
----
 1、Generate static pages to the `public` directory.
 ```
 $ hexo generate // For abbr: hexo g
