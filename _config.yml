@@ -98,4 +98,4 @@ theme: landscape
 deploy:
   type: git
   repository: https://github.com/br3ad/br3ad.github.io
-  branch: master
+  branch: local_test
