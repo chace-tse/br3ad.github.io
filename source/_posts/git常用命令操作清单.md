@@ -9,15 +9,15 @@ category: Git
 
 **下面是我整理的常用 `Git` 命令清单。几个专用名词的译名如下。**
 
-- Workspace：工作区
-- Index / Stage：暂存区
-- Repository：仓库区（或本地仓库）
-- Remote：远程仓库
+* Workspace：工作区
+* Index / Stage：暂存区
+* Repository：仓库区（或本地仓库）
+* Remote：远程仓库
 
 
 ## 一、新建代码库
 
-```javascript
+```sh
 # 在当前目录新建一个Git代码库
 $ git init
 
@@ -33,7 +33,7 @@ $ git clone [url]
 
 `Git`的设置文件为`.gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
 
-```javascript
+```sh
 # 显示当前的Git配置
 $ git config --list
 	
@@ -51,7 +51,7 @@ $ git config [--global] core.editor sublime //根据编辑器名称
 
 # 生成SSH密钥
 	
-	$ ssh-keygen -t rsa -C "your email" 
+$ ssh-keygen -t rsa -C "your email" 
 # 一路回车，最后会得到两个文件：id_rsa和id_rsa.pub
 	
 # 查看密钥
@@ -61,7 +61,7 @@ $ cat ~/.ssh/id_rsa.pub
 
 ## 三、增加删除文件
 
-```javascript
+```sh
 # 添加指定文件到暂存区
 $ git add [file1] [file2] ...
 	
@@ -83,7 +83,7 @@ $ git mv [file-original] [file-renamed]
 
 ## 四、代码提交
 
-```javascript
+```sh
 # 提交暂存区到仓库区
 $ git commit -m [message]
 	
@@ -106,7 +106,7 @@ $ git commit --amend [file1] [file2] ...
 
 ## 五、分支
 
-```javascript
+```sh
 # 列出所有本地分支
 $ git branch
 	
@@ -150,7 +150,7 @@ $ git branch -dr [remote/branch]
 
 ## 六、标签
 
-```javascript
+```sh
 # 列出所有tag
 $ git tag
 	
@@ -181,7 +181,7 @@ $ git checkout -b [branch] [tag]
 
 ## 七、查看信息
 
-```javascript
+```sh
 # 显示有变更的文件
 $ git status
 	
@@ -234,7 +234,7 @@ $ git reflog
 
 ## 八、远程同步
 
-```javascript
+```sh
 # 从远端拉取代码
 $ git pull origin dev 
 	
@@ -269,7 +269,7 @@ $ git push [remote] --all
 
 ## 九、撤销
 
-```javascript
+```sh
 # 恢复暂存区的指定文件到工作区
 $ git checkout [file]
 	
@@ -301,5 +301,5 @@ $ git revert [commit]
 
 # 关于本文
 
-- 作者：[阮一峰](http://www.ruanyifeng.com)
-- 原文地址：[常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+* 作者：[阮一峰](http://www.ruanyifeng.com)
+* 原文地址：[常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
