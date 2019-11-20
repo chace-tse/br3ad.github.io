@@ -1,4 +1,4 @@
-<center>#:computer: Br3ad's blog</center>
+# :computer: Br3ad's blog.
 
 
 ## How to use
