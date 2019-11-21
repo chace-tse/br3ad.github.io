@@ -6,7 +6,7 @@
 **Q：在同一个`Git`仓库使用**hexo**来部署博客到线上环境时「博客生成代码」会覆盖「博客源代码」并会推送到`Git`仓库**
 1、使用不用的`Git`分支来管理不同的代码
 
-1.1、`remotes/origin/master` 负责管理「博客源代码」
+1.1、`remotes/origin/source_branch` 负责管理「博客源代码」
 > Hexo的源码，包括themes目录（博客模板），source目录(使用MarkDown写的博客)等
 
 ```sh
@@ -24,7 +24,7 @@
 └── themes
 ```
 
-1.2、`remotes/origin/local_test` 负责管理「博客生成代码」
+1.2、`remotes/origin/master` 负责管理「博客生成代码」
 > 执行hexo generate或者hexo server命令生成的代码，是Hexo自动生成的，publick目录下的所有资源
 
 ```sh
@@ -49,7 +49,7 @@
 deploy:
   type: git
   repository: https://github.com/br3ad/br3ad.github.io
-  branch: local_test
+  branch: master
 ```
 
 ## 问题二
