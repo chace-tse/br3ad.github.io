@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-<h1 align="center">:computer: Br3ad's blog.</h1>
-
-## How to use
-
-1、`Git clone` the Repo and **Install** the **Dependencies**.
-```sh
-$ git init
-$ git clone git@github.com:br3ad/br3ad.github.io.git
-$ cd br3ad.github.io
-$ npm install
-```
-
-2、Complete project directory structure.
-```sh
-├── README.md
-├── _config.yml
-├── db.json
-├── package-lock.json
-├── package.json
-├── public
-│   ├── 2019
-=======
 <h1 align="center"> :computer: Br3ad Blog Publick Deploy Directory.</h1>
 
 ## 问题一
@@ -55,7 +32,6 @@ $ npm install
 ├── public
 │   ├── 2019
 │   ├── READMEmd
->>>>>>> 746d26dddb247b513dbd3bd180647da544da0a71
 │   ├── archives
 │   ├── categories
 │   ├── css
@@ -65,42 +41,6 @@ $ npm install
 │   ├── pdf
 │   ├── resume
 │   └── tags
-<<<<<<< HEAD
-├── scaffolds
-│   ├── draft.md
-│   ├── page.md
-│   └── post.md
-├── source
-│   └── _posts
-└── themes
-    └── landscape
-```
-
-## How to write and deploy with *[Hexo](https://hexo.io/).*
-
-1、Generate static pages to the `public` directory.
-```sh
-$ hexo generate // For abbr: hexo g
-```
-
-2、Start run hexo service.
-```sh
-$ hexo server // For abbr: hexo s
-```
-Local address: *http://localhost:4000/*
-
-3、You just edit the markdown document in the `/source/_posts/` directory.
-```sh
-..
-├── source
-│   └── _posts
-│       └── `New post.md`
-```
-4、Deploy to the github Page Blog.
-```sh
-$ hexo deploy // For abbr: hexo g
-```
-=======
 │   └── ....
 ```
 
@@ -128,4 +68,3 @@ PS：hexo会把`markdown`文件自动转换为`HTML`文件，所以在新建文�
 
 2、使用`Hexo g`或`Hexo d`后只需把READMEmd文件在md前添加后缀.即可
 > **READMEmd** —> **README.md**
->>>>>>> 746d26dddb247b513dbd3bd180647da544da0a71
