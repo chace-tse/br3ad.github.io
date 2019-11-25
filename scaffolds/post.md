@@ -1,11 +1,6 @@
 ---
-title: {{ title }}
-date: {{ date }}
-<<<<<<< HEAD
-tags: {{ tags }}
-=======
-tags: 
-categories: 
-summary: 
->>>>>>> 8b4e176ad42bc0ea75d393369e3e913ec549cc3b
+title: {{ title }} # title 标题
+date: {{ date }} # date 日期
+tags: {{ tags }} # tags 标签
+category: {{ category }} # category 分类
 ---
