@@ -92,27 +92,19 @@ index_with_subtitle: false
 # Value before `||` delimeter is the target link.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
-  home: /
-  archives: /archives
-  categories: /categories
-  tags: /tags
-  #reading: /reading
-  about: /resume
-  #commonweal: /404/ || heartbeat
+  home: /|| home
+  archives: /archives/|| archive
+  categories: /categories/|| th
+  tags: /tags/|| tags
+  #reading: /reading/|| book
+  about: /resume/|| user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
+  #commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons.
 menu_icons:
-  enable: false
-  # Icon Mapping.
-  home: home
-  about: user
-  categories: th
-  tags: tags
-  archives: archives
-  commonweal: heartbeat
-
+  enable: true #控制是否显示图标
 
 # ---------------------------------------------------------------
 # Scheme Settings
