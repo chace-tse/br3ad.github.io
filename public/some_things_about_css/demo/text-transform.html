@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>text-transform</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(43, 43, 43, 1);
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    /*!
+     * Title 
+    */
+    .title {
+      padding: 1em 0;
+      font-size: 2em;
+      color: #fff;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    p {
+      padding: 2em 0;
+      color: #fff;
+      font-size: 1em;
+      text-align: center;
+    }
+    /*!
+     * capitalize 首字母大写
+    */
+    .capitalize {
+      text-transform: capitalize;
+    }
+    /*!
+     * uppercase 全都是大写
+    */
+    .uppercase {
+      text-transform: uppercase;
+    }
+    /*!
+     * lowercase 全都是小写
+    */
+    .lowercase {
+      text-transform: lowercase;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">CSS text-transform property.</h2>
+  <p class="capitalize">capitalize</p>
+  <p class="uppercase">uppercase</p>
+  <p class="lowercase">LOWERCASE</p>
+</body>
+</html>

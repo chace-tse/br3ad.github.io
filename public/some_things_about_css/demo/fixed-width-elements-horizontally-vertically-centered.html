@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css fixed-width block elements are centered horizontally and vertically.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    h1 {
+      font-size: 26px;
+      padding: 10px 0;
+      margin: 10px 0;
+      color: #264a6d;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 20px;
+      color: #5d647e;
+      padding: 10px 0;
+      font-weight: 700;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    .txt-careful {
+      color: #c9394a;
+      font-size: 18px;
+      padding: 0 3px;
+      color: #fff;
+      background-color: #0f547e;
+      border-radius: 5px;
+    }
+    .box {
+      width: 30%;
+      height: 380px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: #ccc;
+    }
+    .box-in {
+      width: 200px;
+      height: 200px;
+      line-height: 200px;
+      color: #fff;
+      text-transform: uppercase;
+      background-color: #000;
+    }
+    /*!
+     * Use Absolute + Margin Auto Layout
+    */
+    .absolute {
+      position: relative;
+    }
+    .absolute-in {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
+    /*!
+     * Use Absolute + Negative Margin Layout
+    */
+    .ne-margin {
+      position: relative;
+    }
+    .ne-margin-in {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -100px;
+      margin-left: -100px;
+    }
+    /*!
+     * Use Table-Cell Margin Layout
+    */
+    .table {
+      display: table;
+      vertical-align: middle;
+    }
+    .table-cell {
+      padding: 20px;
+      border: 20px solid #ccc;
+      display: table-cell;
+      vertical-align: middle;
+    }
+    /*!
+     * Use Absolute + CSS3 Transform Layout
+    */
+    .transform {
+      position: relative;
+    }
+    .transform-in {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    /*!
+     * Use Float Relative Negative Margin Layout
+    */
+    /* clearfix flaot */
+    .float:after {
+      display: block;
+      content: "";
+      clear: both;
+      height: 0;
+      font-size: 0;
+      line-height: 0;
+      zoom: 1;
+      overflow: hidden;
+    }
+    .float-in {
+      float: left;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      margin-top: -100px;
+      margin-left: -100px;
+    }
+    /*!
+     * Use Inline-Block + Empty Element Layout
+    */
+    .inline-block {
+      position: relative;
+    }
+    .inline-block:after {
+      display: inline-block;
+      content: "";
+      height: 100%;
+      width: 1%;
+      vertical-align: middle;
+    }
+    .inline-block-in {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /*!
+     * Use Flex Layout
+    */
+    .flex {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: center; /* for safari */
+      justify-content: center;
+      -webkit-align-items: center; /* for safari */
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS fixed-width block elements are centered horizontally and vertically.</h1>
+  <h2>1、use <span class="txt-careful">absolute</span> + <span class="txt-careful">marign auto</span> layout.</h2>
+  <div class="box absolute">
+    <div class="box-in absolute-in">absolute margin auto.</div>
+  </div>
+  <!-- /absolute -->
+  <h3>2、use <span class="txt-careful">absolute</span> + <span class="txt-careful">negative margin</span> layout.</h3>
+  <div class="box ne-margin">
+    <div class="box-in ne-margin-in">negative margin.</div>
+  </div>
+  <!-- /margin -->
+  <h4>3、use <span class="txt-careful">table-cell</span> layout.</h4>
+  <div class="box table">
+    <div class="box-in table-cell">table-cell.</div>
+  </div>
+  <!-- /table -->
+  <h5>4、use <span class="txt-careful">absolute</span> + <span class="txt-careful">transform</span> layout.</h5>
+  <div class="box transform">
+    <div class="box-in transform-in">transform-in.</div>
+  </div>
+  <!-- /transform -->
+  <h6>5、use <span class="txt-careful">float</span> + <span class="txt-careful">negative marign</span> layout.</h6>
+  <div class="box float">
+    <div class="box-in float-in">float-in.</div>
+  </div>
+  <!-- /float -->
+  <h6>6、use <span class="txt-careful">inline-block</span> + <span class="txt-careful">empty element</span> layout.</h6>
+  <div class="box inline-block">
+    <div class="box-in inline-block-in">inline-block.</div>
+  </div>
+  <!-- /inline-block -->
+  <h6>7、use <span class="txt-careful">flex</span> layout.</h6>
+  <div class="box flex">
+    <div class="box-in flex-in">flex.</div>
+  </div>
+  <!-- /flex -->
+</body>
+</html>

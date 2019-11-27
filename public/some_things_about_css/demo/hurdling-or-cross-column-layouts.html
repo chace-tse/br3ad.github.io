@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Multiple scenarios for hurdling or cross-column layouts.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    body {
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(43, 43, 43, 1);
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    h1,
+    a {
+      color: #fff;
+      
+    }
+    h1 {
+      padding: 1em 0;
+      text-align: center;
+    }
+    a {
+      font-style: italic;
+      text-decoration: underline;
+    }
+    /*!
+     * Title 
+    */
+    .title {
+      padding: 1em 0;
+      font-size: 2em;
+      color: #fff;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    /*!
+     * Demo
+    */
+    .demo {
+      width: 620px;
+      height: 310px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+    }
+    .demo section {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border-radius: 9px;
+      border: 1px solid blue;
+      background-color: #66b2ec;
+      color: #fff;
+      font-size: 36px;
+      text-transform: uppercase;
+      line-height: 150px;
+    }
+    /*!
+     * Float Layout
+    */
+    .float {
+      height: 100%;
+      overflow: hidden;
+      margin-right: -10px;
+    }
+    .float section {
+      width: 200px;
+      height: 150px;
+      float: left;
+    }
+    .float .a {
+      height: 310px;
+    }
+    .float:hover .a {
+      width: 410px;
+      height: 150px;
+    }
+    /*!
+     * Flex Layout
+    */
+    .flex {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: space-between;
+      justify-content: space-between;
+    }
+    .flex section {
+      width: 200px;
+      height: 150px;
+      margin: 0;
+    }
+    .flex .a {
+      height: 100%;
+    }
+    .flex .c {
+      order: 4;
+    }
+    .flex .d {
+      order: 2;
+    }
+    .flex .e {
+      order: 5;
+    }
+    .flex:hover {
+      flex-direction: row;
+    }
+    .flex:hover section {
+      order: 0;
+    }
+    .flex:hover .a {
+      height: 150px;
+      width: 410px;
+    }
+    /*!
+     * Grid Layout
+    */
+    .grid {
+      display: -ms-grid;
+      display: -webkit-grid;
+      display: grid;
+      -ms-grid-template-columns: 1fr 1fr 1fr;
+      -webkit-grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      -ms-grid-template-rows: 1fr 1fr;
+      -webkit-grid-template-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    .grid .a {
+      -ms-grid-row: span 2;
+      -webkit-grid-row: span 2;
+      grid-row: span 2;
+    }
+    .grid:hover .a {
+      -ms-grid-row: auto;
+      -webkit-grid-row: auto;
+      grid-row: auto;
+      -ms-grid-column: span 2;
+      -webkit-grid-column: span 2;
+      grid-column: span 2;
+    }
+  </style>
+</head>
+<body>
+  <h1><a href="https://www.zhihu.com/question/28542816" target="_blank">多种方案实现跨栏或跨列布局</a></h1>
+  <h2 class="title">float layout</h2>
+  <section class="demo">
+    <div class="float">
+      <section class="a">a</section>
+      <section class="b">b</section>
+      <section class="c">c</section>
+      <section class="d">d</section>
+      <section class="e">e</section>
+    </div>
+  </section>
+  <!-- /float-layout -->
+  <h2 class="title">flex layout</h2>
+  <section class="demo flex">
+    <section class="a">a</section>
+    <section class="b">b</section>
+    <section class="c">c</section>
+    <section class="d">d</section>
+    <section class="e">e</section>
+  </section>
+  <!-- /flex-layout -->
+  <h2 class="title">grid layout</h2>
+  <section class="demo grid">
+    <section class="a">a</section>
+    <section class="b">b</section>
+    <section class="c">c</section>
+    <section class="d">d</section>
+    <section class="e">e</section>
+  </section>
+  <!-- /grid-layout -->
+</body>
+</html>

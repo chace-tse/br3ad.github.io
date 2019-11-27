@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS No fixed width to achieve square.</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      text-align: center;
+      background-color: rgba(43, 43, 43, 1);
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    /*!
+     * Title 
+    */
+    .title {
+      padding: 1em 0;
+      font-size: 32px;
+      color: #fff;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    /*!
+     * Box 
+    */
+    .box {
+      display: inline-block;
+      width: 30%;
+      margin: 1%;
+      background-color: #f60;
+    }
+    .box:after {
+      display: block;
+      padding-top: 100%;
+      content: '';
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">no fixed width to achieve square.</h2>
+  <section class="box"></section>
+  <section class="box"></section>
+  <section class="box"></section>
+</body>
+</html>

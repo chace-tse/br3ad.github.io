@@ -96,8 +96,9 @@ menu:
   archives: /archives/|| archive
   categories: /categories/|| th
   tags: /tags/|| tags
-  #reading: /reading/|| book
+  projects: /projects/|| building
   about: /resume/|| user
+  #reading: /reading/|| book
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat

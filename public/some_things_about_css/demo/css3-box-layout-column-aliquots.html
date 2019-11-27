@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS3 Box Layout column aliquots.</title>
+  <style>
+    /*!
+      * CSS3 Box Layout column aliquots
+     */
+     * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(43, 43, 43, 1);
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    /*!
+     * Title 
+    */
+    .title {
+      padding: 1em 0;
+      font-size: 2em;
+      color: #fff;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    .box {
+      display: -webkit-box;
+      padding: 15em;
+      display: box;
+      height: 5em;
+      line-height: 5em;
+      overflow: hidden;
+      text-transform: capitalize;
+    }
+    .item {
+      width: 0;
+      color: #fff;
+      font-size: 2em;
+      font-weight: 600;
+      -webkit-box-flex: 1;
+      box-flex: 1;
+      -webkit-box-pack: center;
+      box-pack: center;
+      -webkit-box-align: center;
+      box-align: center;
+      text-align: center;
+    }
+    .item-one{
+      -webkit-box-flex: 2;
+      box-flex: 2;
+    }
+    .box .item:nth-child(1) {
+      background-color: #2196F3;
+    }
+    .box .item:nth-child(2) {
+      background-color: #9C27B0;
+    }
+    .box .item:nth-child(3) {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">css3 box layout column aliquots.</h2>
+  <div class="box">
+    <div class="item item-one">column 1</div>
+    <div class="item">column 2</div>
+    <div class="item">column 3</div>
+  </div>
+  <!-- /box -->
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS triangle</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(43, 43, 43, 1);
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    /*!
+     * Title 
+    */
+    .title {
+      padding: 1em 0;
+      font-size: 2em;
+      color: #fff;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    /*!
+     * Triangle
+    */
+    .triangle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 210px;
+      color: #000;
+      font-size: 26px;
+      line-height: 66px;
+      text-align: center;
+      text-transform: capitalize;
+      background-color: #fff;
+    }
+    .triangle::before {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      content: "";
+      width: 0;
+      height: 0;
+      border-width: 33px 0 33px 20px;
+      border-style: solid;
+      border-color: transparent transparent transparent rgba(43, 43, 43, 1);
+      pointer-events: none;
+    }
+    .triangle::after {
+      position: absolute;
+      display: block;
+      top: 0;
+      right: -20px;
+      content: "";
+      width: 0;
+      height: 0;
+      border-width: 33px 0 33px 20px;
+      border-style: solid;
+      border-color: transparent transparent transparent #fff;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">CSS triangle.</h2>
+  <div class="triangle">triangle</div>
+</body>
+</html>

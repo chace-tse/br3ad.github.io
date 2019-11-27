@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS to achieve horizontal sliding navbar.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-text-size-adjust: 100%;
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+      -webkit-tap-highlight-color: rgba(255,255,255,0);
+      margin: 10em 20em;
+      background-color: rgba(43, 43, 43, 1);
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    @media (max-width: 767px) {
+      body {
+        margin: 15em 3em;
+      }
+    }
+    /*!
+     * Title 
+    */
+    .title {
+      padding: 1em 0;
+      font-size: 2em;
+      color: #fff;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    /*!
+     * Navbar 
+    */
+    .navbar {
+      width: 100%;
+      padding: 1em 0;
+      overflow: hidden;
+      overflow-x: scroll;
+      white-space: nowrap;
+      text-align: center;
+      border-radius: .5em;
+      background: rgba(151, 142, 142, 0.5);
+    }
+    .navbar::-webkit-scrollbar {
+      display: none
+    }
+    .navbar .item {
+      display: inline-block;
+      margin: 0 .55em;
+      text-align: center;
+    }
+    .navbar .item a {
+      display: block;
+      color: #f2f2f2;
+      padding: .357em .571em;
+      border-radius: .35em;
+      font-size: 1em;
+      text-decoration: none;
+      background-color: #6593a8;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">CSS to achieve horizontal sliding navbar.</h2>
+  <ul class="navbar">
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">1</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">2</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">3</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">4</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">5</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">6</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">7</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">8</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">9</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">10</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">11</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">12</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">13</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">14</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">15</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">16</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">17</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">18</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">19</a></li>
+    <li class="item"><a href="javascript:;" target="_blank" rel="noopener">20</a></li>
+  </ul>
+</body>
+</html>

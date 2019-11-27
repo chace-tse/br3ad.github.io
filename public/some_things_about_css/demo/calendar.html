@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Calendar Table</title>
+  <style>
+    /*!
+     * Use CSS Achieve Calendar Table
+    */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100%;
+      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    /*!
+     * Title 
+    */
+    .title {
+      padding: 1em 0;
+      font-size: 2em;
+      color: #000;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    /*!
+     * Calendar Table
+    */
+    .calendar-table {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      border-right: 1px solid #c2c2c2;
+      border-top: 1px solid #c2c2c2;
+      border-collapse: collapse;
+    }
+    .calendar-table tr td {
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      border-left: 1px solid #c2c2c2;
+      border-bottom: 1px solid #c2c2c2;
+      font-size: 12px;
+    }
+    .calendar-table tr > td + td,
+    .calendar-table tr:first-child > td,
+    .calendar-table tr:first-child > td + td + td + td +td + td + td {
+      color: #333;
+      background-color: #fff;
+      font-weight: 500;
+    }
+    .calendar-table tr:first-child > td,
+    .calendar-table tr:first-child > td + td + td + td + td + td + td {
+      font-weight: 600;
+    }
+    .calendar-table tr > td,
+    .calendar-table tr > td + td + td + td +td + td + td {
+      color: #f00;
+      font-weight: 600;
+      background-color: #f8f8f8;
+    }
+    .calendar-table .td-dis {
+      color: #e3e3e3;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">CSS calendar table.</h2>
+  <table class="calendar-table">
+    <tr>
+      <td>日</td>
+      <td>一</td>
+      <td>二</td>
+      <td>三</td>
+      <td>四</td>
+      <td>五</td>
+      <td>六</td>
+    </tr>
+    <tr>
+      <td class="td-dis">28</td>
+      <td class="td-dis">29</td>
+      <td class="td-dis">30</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>20</td>
+      <td>21</td>
+      <td>22</td>
+      <td>23</td>
+      <td>24</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>27</td>
+      <td>28</td>
+      <td>29</td>
+      <td>30</td>
+      <td>31</td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- /calendar-table -->
+</body>
+</html>
