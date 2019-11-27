@@ -5,20 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CSS multiple solutions square arrangement.</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
+    body {
+      background-color: #fff;
     }
-    /*!
-     * Title 
-    */
     .title {
-      padding: 1em 0;
-      font-size: 2em;
       color: #000;
-      text-align: center;
-      text-transform: capitalize;
     }
     .container-split {
       width: 500px;
@@ -26,12 +19,7 @@
       border-left: 1px solid red;
       border-right: 1px solid red;
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h2 {
       width: 100%;
       font-size: 18px;
       margin: 10px auto;
@@ -142,10 +130,10 @@
   </style>
 </head>
 <body>
-  <h2 class="title">CSS multiple solutions square arrangement.</h2>
+  <h1 class="title">CSS multiple solutions square arrangement.</h1>
   <div class="container-split">
     <p><strong>需求：</strong>某一个容器固定宽度为500px，假设有n个子元素横向排列（不确定个数）<br />1、每行只能显示3个子元素，且子元素与子元素之间的间距为10px<br />2、每行的第1个子元素和第3个子元素必须贴边排列显示</p>
-    <h1>1、use <span class="txt-careful">inline-block</span> layout.</h1>
+    <h2>1、use <span class="txt-careful">inline-block</span> layout.</h2>
     <ul class="list-inline-block">
       <li>test1</li>
       <li>test2</li>
@@ -169,7 +157,7 @@
       <li>test8</li>
       <li>test9</li>
     </ul>
-    <h3>3、use <span class="txt-careful">table-cell</span> layout.</h3>
+    <h2>3、use <span class="txt-careful">table-cell</span> layout.</h2>
     <ul class="list-table-cell">
       <li>test1</li>
       <li>test2</li>
@@ -181,7 +169,7 @@
       <li>test8</li>
       <li>test9</li>
     </ul>
-    <h4>4、use <span class="txt-careful">flex</span> layout.</h4>
+    <h2>4、use <span class="txt-careful">flex</span> layout.</h2>
     <ul class="list-flex">
       <li>test1</li>
       <li>test2</li>
@@ -193,7 +181,7 @@
       <li>test8</li>
       <li>test9</li>
     </ul>
-    <h5>5、use <span class="txt-careful">bootstrap grid system</span> layout.</h5>
+    <h2>5、use <span class="txt-careful">bootstrap grid system</span> layout.</h2>
     <ul class="list-grid-row clearfix">
       <li class="col-md-4">test1</li>
       <li class="col-md-4">test2</li>

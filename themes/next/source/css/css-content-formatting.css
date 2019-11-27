@@ -21,8 +21,10 @@ div, td, button, input, select, textarea { text-align: left; }
 body, div, img, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, p, fieldset, table, pre, th, td, dl, dt, dd, blockquote
 { margin: 0; padding: 0; }
 table { border-collapse: collapse; border-spacing: 0; }
+fieldset,
 img {
-  border: 0;
+  border-width: 0;
+  border-style: none;
   vertical-align: middle;
 }
 a,

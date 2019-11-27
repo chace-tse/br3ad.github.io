@@ -5,29 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>css fixed-width block elements are centered horizontally and vertically.</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
-    }
-    h1 {
-      font-size: 26px;
-      padding: 10px 0;
-      margin: 10px 0;
-      color: #264a6d;
-      text-align: center;
-      text-transform: capitalize;
-    }
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h2 {
       font-size: 20px;
-      color: #5d647e;
+      color: #fff;
       padding: 10px 0;
       font-weight: 700;
       text-align: center;
@@ -53,6 +35,7 @@
       height: 200px;
       line-height: 200px;
       color: #fff;
+      text-align: center;
       text-transform: uppercase;
       background-color: #000;
     }
@@ -161,38 +144,38 @@
   </style>
 </head>
 <body>
-  <h1>CSS fixed-width block elements are centered horizontally and vertically.</h1>
+  <h1 class="title">CSS fixed-width block elements are centered horizontally and vertically.</h1>
   <h2>1、use <span class="txt-careful">absolute</span> + <span class="txt-careful">marign auto</span> layout.</h2>
   <div class="box absolute">
     <div class="box-in absolute-in">absolute margin auto.</div>
   </div>
   <!-- /absolute -->
-  <h3>2、use <span class="txt-careful">absolute</span> + <span class="txt-careful">negative margin</span> layout.</h3>
+  <h2>2、use <span class="txt-careful">absolute</span> + <span class="txt-careful">negative margin</span> layout.</h3>
   <div class="box ne-margin">
     <div class="box-in ne-margin-in">negative margin.</div>
   </div>
   <!-- /margin -->
-  <h4>3、use <span class="txt-careful">table-cell</span> layout.</h4>
+  <h2>3、use <span class="txt-careful">table-cell</span> layout.</h4>
   <div class="box table">
     <div class="box-in table-cell">table-cell.</div>
   </div>
   <!-- /table -->
-  <h5>4、use <span class="txt-careful">absolute</span> + <span class="txt-careful">transform</span> layout.</h5>
+  <h2>4、use <span class="txt-careful">absolute</span> + <span class="txt-careful">transform</span> layout.</h5>
   <div class="box transform">
     <div class="box-in transform-in">transform-in.</div>
   </div>
   <!-- /transform -->
-  <h6>5、use <span class="txt-careful">float</span> + <span class="txt-careful">negative marign</span> layout.</h6>
+  <h2>5、use <span class="txt-careful">float</span> + <span class="txt-careful">negative marign</span> layout.</h6>
   <div class="box float">
     <div class="box-in float-in">float-in.</div>
   </div>
   <!-- /float -->
-  <h6>6、use <span class="txt-careful">inline-block</span> + <span class="txt-careful">empty element</span> layout.</h6>
+  <h2>6、use <span class="txt-careful">inline-block</span> + <span class="txt-careful">empty element</span> layout.</h6>
   <div class="box inline-block">
     <div class="box-in inline-block-in">inline-block.</div>
   </div>
   <!-- /inline-block -->
-  <h6>7、use <span class="txt-careful">flex</span> layout.</h6>
+  <h2>7、use <span class="txt-careful">flex</span> layout.</h6>
   <div class="box flex">
     <div class="box-in flex-in">flex.</div>
   </div>
