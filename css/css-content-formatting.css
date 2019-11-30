@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/*!
+ * @Update: 2019 / 11 /27
+ * @Author: Moldy Br3ad
+ * @Github: https://www.github.com/br3ad
+ * @Email: moldybr3ad@gmail.com
+ * @Instagram: https://www.instagram.com/x_bread/
+*/
+
+
+/*!
+ * Reset Style
+*/
+body {
+  text-align: center;
+  background-color: rgba(43, 43, 43, 1);
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+}
+div, td, button, input, select, textarea { text-align: left; }
+body, div, img, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, p, fieldset, table, pre, th, td, dl, dt, dd, blockquote
+{ margin: 0; padding: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+fieldset,
+img {
+  border-width: 0;
+  border-style: none;
+  vertical-align: middle;
+}
+a,
+button,
+a:focus,
+button:focus { outline-style: none; outline-width: 0; cursor: pointer; border-style: none; border-width: 0;}
+address, caption, cite, code, dfn, em, th, var { font-style: normal; font-weight: normal; }
+ul li { list-style-image: none; list-style-position: outside; list-style-type: none; }
+
+/*!
+ * Clearfix 
+*/
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+/*!
+ * HTML5
+*/
+article, aside, dialog, footer, header, section, footer, nav, figure, menu { display:block; }
+
+/*!
+ * Title 
+*/
+.title {
+  padding: 1em 0;
+  font-size: 2em;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/*!
+ * Paragraph text
+*/
+.text-paragraph {
+  margin: .5em 0;
+  color: #fff;
+  font-size: .8em;
+  line-height: 1.5;
+}
