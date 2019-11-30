@@ -6,6 +6,13 @@ category: movies
 layout: "movies"
 ---
 
+## 十二月 / December
+---
+
+**2019-12-01**
+> *「我们都害怕死亡，并质疑自己在宇宙中的位置。艺术家的使命不是向绝望屈服，而是找到一方解药，来对抗存在的虚无。」 ———— [《午夜巴黎》](https://movie.douban.com/subject/4319218/)*
+
+---
 
 ## 十一月 / November
 ---
