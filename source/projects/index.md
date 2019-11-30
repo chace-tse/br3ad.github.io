@@ -2,6 +2,7 @@
 title: The Projects Page
 date: 2019-11-27 16:14:50
 type: projects
+category: projects
 layout: "projects"
 ---
 

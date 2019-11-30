@@ -97,6 +97,7 @@ menu:
   categories: /categories/|| th
   tags: /tags/|| tags
   projects: /projects/|| building
+  movies: /movies/|| film
   about: /resume/|| user
   #reading: /reading/|| book
   #schedule: /schedule/ || calendar
