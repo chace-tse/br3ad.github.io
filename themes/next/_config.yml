@@ -99,7 +99,7 @@ menu:
   projects: /projects/|| building
   movies: /movies/|| film
   about: /resume/|| user
-  #reading: /reading/|| book
+  reading: /reading/|| book
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
