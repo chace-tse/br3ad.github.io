@@ -6,7 +6,7 @@ tags:
   - 前端算法
   - 前端面试题
   - 前端算法面试题
-  - JavaScript
+  - JavaScript 字符串回文
   - JavaScript 算法
 category:
 - [前端]

@@ -8,6 +8,9 @@ layout: "movies"
 
 ## 十二月 / December
 ---
+**2019-12-19**
+> *「当你越了解你是谁、你想要什么时，你就越不容易感到沮丧。」*
+> *「The more you know who you are and what you want, the less you let things upset you.」*
 
 **2019-12-18**
 > *「谢谢你玩我的游戏。」 ———— [《头号玩家》](https://movie.douban.com/subject/4920389/)*

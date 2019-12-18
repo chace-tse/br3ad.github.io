@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="前端开发,前端面试题,JavaScript,var,let,const,变量作用域," />
+  <meta name="keywords" content="前端开发,前端面试题,var,let,const,变量作用域,JavaScript,JavaScript变量,JavaScript 基础知识," />
 
 
 
@@ -124,14 +124,14 @@
 
 
 <meta name="description" content="Var 变量ECMAScript 的变量是松散类型的，所谓松散类型就是可以用来保存任何类型的数据。每个变量仅仅是一个用于保存值的占位符而已。定义变量时要使用var操作符（注意var是一个关键字），后跟变量名; 1var message; &#x2F;&#x2F; undefined 未经过初始化的变量，会保存一个特殊的——值 undefined ，表示未经初始化 可以在修改变量值的同时修改值的类型 1234var m">
-<meta name="keywords" content="前端开发,前端面试题,JavaScript,var,let,const,变量作用域">
+<meta name="keywords" content="前端开发,前端面试题,var,let,const,变量作用域,JavaScript,JavaScript变量,JavaScript 基础知识">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Var、Let和const命令">
 <meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;Let%E5%92%8Cconst%E5%91%BD%E4%BB%A4&#x2F;index.html">
 <meta property="og:site_name" content="Br3ad">
 <meta property="og:description" content="Var 变量ECMAScript 的变量是松散类型的，所谓松散类型就是可以用来保存任何类型的数据。每个变量仅仅是一个用于保存值的占位符而已。定义变量时要使用var操作符（注意var是一个关键字），后跟变量名; 1var message; &#x2F;&#x2F; undefined 未经过初始化的变量，会保存一个特殊的——值 undefined ，表示未经初始化 可以在修改变量值的同时修改值的类型 1234var m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-08T11:52:07.482Z">
+<meta property="og:updated_time" content="2019-12-17T05:44:53.437Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -457,14 +457,14 @@
 <p>请看下面例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  message = <span class="string">'hi'</span>;</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line"><span class="built_in">console</span>.log(message); <span class="comment">// 'hi';</span></span><br></pre></td></tr></table></figure>
 <p>这里，省略了<code>var</code>操作符，因而<strong>message</strong>变成了全局变量，只要调用过一次<code>test()</code>函数，这个变量就有了定义，也就可以在函数外部的任何地方被访问到。</p>
-<p><em>不推荐在局部作用域中定义全局变量，难以维护，如果有意地忽略了<code>var</code>操作符，会由于相应的变量不会马上就有定义而导致不必要的混乱。给未经声明的变量赋值在严格模式下会导致跑出ReferenceError错误</em></p>
+<p><em>不推荐在局部作用域中定义全局变量，难以维护，如果有意地忽略了<code>var</code>操作符，会由于相应的变量不会马上就有定义而导致不必要的混乱。给未经声明的变量赋值在严格模式下会导致跑出<code>ReferenceError</code>错误</em></p>
 <p>可以使用一条语句定义多个变量（初始化或不初始化均可）用逗号分隔开即可：</p>
 <p>例子如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">'hi'</span>,</span><br><span class="line">      found = <span class="literal">false</span>,</span><br><span class="line">      age   = <span class="number">29</span>;</span><br></pre></td></tr></table></figure>
-<p>在严格模式(‘use strict’)下，不能定义名为<code>eval</code>或<code>arguments</code>的变量名，否则会报语法错误。</p>
+<p>在严格模式(<strong>‘use strict’</strong>)下，不能定义名为<code>eval</code>或<code>arguments</code>的变量名，否则会报语法错误。</p>
 <p>例子如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">eval</span> = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">arguments</span> = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">eval</span>; <span class="comment">// Uncaught SyntaxError: Unexpected eval or arguments in strict mode</span></span><br><span class="line"><span class="built_in">arguments</span>; <span class="comment">// Uncaught SyntaxError: Unexpected eval or arguments in strict mode</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>; <span class="comment">// Strict Mode 开启严格模式</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">eval</span> = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">arguments</span> = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">eval</span>; <span class="comment">// Uncaught SyntaxError: Unexpected eval or arguments in strict mode</span></span><br><span class="line"><span class="built_in">arguments</span>; <span class="comment">// Uncaught SyntaxError: Unexpected eval or arguments in strict mode</span></span><br></pre></td></tr></table></figure>
+<p>因为在JavaScript中<code>eval</code>和<code>arguments</code>都是字面量</p>
 <hr>
 <h2 id="Let-命令"><a href="#Let-命令" class="headerlink" title="Let 命令"></a><code>Let</code> 命令</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>ES6中新增了<code>let</code>命令，用于声明变量。用法类似与<code>var</code>，但是所声明的变量只在<code>let</code><strong>命令所在的代码块内有效</strong></p>
 <p>如下例子：</p>
@@ -516,8 +516,6 @@
           
             <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 前端面试题</a>
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
             <a href="/tags/var/" rel="tag"># var</a>
           
             <a href="/tags/let/" rel="tag"># let</a>
@@ -525,6 +523,12 @@
             <a href="/tags/const/" rel="tag"># const</a>
           
             <a href="/tags/%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="tag"># 变量作用域</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript%E5%8F%98%E9%87%8F/" rel="tag"># JavaScript变量</a>
+          
+            <a href="/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag"># JavaScript 基础知识</a>
           
         </div>
       
@@ -546,6 +550,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/16/Function/" rel="prev" title="Function —— 函数">
+                Function —— 函数 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -629,7 +637,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -639,7 +647,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -649,7 +657,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
