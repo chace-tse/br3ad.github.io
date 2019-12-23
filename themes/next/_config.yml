@@ -95,11 +95,11 @@ menu:
   home: /|| home
   archives: /archives/|| archive
   categories: /categories/|| th
-  tags: /tags/|| tags
+  #tags: /tags/|| tags
   projects: /projects/|| building
   movies: /movies/|| film
-  about: /resume/|| user
   reading: /reading/|| book
+  about: /resume/|| user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat

@@ -11,11 +11,16 @@ menu:
   archives: Archives
   categories: Categories
   tags: Tags
-  about: About
+  resume: About
   search: Search
   schedule: Schedule
   sitemap: Sitemap
   commonweal: Commonweal 404
+  projects: Projects
+  reading: Reading
+  movies: Movies
+  music: Music
+  podcasting: Podcasts
 
 sidebar:
   overview: Overview

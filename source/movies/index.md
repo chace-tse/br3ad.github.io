@@ -8,27 +8,60 @@ layout: "movies"
 
 ## 十二月 / December
 ---
+
+**2019-12-23**
+> *「虽然天气寒冷令人头疼，但是有些食物在天冷的时候才能做，寒冷也是很重要的调味料。」*
+> *———— [《小森林 冬春篇》](https://movie.douban.com/subject/25814707/)*
+
+**2019-12-22**
+> *「冬天是十一月 十二月」*
+> *「一月 二月 三月 四月」*
+> *「当我的光曝在你身上」*
+> *「重逢就是一间暗室」*
+> *--《无题》/ 毕赣--*
+> *———— [《路边野餐》](https://movie.douban.com/subject/26337866/)*
+
+**2019-12-21**
+> *「我们总是喜欢得不到的东西。但是人啊，总是要经历点什么，才会知道自己真正要的是什么。」*
+> *———— [《契克》](https://movie.douban.com/subject/26586432/)*
+
+**2019-12-20**
+> *「我们虽然笑着说很快再见，但内心知道，可能后会无期。」*
+> *———— [《海上钢琴师》](https://movie.douban.com/subject/1292001/)*
+
 **2019-12-19**
 > *「当你越了解你是谁、你想要什么时，你就越不容易感到沮丧。」*
 > *「The more you know who you are and what you want, the less you let things upset you.」*
+> *———— [《迷失东京》](https://movie.douban.com/subject/1291835/)*
 
 **2019-12-18**
-> *「谢谢你玩我的游戏。」 ———— [《头号玩家》](https://movie.douban.com/subject/4920389/)*
+> *「谢谢你玩我的游戏。」*
+> *「Thanks for playing my game.」*
+> *———— [《头号玩家》](https://movie.douban.com/subject/4920389/)*
 
 **2019-12-17**
-> *「世界充满了恶意，但如果我们相互理解支持，恶意就会消散。」 ———— [《狩猎》](https://movie.douban.com/subject/6985810/)*
+> *「世界充满了恶意，但如果我们相互理解支持，恶意就会消散。」*
+> *「The world is full of wickedness. But if we support each other,it will eventually go away.」*
+> *———— [《狩猎》](https://movie.douban.com/subject/6985810/)*
 
 **2019-12-16**
-> *「我没有朋友，身边只有你。」 ———— [《神探夏洛克 第一季》](https://movie.douban.com/subject/3986493/)*
+> *「我没有朋友，身边只有你。」*
+> *「I don't have friends. I've just got one.」*
+> *———— [《神探夏洛克 第一季》](https://movie.douban.com/subject/3986493/)*
 
 **2019-12-15**
-> *「我让魔鬼进入了我的身体，现在我无法摆脱他了。我用火、用刀都不能把他驱赶出来，为什么？他或许不想无家可归吧。」 ———— [《斯图尔特：倒带人生》](https://movie.douban.com/subject/2133337/)*
+> *「我让魔鬼进入了我的身体，现在我无法摆脱他了。我用火、用刀都不能把他驱赶出来，为什么？他或许不想无家可归吧。」*
+> *「I let the Devill in, Now I can't get him out. I tried... burning him out and cutting him out. He don't take no notice. Why should he? He don't wanna be homeless.」*
+> *———— [《斯图尔特：倒带人生》](https://movie.douban.com/subject/2133337/)*
 
 **2019-12-14**
-> *「当我还是孩子的时候，妈妈带着我去看《白雪公主》。人人都爱上了白雪公主，而我偏偏爱上了那个邪恶的皇后。」 ———— [《安妮·霍尔》](https://movie.douban.com/subject/1296987/)*
+> *「当我还是孩子的时候，妈妈带着我去看《白雪公主》。人人都爱上了白雪公主，而我偏偏爱上了那个邪恶的皇后。」*
+> *「When my mother took me to see Snow White, everyone fell in love with Snow White. I immediately fell for the Wicked Queen.」*
+> *「———— [《安妮·霍尔》](https://movie.douban.com/subject/1296987/)」*
 
 **2019-12-13**
-> *「爱与恨，她们比我们任何一个都了解爱与恨。」 ———— [《金陵十三钗》](https://movie.douban.com/subject/3649049/)*
+> *「爱与恨，她们比我们任何一个都了解爱与恨。」*
+> *———— [《金陵十三钗》](https://movie.douban.com/subject/3649049/)*
 
 **2019-12-12**
 > *「东京那么大，如果不小心走散了，可能一辈子也见不到了。」 ———— [《东京物语》](https://movie.douban.com/subject/1291568/)*
@@ -277,30 +310,44 @@ layout: "movies"
 > *「如果我什么都没有，那我也就什么都不会失去了。」 ———— [《蓝白红三部曲之蓝》](https://movie.douban.com/subject/1292048/)*
 
 **2019-10-08**
-> *「你师父平时都买八十只螃蟹，他三十，我五十，你这点儿狗谁吃。」 ———— [《师父》](https://movie.douban.com/subject/25919910/)*
+> *「你师父平时都买八十只螃蟹，他三十，我五十，你这点儿够谁吃。」*
+> *「———— [《师父》](https://movie.douban.com/subject/25919910/)」*
 
 **2019-10-07**
-> *「外婆，如果你病了，就发个空信，我就会知道是你，我会尽快来，好吗？」 ———— [《爱·回家》](https://movie.douban.com/subject/1299361/)*
+> *「外婆，如果你病了，就发个空信，我就会知道是你，我会尽快来，好吗？」*
+> *「Grandma, if you get sick, just send a blank letter. Then I'll know it's you, and I'll come fast.」*
+> *———— [《爱·回家》](https://movie.douban.com/subject/1299361/)*
 
 **2019-10-06**
 > *「阿高，我觉得这是你应得的（金胡萝卜奖），为这个漂亮美好的西瓜，我们有很多地方要谢谢你。」*
-> *「人人皆有得意之时。」 ———— [《超级无敌掌门狗：人兔的诅咒》](https://movie.douban.com/subject/1419901/)*
+> *「Well, I think you deserve this, Gromit. For a brave and splendid melon. We've all got a lot to thank you for.」*
+> *「人人皆有得意之时。」*
+> *「Every dog has his day.」*
+> *———— [《超级无敌掌门狗：人兔的诅咒》](https://movie.douban.com/subject/1419901/)*
 
 **2019-10-05**
 > *「维斯帕：密码多少？」*
-> *「邦德：你的名字。」 ———— [《007：大战皇家赌场》](https://movie.douban.com/subject/1418190/)*
+> *「Vesper: 'The password, please.'」*
+> *「邦德：你的名字。」*
+> *「Bond: 'V-E-S-P-E-R.'」*
+> *———— [《007：大战皇家赌场》](https://movie.douban.com/subject/1418190/)*
 
 **2019-10-04**
-> *「只要人类不出现，一切都是美好和感人的。」 ———— [《丛林赤子心》](https://movie.douban.com/subject/1473562/)*
+> *「只要人类不出现，一切都是美好和感人的。」*
+> *———— [《丛林赤子心》](https://movie.douban.com/subject/1473562/)*
 
 **2019-10-03**
-> *「我不在乎你是否完全属于我，我只要我爱的人一直在我身旁，即使他爱的是别人。」 ———— [《隐藏的恋情》](https://movie.douban.com/subject/1946786/)*
+> *「我不在乎你是否完全属于我，我只要我爱的人一直在我身旁，即使他爱的是别人。」*
+> *———— [《隐藏的恋情》](https://movie.douban.com/subject/1946786/)*
 
 **2019-10-02**
-> *「你有五分钟沉迷在迷人的伤痛中，享受它，拥抱它，抛弃它……继续前进。」 ———— [《伊丽莎白镇》](https://movie.douban.com/subject/1419933/)*
+> *「你有五分钟沉迷在迷人的伤痛中，享受它，拥抱它，抛弃它……继续前进。」*
+> *「You have five minutes to wallow in the delicious misery. Enjoy it, embrace it, discard it...and proceed.」*
+> *———— [《伊丽莎白镇》](https://movie.douban.com/subject/1419933/)*
 
 **2019-10-01**
-> *「这是盐的味道，山的味道，风的味道，阳光的味道，也是时间的味道，人情的味道。这些味道，已经在漫长的时光中和故土、乡亲、念旧、勤俭、坚忍等等情感和信念混合在一起，才下舌尖，又上心间。」 ———— [《舌尖上的中国 第一季》](https://movie.douban.com/subject/10606004/)*
+> *「这是盐的味道，山的味道，风的味道，阳光的味道，也是时间的味道，人情的味道。这些味道，已经在漫长的时光中和故土、乡亲、念旧、勤俭、坚忍等等情感和信念混合在一起，才下舌尖，又上心间。」*
+> *———— [《舌尖上的中国 第一季》](https://movie.douban.com/subject/10606004/)*
 
 ---
 
@@ -308,16 +355,22 @@ layout: "movies"
 ---
 
 **2019-09-30**
-> *「永远给自己一个梦想，即使它很远。」 ———— [《小鞋子》](https://movie.douban.com/subject/1303021/)*
+> *「永远给自己一个梦想，即使它很远。」*
+> *———— [《小鞋子》](https://movie.douban.com/subject/1303021/)*
 
 **2019-09-29**
-> *「在某个时刻，我们掌握了真实，但真实往往稍纵即逝。」 ———— [《放大》](https://movie.douban.com/subject/1310176/)*
+> *「在某个时刻，我们掌握了真实，但真实往往稍纵即逝。」*
+> *「Hence there's a moment in which we grasp reality, but then the moment passes.」*
+> *———— [《放大》](https://movie.douban.com/subject/1310176/)*
 
 **2019-09-28**
-> *「那天早上我还没有变成吸血鬼，我最后一次看了日出。我完全记得它的细节，但是我已忘记之前的每个日出。我最后一次欣赏这壮观的景色，就好像我是第一次看一样，然后我就对阳光永别了，变成了我现在的这个样子。」 ———— [《夜访吸血鬼》](https://movie.douban.com/subject/1299327/)*
+> *「那天早上我还没有变成吸血鬼，我最后一次看了日出。我完全记得它的细节，但是我已忘记之前的每个日出。我最后一次欣赏这壮观的景色，就好像我是第一次看一样，然后我就对阳光永别了，变成了我现在的这个样子。」*
+> *「That morning, I was not yet a vampire and I saw my last sunrise. I remember it completely and yet I can't recall any sunrise before it. I watched the whole magnificence of the dawn for the last time as if it were the first. And then I said farewell to sunlight and set out to become.」*
+> *———— [《夜访吸血鬼》](https://movie.douban.com/subject/1299327/)*
 
 **2019-09-27**
-> *「你我犹如隔镜视物，所见无非虚幻迷蒙。」 ———— [《攻壳机动队》](https://movie.douban.com/subject/1291936/)*
+> *「你我犹如隔镜视物，所见无非虚幻迷蒙。」*
+> *———— [《攻壳机动队》](https://movie.douban.com/subject/1291936/)*
 
 **2019-09-26**
 > *「眼睛不在这里*
@@ -335,26 +388,35 @@ layout: "movies"
 > *———— [《现代启示录》](https://movie.douban.com/subject/1292260/)*
 
 **2019-09-25**
-> *「这些年轻人一点意志力也没有。」 ———— [《充气娃娃之恋》](https://movie.douban.com/subject/1855834/)*
+> *「这些年轻人一点意志力也没有。」*
+> *「These young people have no willpower!」*
+> *———— [《充气娃娃之恋》](https://movie.douban.com/subject/1855834/)*
 
 **2019-09-24**
 > *「喝了咱的酒 / 一人敢走青刹口」*
 > *「喝了咱的酒 / 见了皇帝不磕头」 ———— [《红高粱》](https://movie.douban.com/subject/1306505/)*
 
 **2019-09-23**
-> *「你不知道一支好曲子是会怎样地支配你。」 ———— [《捕鼠者》](https://movie.douban.com/subject/1322674/)*
+> *「你不知道一支好曲子是会怎样地支配你。」*
+> *———— [《捕鼠者》](https://movie.douban.com/subject/1322674/)*
 
 **2019-09-22**
-> *「欢迎来到现实世界，它糟糕的要命，但你会爱上它的。」 ———— [《老友记 第一季》](https://movie.douban.com/subject/1393859/)*
+> *「欢迎来到现实世界，它糟糕的要命，但你会爱上它的。」*
+> *「Welcome to the real world. It sucks. You're gonna love it.」*
+> *———— [《老友记 第一季》](https://movie.douban.com/subject/1393859/)*
 
 **2019-09-21**
-> *「或许我们需要一段时间独处，才能感触彼此灵魂的深处。当第一次在中央车站楼梯口相逢时，我们伫立良久，却未曾想过，会迎来这场命运的交集。」 ———— [《中央车站》](https://movie.douban.com/subject/1292218/)*
+> *「或许我们需要一段时间独处，才能感触彼此灵魂的深处。当第一次在中央车站楼梯口相逢时，我们伫立良久，却未曾想过，会迎来这场命运的交集。」*
+> *———— [《中央车站》](https://movie.douban.com/subject/1292218/)*
 
 **2019-09-20**
-> *「如果有一天我忍不住问你，你一定要骗我。就算你心里多不情愿，也不要告诉我，你最爱的人不是我。」 ———— [《东邪西毒》](https://movie.douban.com/subject/1292328/)*
+> *「如果有一天我忍不住问你，你一定要骗我。就算你心里多不情愿，也不要告诉我，你最爱的人不是我。」*
+> *「If I ever ask you this question, Please lie. No matter how your heart rebels, Please tell me I'm the one you love the most.」*
+> *———— [《东邪西毒》](https://movie.douban.com/subject/1292328/)*
 
 **2019-09-19**
-> *「深夜吃东西的魅力就是那一抹罪恶感。」 ———— [《深夜食堂》](https://movie.douban.com/subject/3991933/)*
+> *「深夜吃东西的魅力就是那一抹罪恶感。」*
+> *———— [《深夜食堂》](https://movie.douban.com/subject/3991933/)*
 
 **2019-09-18**
 > *「文明应该被尊重，*
@@ -366,3 +428,54 @@ layout: "movies"
 > 
 > *-九一八事变88周年-*
 > *———— [《东京审判》](https://movie.douban.com/subject/1949812/)*
+
+**2019-09-17**
+> *「将近二十年了，我生活在一个大谎言里面，生活里面有好多的感受，痛苦的、快乐的、我好想跟你们分享，可是我不能。有时候我忍不住想干脆跟你们坦白算了，可是又不忍心把扛了这么多年的担子，再放到你们的肩膀上。」*
+> *「It's been 20 years. I've been living a big lie. There has been so much pain and joy...I've wanted to share with you, but I couldn't. Sometimes I wanted to tell you everything...but I couldn't burden you with what has been with me so long.」*
+> *———— [《喜宴》](https://movie.douban.com/subject/1303037/)*
+
+**2019-09-16**
+> *「我有充分的理由回家，但只有一个理由留下来。」*
+> *「什么理由？」*
+> *「你。」*
+> *「I've been thinking about it, and there's a million reasons for me to go home...but there's only one reason for me to stay.」*
+> *「What reason is that?」*
+> *「Well, you.」*
+> *———— [《长大》](https://movie.douban.com/subject/1293212/)*
+
+
+**2019-09-15**
+> *「可怜的盖斯帕德。」*
+> *「Poor Gaspard.」*
+> *--雅克·贝克诞辰113周年--*
+> *———— [《洞》](https://movie.douban.com/subject/1424334/)*
+
+**2019-09-14**
+> *「唯一会改变的事情就是，你会变得更加混蛋。」*
+> *「The only thing that's gonna change is you're gonna become an even bigger cunt.」*
+> *———— [《杀手没有假期》](https://movie.douban.com/subject/2044089/)*
+
+**2019-09-13**
+> *「适逢三五便团圆，满把晴光护玉栏。天上一轮才捧出，人间万姓仰头看。」 ————《对月寓怀》 / 曹雪芹*
+> *———— [《红楼梦》](https://movie.douban.com/subject/1864810/)*
+
+**2019-09-12**
+> *「我们不能在一起，但并不代表我不爱你。」*
+> *「I think it’s over between you and me.」*
+> *———— [《爱在暹罗》](https://movie.douban.com/subject/2365260/)*
+
+**2019-09-11**
+> *「宝贝，我向你保证，如果我能平安回来，明天就辞职。」*
+> *「But, baby, I promise you, if I get out of this, I'm quitting tomorrow.」*
+> *「当天四架遭到劫持的飞机，只有联航93没有撞向最终目标。它与10时03芬坠毁在滨州杉克谷镇附近，机上人员全部遇难。」 ———— 记9.11事件*
+> *———— [《93航班》](https://movie.douban.com/subject/1588945/)*
+
+**2019-09-10**
+> *「这是一首爱之歌，我知道你们会分享此爱，我祈求你们永远不会让它逝去。」*
+> *「I would like to sing for you now a love song. I know you share this love. I pray that you will never let it die.」*
+> *———— [《音乐之声》](https://movie.douban.com/subject/1294408/)*
+
+**2019-09-09**
+> *「别把生命中的敌人当成一种诅咒，它也可能是上天的恩赐。智者从敌人身上学到的，比愚者从朋友身上学到的还要多。」*
+> *「Stop thinking of it as a curse to have been given an enemy in life. It can be blessing too. A wise man gets more from his enemies than a fool from his friends.」*
+> *———— [《极速风流》](https://movie.douban.com/subject/6803494/)*
