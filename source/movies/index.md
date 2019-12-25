@@ -9,6 +9,11 @@ layout: "movies"
 ## 十二月 / December
 ---
 
+**2019-12-25**
+> *「铃声每响一次，就有一个天使获得了翅膀。」*
+> *「Every time a bel rings, an angel gets his wings.」*
+> *———— [《生活多美好》](https://movie.douban.com/subject/1293749/)*
+
 **2019-12-24**
 > *「如果用心寻找，你能发现，其实爱无处不在。」*
 > *「If you look for it, I've got a sneaky feeling you'll find that love actually is all around.」*
