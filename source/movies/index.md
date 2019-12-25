@@ -9,6 +9,10 @@ layout: "movies"
 ## 十二月 / December
 ---
 
+**2019-12-26**
+> *「朋友考试不及格，你感觉很糟；朋友考试考第一，你感觉更糟。」*
+> *———— [《三傻大闹宝莱坞》](https://movie.douban.com/subject/3793023/)*
+
 **2019-12-25**
 > *「铃声每响一次，就有一个天使获得了翅膀。」*
 > *「Every time a bel rings, an angel gets his wings.」*
