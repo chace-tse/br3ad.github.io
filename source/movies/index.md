@@ -9,6 +9,23 @@ layout: "movies"
 ## 十二月 / December
 ---
 
+**2019-12-31**
+> *「昨天是历史，明天是未知，只有今天才是天赐的礼物。」*
+> *「Yesterday is history, tomorrow is a mystery, but today is a gift, that is why it is called Present.」*
+> *———— [《功夫熊猫》](https://movie.douban.com/subject/1783457/)*
+
+**2019-12-30**
+> *「他出现，又消失。一如日升日落，抑或任何转瞬即逝的事物，就像我们的生活。我们出现，然后我们又消失。我们对一些人而言是如此重要，但我们只是过客。」*
+> *———— [《爱在午夜降临前》](https://movie.douban.com/subject/10808442/)*
+
+**2019-12-29**
+> *「」*
+
+**2019-12-28**
+
+**2019-12-27**
+
+
 **2019-12-26**
 > *「朋友考试不及格，你感觉很糟；朋友考试考第一，你感觉更糟。」*
 > *———— [《三傻大闹宝莱坞》](https://movie.douban.com/subject/3793023/)*
