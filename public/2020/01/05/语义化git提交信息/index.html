@@ -123,15 +123,15 @@
 
 
 
-<meta name="description" content="如何语义化你的git提交信息？参考链接 阮一峰-Commit message 和 Change log 编写指南Github Angular Repositories commits messagegit 工作流和git commit规范Github semantic-releaseGithub Commitizen&#x2F;cz-cli如何写好 Git commit log?优雅的提交你的 Git Co">
+<meta name="description" content="如何语义化你的git提交信息？例子 123456feat: add hat wobble^--^ ^------------^| || +-&amp;gt; Summary in present tense.|+-------&amp;gt; Type: chore, docs, feat, fix, refactor, style, or test.  Git Commit message 的格式每次提交，Co">
 <meta name="keywords" content="前端开发,Git相关,commits,git-commits">
 <meta property="og:type" content="article">
 <meta property="og:title" content="语义化git提交信息">
 <meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2020&#x2F;01&#x2F;05&#x2F;%E8%AF%AD%E4%B9%89%E5%8C%96git%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF&#x2F;index.html">
 <meta property="og:site_name" content="Br3ad">
-<meta property="og:description" content="如何语义化你的git提交信息？参考链接 阮一峰-Commit message 和 Change log 编写指南Github Angular Repositories commits messagegit 工作流和git commit规范Github semantic-releaseGithub Commitizen&#x2F;cz-cli如何写好 Git commit log?优雅的提交你的 Git Co">
+<meta property="og:description" content="如何语义化你的git提交信息？例子 123456feat: add hat wobble^--^ ^------------^| || +-&amp;gt; Summary in present tense.|+-------&amp;gt; Type: chore, docs, feat, fix, refactor, style, or test.  Git Commit message 的格式每次提交，Co">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-05T12:46:24.186Z">
+<meta property="og:updated_time" content="2020-01-06T17:31:31.244Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -424,8 +424,20 @@
       
 
       
-        <h2 id="如何语义化你的git提交信息？"><a href="#如何语义化你的git提交信息？" class="headerlink" title="如何语义化你的git提交信息？"></a>如何语义化你的git提交信息？</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
-<p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="noopener"><em>阮一峰-Commit message 和 Change log 编写指南</em></a><br><a href="https://github.com/angular/angular/commits/master" target="_blank" rel="noopener"><em>Github Angular Repositories commits message</em></a><br><a href="https://www.colabug.com/2019/0616/6449643/" target="_blank" rel="noopener"><em>git 工作流和git commit规范</em></a><br><a href="https://github.com/semantic-release/semantic-release" target="_blank" rel="noopener"><em>Github semantic-release</em></a><br><a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener"><em>Github Commitizen/cz-cli</em></a><br><a href="https://www.zhihu.com/question/21209619" target="_blank" rel="noopener"><em>如何写好 Git commit log?</em></a><br><a href="https://zhuanlan.zhihu.com/p/34223150" target="_blank" rel="noopener"><em>优雅的提交你的 Git Commit Message</em></a><br><a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener"><em>Conventional Commits</em></a><br><a href="http://karma-runner.github.io/0.10/dev/git-commit-msg.html" target="_blank" rel="noopener"><em>Git Commit Msg</em></a><br><a href="https://seesparkbox.com/foundry/semantic_commit_messages" target="_blank" rel="noopener"><em>Semantic Commit Messages</em></a></p>
+        <h2 id="如何语义化你的git提交信息？"><a href="#如何语义化你的git提交信息？" class="headerlink" title="如何语义化你的git提交信息？"></a>如何语义化你的git提交信息？</h2><p><strong>例子</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">feat: add hat wobble</span><br><span class="line">^--^ ^------------^</span><br><span class="line">| |</span><br><span class="line">| +-&gt; Summary in present tense.</span><br><span class="line">|</span><br><span class="line">+-------&gt; Type: chore, docs, feat, fix, refactor, style, or test.</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-Commit-message-的格式"><a href="#Git-Commit-message-的格式" class="headerlink" title="Git Commit message 的格式"></a><code>Git Commit message</code> 的格式</h2><p><strong>每次提交，Commit message 都包括三个部分：Header，Body 和 Footer</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="built_in">type</span>&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line">// 空一行</span><br><span class="line">&lt;body&gt;</span><br><span class="line">// 空一行</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h2><p><strong><code>feat</code></strong>: 新功能(A new feature)<br><strong><code>fix</code></strong>: 修复bug(A bug fix)<br><strong><code>docs</code></strong>: 修改文档(Documentation only changes)<br><strong><code>style</code></strong>: 格式（不影响代码运行的变动,空格、格式、缺少分号等）(Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)<br><strong><code>refactor</code></strong>: 重构(既不是新功能，也不是修复bug的代码变动)(A code change that neither fixes a bug nor adds a feature)<br><strong><code>perf</code></strong>: 代码性能提升(A code change that improves performance)<br><strong><code>test</code></strong>: 增加测试模块，不涉及生产环境的代码(Adding missing or correcting existing tests)<br><strong><code>chore</code></strong>: 更新核心模块，包配置文件，不涉及生产环境的代码；(Changes to the build process or auxiliary tools and libraries such as documentation generation)</p>
+<h2 id="Git-commit-模板"><a href="#Git-commit-模板" class="headerlink" title="Git commit 模板"></a><code>Git commit</code> 模板</h2><h2 id="相关工具"><a href="#相关工具" class="headerlink" title="相关工具"></a>相关工具</h2><ul>
+<li><a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener">Commitizen</a>：一个撰写合格 Commit message 的工具</li>
+<li><a href="https://github.com/conventional-changelog-archived-repos/validate-commit-msg" target="_blank" rel="noopener">validate-commit-msg</a>：用于检查 Node 项目的 Commit message 是否符合格式</li>
+<li><a href="https://github.com/conventional-changelog/conventional-changelog" target="_blank" rel="noopener">conventional-change log</a>：生成 Change log 的工具</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="noopener"><em>阮一峰-Commit message 和 Change log 编写指南</em></a><br><a href="https://github.com/angular/angular/commits/master" target="_blank" rel="noopener"><em>Github Angular Repositories commits message</em></a><br><a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines" target="_blank" rel="noopener"><em>Angular 团队的规范</em></a><br><a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener"><em>Conventional Commits</em></a><br><a href="https://www.colabug.com/2019/0616/6449643/" target="_blank" rel="noopener"><em>git 工作流和git commit规范</em></a><br><a href="https://github.com/semantic-release/semantic-release" target="_blank" rel="noopener"><em>Github semantic-release</em></a><br><a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener"><em>Github Commitizen/cz-cli</em></a><br><a href="https://www.zhihu.com/question/21209619" target="_blank" rel="noopener"><em>如何写好 Git commit log?</em></a><br><a href="https://zhuanlan.zhihu.com/p/34223150" target="_blank" rel="noopener"><em>优雅的提交你的 Git Commit Message</em></a><br><a href="http://karma-runner.github.io/0.10/dev/git-commit-msg.html" target="_blank" rel="noopener"><em>Git Commit Msg</em></a><br><a href="https://seesparkbox.com/foundry/semantic_commit_messages" target="_blank" rel="noopener"><em>Semantic Commit Messages</em></a></p>
 </blockquote>
 
       
@@ -472,6 +484,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/07/%E8%B0%88%E8%B0%88%E5%AF%B9javascript%E4%B8%ADthis%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3/" rel="prev" title="谈谈对JavaScript中this、call()、apply()、bind()的理解">
+                谈谈对JavaScript中this、call()、apply()、bind()的理解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -555,7 +571,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -633,7 +649,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何语义化你的git提交信息？"><span class="nav-number">1.</span> <span class="nav-text">如何语义化你的git提交信息？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">2.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何语义化你的git提交信息？"><span class="nav-number">1.</span> <span class="nav-text">如何语义化你的git提交信息？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Commit-message-的格式"><span class="nav-number">2.</span> <span class="nav-text">Git Commit message 的格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type"><span class="nav-number">3.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-commit-模板"><span class="nav-number">4.</span> <span class="nav-text">Git commit 模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工具"><span class="nav-number">5.</span> <span class="nav-text">相关工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
           </div>
         </section>
