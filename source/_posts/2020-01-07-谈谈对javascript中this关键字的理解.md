@@ -293,7 +293,7 @@ var bar = {
 bar.func2(); // Br3ad
 ```
 
-这个例子中，在`func2`中，首先设置`var _that = this;`，这里的`this`是调用func2的对象`bar`，为了防止在`func2`中的`setTimeout`被`window`调用而导致的在`setTimeout`中的`this`为`window`。将`this(指向变量bar)`赋值给一个变量`_that`，这样，在`func2`中使用`_that`就是指向对象`_that`了。
+这个例子中，在`func2`中，首先设置`var _that = this;`，这里的`this`是调用func2的对象`bar`，为了防止在`func2`中的`setTimeout`被`window`调用而导致的在`setTimeout`中的`this`为`window`。将`this(指向变量bar)`赋值给一个变量`_that`，这样，在`func2`中使用`_that`就是指向对象`bar`了。
 
 
 ### 使用 `apply()`、`call()`、`bind()`
