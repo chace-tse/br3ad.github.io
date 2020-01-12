@@ -6,7 +6,6 @@ category: projects
 layout: "projects"
 ---
 
-
 ## CSS
 
 ### CSS Demo
@@ -26,6 +25,7 @@ layout: "projects"
 + [*用一个元素画三角形*](../some-things-about-css-and-js/css-demo/css-triangle.html)
 + [*左右两栏布局，左边固定宽度，右边自适应*](../some-things-about-css-and-js/css-demo/css-two-column-contour-layout.html)
 + [*简单的CSS3 Box-Layout 弹性盒模型布局*](../some-things-about-css-and-js/css-demo/css3-box-layout-column-aliquots.html)
++ [*CSS3 画网格线*](../some-things-about-css-and-js/css-demo/CSS3-auxiliary-line.html)
 + [*让一个不定宽高元素水平垂直居中*](../some-things-about-css-and-js/css-demo/element-horizontal-vertical-center.html)
 + [*多种方案实现不定宽高元素水平垂直都居中*](../some-things-about-css-and-js/css-demo/css-variable-width-block-element-horizontally-centered-vertically.html)
 + [*多种方案实现定宽高元素水平垂直都居中*](../some-things-about-css-and-js/css-demo/fixed-width-elements-horizontally-vertically-centered.html)
