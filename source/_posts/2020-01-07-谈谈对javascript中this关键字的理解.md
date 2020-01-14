@@ -1,6 +1,7 @@
 ---
 title: 谈谈对JavaScript中this、call()、apply()、bind()的理解
 date: 2020-01-07 12:12:11
+tags:
   - 前端
   - 前端面试题
   - JavaScript this
