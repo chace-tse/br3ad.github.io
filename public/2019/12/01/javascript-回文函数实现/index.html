@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="前端,npm,node," />
+  <meta name="keywords" content="前端开发,前端面试题,前端算法,前端算法面试题,JavaScript 字符串回文,JavaScript 算法," />
 
 
 
@@ -123,15 +123,15 @@
 
 
 
-<meta name="description" content="问题 问题描述：在使用npm install安装依赖包超过最大调用堆栈大小的error  错误信息： 12npm ERR! Maximum call stack size exceedednpm ERR! A complete log of this run can be found in:  解决方案 思路：删除所有npm依赖项的内容，并强制性清除npm依赖的缓存，再重新npm install">
-<meta name="keywords" content="前端,npm,node">
+<meta name="description" content="什么是回文？Palindromes称之为回文，在中文当中简单来说是指倒着念和顺着念都是相同的，前后对称那么就属于回文；例如：「上海自来水来自海上」。 在英文文当中是指正着看和反着看都相同的单词，例如：「madam」。对于数字，又称为回文数，是指一个像“16461”这样的对称的数。 综上所述，我们得出回文的规则：   单个和零个字符都是回文，例如：「1」、「2」、「3」…等等 如果字符串的第一个字符">
+<meta name="keywords" content="前端开发,前端面试题,前端算法,前端算法面试题,JavaScript 字符串回文,JavaScript 算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm install安装依赖包出现超过最大调用堆栈大小">
-<meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2020&#x2F;01&#x2F;08&#x2F;npm-install%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85%E8%B6%85%E8%BF%87%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F%E7%9A%84error&#x2F;index.html">
+<meta property="og:title" content="JavaScript Palindrome String(字符串回文)Function">
+<meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;javascript-%E5%9B%9E%E6%96%87%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0&#x2F;index.html">
 <meta property="og:site_name" content="Br3ad">
-<meta property="og:description" content="问题 问题描述：在使用npm install安装依赖包超过最大调用堆栈大小的error  错误信息： 12npm ERR! Maximum call stack size exceedednpm ERR! A complete log of this run can be found in:  解决方案 思路：删除所有npm依赖项的内容，并强制性清除npm依赖的缓存，再重新npm install">
+<meta property="og:description" content="什么是回文？Palindromes称之为回文，在中文当中简单来说是指倒着念和顺着念都是相同的，前后对称那么就属于回文；例如：「上海自来水来自海上」。 在英文文当中是指正着看和反着看都相同的单词，例如：「madam」。对于数字，又称为回文数，是指一个像“16461”这样的对称的数。 综上所述，我们得出回文的规则：   单个和零个字符都是回文，例如：「1」、「2」、「3」…等等 如果字符串的第一个字符">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-08T11:35:01.290Z">
+<meta property="og:updated_time" content="2020-01-14T01:55:13.358Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -162,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="http://imoldy.com/2020/01/08/npm-install安装依赖包超过最大调用堆栈大小的error/"/>
+  <link rel="canonical" href="http://imoldy.com/2019/12/01/javascript-回文函数实现/"/>
 
 
 
 
 
-  <title>npm install安装依赖包出现超过最大调用堆栈大小 | Br3ad</title>
+  <title>JavaScript Palindrome String(字符串回文)Function | Br3ad</title>
   
 
 
@@ -325,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2020/01/08/npm-install%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85%E8%B6%85%E8%BF%87%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F%E7%9A%84error/">
+    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2019/12/01/javascript-%E5%9B%9E%E6%96%87%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Br3ad">
@@ -342,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">npm install安装依赖包出现超过最大调用堆栈大小</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript Palindrome String(字符串回文)Function</h1>
         
 
         <div class="post-meta">
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-08T19:26:22+08:00">
-                2020-01-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-01T23:07:26+08:00">
+                2019-12-01
               </time>
             
 
@@ -388,8 +388,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/npm/" itemprop="url" rel="index">
-                    <span itemprop="name">npm</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -406,8 +406,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/08/npm-install%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85%E8%B6%85%E8%BF%87%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F%E7%9A%84error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/01/08/npm-install安装依赖包超过最大调用堆栈大小的error/" itemprop="commentCount"></span>
+                <a href="/2019/12/01/javascript-%E5%9B%9E%E6%96%87%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/12/01/javascript-回文函数实现/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -435,25 +435,77 @@
       
 
       
-        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote>
-<p><strong>问题描述：</strong>在使用<code>npm install</code>安装依赖包超过最大调用堆栈大小的<code>error</code></p>
+        <h2 id="什么是回文？"><a href="#什么是回文？" class="headerlink" title="什么是回文？"></a>什么是回文？</h2><p>Palindromes称之为<strong>回文</strong>，在中文当中简单来说是指倒着念和顺着念都是相同的，前后对称那么就属于<strong>回文</strong>；例如：「<strong>上海自来水来自海上</strong>」。</p>
+<p>在英文文当中是指正着看和反着看都相同的单词，例如：「<strong>madam</strong>」。对于数字，又称为回文数，是指一个像“<strong>16461</strong>”这样的对称的数。</p>
+<p>综上所述，我们得出回文的规则：</p>
+<blockquote>
+<ul>
+<li>单个和零个字符都是回文，例如：<strong>「1」</strong>、<strong>「2」</strong>、<strong>「3」</strong>…等等</li>
+<li>如果字符串的第一个字符和最后一个字符相同，并且除了两个字符以外剩余的其他字符也是一个回文的话，字符串是一个回文，例如：<strong>「16461」</strong>、<strong>「level」</strong>、<strong>「noon」</strong>、<strong>「nonon」</strong>…等等</li>
+</ul>
 </blockquote>
-<p><strong>错误信息：</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! Maximum call stack size exceeded</span><br><span class="line">npm ERR! A complete <span class="built_in">log</span> of this run can be found <span class="keyword">in</span>:</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><blockquote>
-<p>思路：删除所有<code>npm</code>依赖项的内容，并强制性清除npm依赖的缓存，再重新<code>npm install</code></p>
+<p><strong>如何用<code>JavaScript</code>来实现回文？</strong></p>
+<p><strong>现给出测试用例：</strong></p>
+<blockquote>
+<ul>
+<li><code>checkPalindrome(&#39;race car&#39;)</code>返回<code>true</code></li>
+<li><code>checkPalindrome(&#39;not a palindrome&#39;)</code>返回<code>false</code></li>
+<li><code>checkPalindrome(&#39;A man, a plan, a canal. Panama&#39;)</code>返回<code>true</code></li>
+<li><code>checkPalindrome(&#39;never odd or even&#39;)</code>返回<code>true</code></li>
+<li><code>checkPalindrome(&#39;nope&#39;)</code>返回<code>false</code></li>
+<li><code>checkPalindrome(&#39;almostomla&#39;)</code>返回<code>false</code></li>
+<li><code>checkPalindrome(&#39;My age is 0, 0 si ega ym.&#39;)</code>返回<code>true</code></li>
+<li><code>checkPalindrome(&#39;1 eye for of 1 eye.&#39;)</code>返回<code>false</code></li>
+<li><code>checkPalindrome(&#39;0_0 (: /-\ :) 0–0&#39;)</code>返回<code>true</code></li>
+<li><code>checkPalindrome(&#39;我爱妈妈，妈妈爱我&#39;)</code>返回<code>true</code></li>
+</ul>
 </blockquote>
-<p><strong>强制清除npm依赖包的缓存</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
-
-<p><strong>重新安装所需依赖</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g babel-cli</span><br></pre></td></tr></table></figure>
-
-<p>Ok, Done. 完美解决.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
-<p><a href="https://stackoverflow.com/questions/40566348/maximum-call-stack-size-exceeded-on-npm-install" target="_blank" rel="noopener"><em>Maximum call stack size exceeded on npm install</em></a></p>
+<hr>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse" target="_blank" rel="noopener"><em><code>Array.prototype.reverse()</code></em></a>实现</p>
+<p><strong><code>reverse()</code>是什么？</strong></p>
+<p>在<strong>MDN</strong>中的介绍：</p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse" target="_blank" rel="noopener"><em><code>Array.prototype.reverse()</code></em></a> 方法将数组中元素的位置颠倒，并返回该数组。数组的第一个元素会变成最后一个，数组的最后一个元素变成第一个。该方法<strong>会改变原数组</strong>。</p>
 </blockquote>
+<p>简单来说就是可以将数组的元素位置顺序颠倒，并重新返回新的数组</p>
+<p><strong>具体实现思路：</strong></p>
+<blockquote>
+<ul>
+<li>利用正则<code>/[\W_]/g</code>(或者<code>/[^A-Za-z0-9_]/g</code>)删除不必要的字符</li>
+<li>通过<code>toLowerCase()</code>将传入的字符串转换为小写字母</li>
+<li>利用<code>split()</code>方法将<code>string</code>对象分割成字符串数组，然后用<code>reverse()</code>方法将数组中的元素进行倒序，并返回该数组（会改变原来的数组），最后<code>join()</code>方法将这个数组的所有元素连接成一个字符串</li>
+<li>将返回的这个字符串再与原字符串进行比较是否完全相等</li>
+</ul>
+</blockquote>
+<p>解释一下这里的正则表达式规则：</p>
+<ul>
+<li><code>\W</code>：匹配一个非单字字符</li>
+<li>等价于 <code>[^A-Za-z0-9_]</code></li>
+</ul>
+<p>那么<code>\W</code>的意思就是：</p>
+<ul>
+<li><code>[^A-Z]</code>匹配非26个大写字母中的任意一个</li>
+<li><code>[^a-z]</code>匹配非26个小写中的任意一个</li>
+<li><code>[^0-9]</code>匹配非<strong>0</strong>到<strong>9</strong>中的任意一个数字</li>
+<li><code>[^_]</code>匹配非下划线</li>
+</ul>
+<p>主要会用到的正则表达式规则有：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/[^A-Za-z0–<span class="number">9</span>_]/g </span><br><span class="line"><span class="comment">// 或 </span></span><br><span class="line">/[\W_]/g</span><br></pre></td></tr></table></figure>
+
+<p><strong>具体代码如下：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPalindrome</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> removeChar = str.replace(<span class="regexp">/[\W_]/g</span>, <span class="string">''</span>).toLowerCase();</span><br><span class="line">  <span class="keyword">var</span> checkPalindrome = removeChar.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span><br><span class="line">  <span class="keyword">return</span> removeChar === checkPalindrome;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">checkPalindrome(<span class="string">'race car'</span>); <span class="comment">// true</span></span><br><span class="line">checkPalindrome(<span class="string">'not a palindrome'</span>); <span class="comment">// false</span></span><br><span class="line">checkPalindrome(<span class="string">'A man, a plan, a canal. Panama'</span>); <span class="comment">// true</span></span><br><span class="line">checkPalindrome(<span class="string">'never odd or even'</span>); <span class="comment">// true</span></span><br><span class="line">checkPalindrome(<span class="string">'nope'</span>); <span class="comment">// false</span></span><br><span class="line">checkPalindrome(<span class="string">'almostomla'</span>); <span class="comment">// false</span></span><br><span class="line">checkPalindrome(<span class="string">'My age is 0, 0 si ega ym.'</span>) <span class="comment">// true</span></span><br><span class="line">checkPalindrome(<span class="string">'1 eye for of 1 eye.'</span>); <span class="comment">// false</span></span><br><span class="line">checkPalindrome(<span class="string">'0_0 (: /-\ :) 0–0'</span>); <span class="comment">// true</span></span><br><span class="line">checkPalindrome(<span class="string">'我爱妈妈，妈妈爱我'</span>); <span class="comment">// true</span></span><br><span class="line">checkPalindrome(<span class="string">'16461'</span>); <span class="comment">// true</span></span><br><span class="line">checkPalindrome(<span class="string">'javascript'</span>); <span class="comment">// false</span></span><br><span class="line">checkPalindrome(<span class="string">'Hello world'</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以写成：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPalindrome</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.replace(<span class="regexp">/[\W_]/g</span>, <span class="string">''</span>).toLowerCase() === str.replace(<span class="regexp">/[\W_]/g</span>, <span class="string">''</span>).toLowerCase().split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>使用<code>for</code>循环来处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">checkPalindrome</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (text.length &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">if</span> (text.charAt(<span class="number">0</span>) != text.charAt(text.length - <span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">return</span> checkPalindrome(text.substr(<span class="number">1</span>, text.length - <span class="number">2</span>));</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> checkPalindrome(<span class="string">'level'</span>); <span class="comment">// true</span></span><br><span class="line"> checkPalindrome(<span class="string">'l'</span>); <span class="comment">// true</span></span><br><span class="line"> checkPalindrome(<span class="literal">null</span>); <span class="comment">// error</span></span><br><span class="line"> checkPalindrome(<span class="literal">undefined</span>); <span class="comment">// erro</span></span><br><span class="line"><span class="comment">// 需要注意的是这种方法，没有考虑，null和undefined的情况</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -471,11 +523,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
           
-            <a href="/tags/npm/" rel="tag"># npm</a>
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 前端面试题</a>
           
-            <a href="/tags/node/" rel="tag"># node</a>
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E7%AE%97%E6%B3%95/" rel="tag"># 前端算法</a>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 前端算法面试题</a>
+          
+            <a href="/tags/JavaScript-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9B%9E%E6%96%87/" rel="tag"># JavaScript 字符串回文</a>
+          
+            <a href="/tags/JavaScript-%E7%AE%97%E6%B3%95/" rel="tag"># JavaScript 算法</a>
           
         </div>
       
@@ -488,8 +546,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/07/%E8%B0%88%E8%B0%88%E5%AF%B9javascript%E4%B8%ADthis%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3/" rel="next" title="谈谈对JavaScript中this、call()、apply()、bind()的理解">
-                <i class="fa fa-chevron-left"></i> 谈谈对JavaScript中this、call()、apply()、bind()的理解
+              <a href="/2019/11/26/css-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="next" title="CSS性能优化">
+                <i class="fa fa-chevron-left"></i> CSS性能优化
               </a>
             
           </div>
@@ -498,8 +556,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/12/javascript-iife-immediately-invoked-function-expression-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="JavaScript IIFE(Immediately Invoked Funtion Expression)立即执行函数表达式">
-                JavaScript IIFE(Immediately Invoked Funtion Expression)立即执行函数表达式 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/06/let%E5%92%8Cconst%E5%91%BD%E4%BB%A4/" rel="prev" title="Var、Let和const命令">
+                Var、Let和const命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -531,8 +589,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2020/01/08/npm-install安装依赖包超过最大调用堆栈大小的error/"
-           data-title="npm install安装依赖包出现超过最大调用堆栈大小" data-url="http://imoldy.com/2020/01/08/npm-install%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85%E8%B6%85%E8%BF%87%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F%E7%9A%84error/">
+      <div class="ds-thread" data-thread-key="2019/12/01/javascript-回文函数实现/"
+           data-title="JavaScript Palindrome String(字符串回文)Function" data-url="http://imoldy.com/2019/12/01/javascript-%E5%9B%9E%E6%96%87%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0/">
       </div>
     </div>
 
@@ -662,7 +720,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是回文？"><span class="nav-number">1.</span> <span class="nav-text">什么是回文？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">2.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">3.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归实现"><span class="nav-number">4.</span> <span class="nav-text">递归实现</span></a></li></ol></div>
             
           </div>
         </section>
