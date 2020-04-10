@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="前端开发,Git相关," />
+  <meta name="keywords" content="前端开发,CSS,CSS 文本换行,CSS 不换行,CSS 超出部分显示省略号," />
 
 
 
@@ -123,15 +123,15 @@
 
 
 
-<meta name="description" content="Git Add1、Git Add 过程中出现(untracked content)  意思是目录没有被跟踪  错误信息 1modified:   XXXX (untracked content)  解决方案：  删除xxx目录内的 .git目录，重新git add即可。">
-<meta name="keywords" content="前端开发,Git相关">
+<meta name="description" content="CSS实现不换行、自动换行、强制换行 123456789101112131415&#x2F;&#x2F; 自动换行.summary &amp;#123; word-wrap: break-word; word-break: normal;&amp;#125;&#x2F;&#x2F; 强制不换行.summary &amp;#123;  white-space: nowrap;&amp;#125;&#x2F;&#x2F; 强制英文单词换行.summary &amp;#123;  word-break">
+<meta name="keywords" content="前端开发,CSS,CSS 文本换行,CSS 不换行,CSS 超出部分显示省略号">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git命令操作中的一些问题和解决方案">
-<meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;git%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98&#x2F;index.html">
+<meta property="og:title" content="CSS文本换行、不换行、超出部分显示省略号处理">
+<meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2020&#x2F;04&#x2F;10&#x2F;CSS%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E3%80%81%E4%B8%8D%E6%8D%A2%E8%A1%8C%E3%80%81%E8%B6%85%E5%87%BA%E9%83%A8%E5%88%86%E6%98%BE%E7%A4%BA%E7%9C%81%E7%95%A5%E5%8F%B7%E5%A4%84%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="Br3ad">
-<meta property="og:description" content="Git Add1、Git Add 过程中出现(untracked content)  意思是目录没有被跟踪  错误信息 1modified:   XXXX (untracked content)  解决方案：  删除xxx目录内的 .git目录，重新git add即可。">
+<meta property="og:description" content="CSS实现不换行、自动换行、强制换行 123456789101112131415&#x2F;&#x2F; 自动换行.summary &amp;#123; word-wrap: break-word; word-break: normal;&amp;#125;&#x2F;&#x2F; 强制不换行.summary &amp;#123;  white-space: nowrap;&amp;#125;&#x2F;&#x2F; 强制英文单词换行.summary &amp;#123;  word-break">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T16:00:00.000Z">
+<meta property="og:updated_time" content="2020-04-10T09:18:21.733Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -162,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="http://imoldy.com/2019/11/24/git遇到的一些问题/"/>
+  <link rel="canonical" href="http://imoldy.com/2020/04/10/CSS文本换行、不换行、超出部分显示省略号处理/"/>
 
 
 
 
 
-  <title>Git命令操作中的一些问题和解决方案 | Br3ad</title>
+  <title>CSS文本换行、不换行、超出部分显示省略号处理 | Br3ad</title>
   
 
 
@@ -325,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2019/11/24/git%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2020/04/10/CSS%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E3%80%81%E4%B8%8D%E6%8D%A2%E8%A1%8C%E3%80%81%E8%B6%85%E5%87%BA%E9%83%A8%E5%88%86%E6%98%BE%E7%A4%BA%E7%9C%81%E7%95%A5%E5%8F%B7%E5%A4%84%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Br3ad">
@@ -342,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git命令操作中的一些问题和解决方案</h1>
+          <h1 class="post-title" itemprop="name headline">CSS文本换行、不换行、超出部分显示省略号处理</h1>
         
 
         <div class="post-meta">
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-24T04:34:21+08:00">
-                2019-11-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-10T17:12:55+08:00">
+                2020-04-10
               </time>
             
 
@@ -377,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -395,8 +395,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/24/git%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/11/24/git遇到的一些问题/" itemprop="commentCount"></span>
+                <a href="/2020/04/10/CSS%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E3%80%81%E4%B8%8D%E6%8D%A2%E8%A1%8C%E3%80%81%E8%B6%85%E5%87%BA%E9%83%A8%E5%88%86%E6%98%BE%E7%A4%BA%E7%9C%81%E7%95%A5%E5%8F%B7%E5%A4%84%E7%90%86/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/04/10/CSS文本换行、不换行、超出部分显示省略号处理/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -424,17 +424,16 @@
       
 
       
-        <h2 id="Git-Add"><a href="#Git-Add" class="headerlink" title="Git Add"></a>Git Add</h2><p><strong>1、Git Add 过程中出现(untracked content)</strong></p>
-<ul>
-<li>意思是目录没有被跟踪</li>
-</ul>
-<p>错误信息</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modified:   XXXX (untracked content)</span><br></pre></td></tr></table></figure>
+        <p><strong>CSS实现不换行、自动换行、强制换行</strong></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自动换行</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line"> <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line"> <span class="attribute">word-break</span>: normal;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 强制不换行</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 强制英文单词换行</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line">  <span class="attribute">word-break</span>: break-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>CSS实现超出部分显示省略号</strong></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行文本不换行多余文本显示省略号</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>; <span class="comment">// For Element Width</span></span><br><span class="line">  <span class="attribute">white-space</span>: nowrap; <span class="comment">// 规定段落中的文本不进行换行</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden; <span class="comment">// 超出部分隐藏</span></span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis; <span class="comment">// 超出部分显示省略号</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多行文本超出隐藏多余文本显示省略号</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box; <span class="comment">// 将对象作为弹性伸缩盒子模型显示  *必须结合的属性*</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden; <span class="comment">// 超出部分隐藏</span></span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis; <span class="comment">// 超出部分显示省略号</span></span><br><span class="line">  -webkit-line-clamp: <span class="number">3</span>; <span class="comment">// 用来限制在一个块元素中显示的文本的行数</span></span><br><span class="line">  -webkit-box-orient: vertical; <span class="comment">// 设置伸缩盒对象的子元素的排列方式  *必须结合的属性*</span></span><br><span class="line">  <span class="attribute">word-break</span>: break-all; <span class="comment">// 让浏览器实现在任意位置的换行 *break-all为允许在单词内换行*</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>table表格中单元格单行文本不换行</strong></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// table表格中单元格单行文本不换行</span></span><br><span class="line">  <span class="selector-tag">table</span> &#123;</span><br><span class="line">   <span class="selector-tag">table</span>-layout: fixed;</span><br><span class="line">   <span class="selector-tag">tr</span> &#123;</span><br><span class="line">     <span class="selector-tag">td</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">60%</span>;</span><br><span class="line">        <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">        <span class="attribute">overflow</span>: hidden;</span><br><span class="line">        <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>解决方案：</strong></p>
-<ul>
-<li>删除xxx目录内的 .git目录，重新git add即可。</li>
-</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a href="https://www.cnblogs.com/coolsboy/p/11495836.html" target="_blank" rel="noopener"><em>CSS实现不换行/自动换行/文本超出隐藏显示省略号</em></a></p>
+</blockquote>
 
       
     </div>
@@ -454,7 +453,13 @@
           
             <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
           
-            <a href="/tags/Git%E7%9B%B8%E5%85%B3/" rel="tag"># Git相关</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/CSS-%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C/" rel="tag"># CSS 文本换行</a>
+          
+            <a href="/tags/CSS-%E4%B8%8D%E6%8D%A2%E8%A1%8C/" rel="tag"># CSS 不换行</a>
+          
+            <a href="/tags/CSS-%E8%B6%85%E5%87%BA%E9%83%A8%E5%88%86%E6%98%BE%E7%A4%BA%E7%9C%81%E7%95%A5%E5%8F%B7/" rel="tag"># CSS 超出部分显示省略号</a>
           
         </div>
       
@@ -467,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/24/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E6%B8%85%E5%8D%95/" rel="next" title="常用Git命令操作清单">
-                <i class="fa fa-chevron-left"></i> 常用Git命令操作清单
+              <a href="/2020/02/29/JavaScript%E9%95%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%86%E5%88%86%E5%B9%B6%E6%8D%A2%E8%A1%8C%E5%A4%84%E7%90%86/" rel="next" title="JavaScript长字符串拆分并换行处理">
+                <i class="fa fa-chevron-left"></i> JavaScript长字符串拆分并换行处理
               </a>
             
           </div>
@@ -476,10 +481,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/24/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="prev" title="大话数据结构">
-                大话数据结构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,8 +511,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2019/11/24/git遇到的一些问题/"
-           data-title="Git命令操作中的一些问题和解决方案" data-url="http://imoldy.com/2019/11/24/git%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">
+      <div class="ds-thread" data-thread-key="2020/04/10/CSS文本换行、不换行、超出部分显示省略号处理/"
+           data-title="CSS文本换行、不换行、超出部分显示省略号处理" data-url="http://imoldy.com/2020/04/10/CSS%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E3%80%81%E4%B8%8D%E6%8D%A2%E8%A1%8C%E3%80%81%E8%B6%85%E5%87%BA%E9%83%A8%E5%88%86%E6%98%BE%E7%A4%BA%E7%9C%81%E7%95%A5%E5%8F%B7%E5%A4%84%E7%90%86/">
       </div>
     </div>
 
@@ -563,7 +564,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -583,7 +584,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -641,7 +642,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Add"><span class="nav-number">1.</span> <span class="nav-text">Git Add</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
           </div>
         </section>
