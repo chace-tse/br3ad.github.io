@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端开发,CSS,CSS 特殊性,CSS 继承,CSS 层叠,CSS 结构,CSS 特殊性计算,CSS Specificity,CSS Inheritance,CSS Cascading,CSS Structure," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CSS 特殊性(CSS Specificity)首先看下面这个例子： 123456789101112131415&amp;lt;!-- HTML --&amp;gt;&amp;lt;body&amp;gt;  &amp;lt;h1&amp;gt;this is heading 1.&amp;lt;&#x2F;h1&amp;gt;  &amp;lt;h2 class=&quot;grape&quot;&amp;gt;this is heading 2.&amp;lt;&#x2F;h2&amp;gt;  &amp;lt;table&amp;gt;">
+<meta name="keywords" content="前端开发,CSS,CSS 特殊性,CSS 继承,CSS 层叠,CSS 结构,CSS 特殊性计算,CSS Specificity,CSS Inheritance,CSS Cascading,CSS Structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 结构和层叠总结">
+<meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2019&#x2F;11&#x2F;25&#x2F;css-%E7%BB%93%E6%9E%84%E5%92%8C%E5%B1%82%E5%8F%A0%E6%80%BB%E7%BB%93&#x2F;index.html">
+<meta property="og:site_name" content="Br3ad">
+<meta property="og:description" content="CSS 特殊性(CSS Specificity)首先看下面这个例子： 123456789101112131415&amp;lt;!-- HTML --&amp;gt;&amp;lt;body&amp;gt;  &amp;lt;h1&amp;gt;this is heading 1.&amp;lt;&#x2F;h1&amp;gt;  &amp;lt;h2 class=&quot;grape&quot;&amp;gt;this is heading 2.&amp;lt;&#x2F;h2&amp;gt;  &amp;lt;table&amp;gt;">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-14T01:54:45.432Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://imoldy.com/2019/11/25/css-结构和层叠总结/"/>
+
+
+
+
+
+  <title>CSS 结构和层叠总结 | Br3ad</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Br3ad<span class="site-title-sub"> 的博客</span></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-building"></i> <br />
+            
+            Projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-movies">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-film"></i> <br />
+            
+            Movies
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-reading">
+          <a href="/reading/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Reading
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2019/11/25/css-%E7%BB%93%E6%9E%84%E5%92%8C%E5%B1%82%E5%8F%A0%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Br3ad">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my_photo_1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Br3ad">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS 结构和层叠总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-25T18:40:16+08:00">
+                2019-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/25/css-%E7%BB%93%E6%9E%84%E5%92%8C%E5%B1%82%E5%8F%A0%E6%80%BB%E7%BB%93/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/11/25/css-结构和层叠总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="CSS-特殊性-CSS-Specificity"><a href="#CSS-特殊性-CSS-Specificity" class="headerlink" title="CSS 特殊性(CSS Specificity)"></a>CSS 特殊性(CSS Specificity)</h2><p>首先看下面这个例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>this is heading 1.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"grape"</span>&gt;</span>this is heading 2.<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span> <span class="attr">id</span>=<span class="string">"totals"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"answer"</span>&gt;</span>this is contents of the list.<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- /totals --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>: red;&#125;</span><br><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">h1</span> &#123; <span class="attribute">color</span>: green;&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">h2</span><span class="selector-class">.grape</span> &#123;<span class="attribute">color</span>: purple;&#125;</span><br><span class="line"><span class="selector-tag">h2</span> &#123;<span class="attribute">color</span>: silver;&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html</span> &gt; <span class="selector-tag">body</span> <span class="selector-tag">table</span> <span class="selector-tag">tr</span><span class="selector-attr">[id="totals"]</span> <span class="selector-tag">td</span> <span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span> &#123;<span class="attribute">color</span>: maroon;&#125;</span><br><span class="line"><span class="selector-tag">li</span><span class="selector-id">#answer</span> &#123;<span class="attribute">color</span>: navy;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上CSS属性声明那个规则更强？</p>
+<p><strong>答案如下：</strong></p>
+<blockquote>
+<ul>
+<li><code>body h1</code> &gt; <code>h1</code></li>
+<li><code>h2.grape</code> &gt; <code>h2</code></li>
+<li><code>li#answer</code> &gt; <code>html &gt; body table tr[id=&quot;totals&quot;] td ul &gt; li</code></li>
+</ul>
+</blockquote>
+<p><a href="http://imoldy.com/demo/css/css_specificity/01.html">点击查看Demo</a></p>
+<h3 id="CSS-特殊性值"><a href="#CSS-特殊性值" class="headerlink" title="CSS 特殊性值"></a>CSS 特殊性值</h3><p>选择器的特殊性值表述为4个部分，如：<strong>0, 0, 0, 0</strong></p>
+<p>选择器的具体特殊性值如下：</p>
+<blockquote>
+<ul>
+<li>选择器中的ID属性值： <strong>0, 1, 0, 0</strong>; 例：<code>#id</code></li>
+<li>选择器中类属性值、属性选择、伪类： <strong>0, 1, 0, 0</strong>; 例：<code>.className</code>、<code>*[attribute]</code>、<code>:hover</code></li>
+<li>选择器中的元素、伪元素：<strong>0, 0, 0, 1</strong>; 例：<code>div</code>、<code>div::before</code>、<code>div::after</code></li>
+<li>结合符、通配选择器：<strong>0, 0, 0, 0</strong>; 例：<code>*</code>、<code>&gt;</code></li>
+<li>HTML元素中的内联样式特殊性都是：<strong>1，0，0，0</strong>; 例：<code>&lt;div style=&quot;color: black; font-size: 20px&quot;&gt;test&lt;/div&gt;</code></li>
+</ul>
+</blockquote>
+<p>例子如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Section Heading 1 Part.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"grape"</span>&gt;</span>This is a grape paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"bright"</span>&gt;</span>This is a bright paragraph and <span class="tag">&lt;<span class="name">em</span> <span class="attr">class</span>=<span class="string">"dark"</span>&gt;</span>dark<span class="tag">&lt;/<span class="name">em</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"element"</span>&gt;</span>this is a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"sidebar"</span>&gt;</span>This is sidebar div and <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#x"</span>&gt;</span>alink text.<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>: red;&#125;  <span class="comment">/* specificity = 0, 0, 0, 1 */</span></span><br><span class="line"><span class="selector-tag">p</span> <span class="selector-tag">em</span> &#123;<span class="attribute">color</span>: purple;&#125; <span class="comment">/* specificity = 0, 0, 0, 2 */</span></span><br><span class="line"><span class="selector-class">.grape</span> &#123;<span class="attribute">color</span>: purple;&#125; <span class="comment">/* specificity = 0, 0, 1, 0 */</span></span><br><span class="line">*<span class="selector-class">.bright</span> &#123;<span class="attribute">color</span>: yellow;&#125; <span class="comment">/* specificity = 0, 0, 1, 0 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.bright</span> <span class="selector-tag">em</span><span class="selector-class">.dark</span> &#123;<span class="attribute">color</span>: maroon;&#125; <span class="comment">/* specificity = 0, 0, 2, 2 */</span></span><br><span class="line"><span class="selector-id">#element</span> &#123;<span class="attribute">color</span>: blue;&#125; <span class="comment">/* specificity = 0, 1, 0, 0 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-id">#sidebar</span> *<span class="selector-attr">[href="#x"]</span> &#123;<span class="attribute">color</span>: silver;&#125; <span class="comment">/* specificity = 0, 1, 1, 1 */</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>需要注意的地方：</strong></p>
+<blockquote>
+<p><strong>0, 0, 1, 0</strong> 要大于<strong>0, 0, 0, 13</strong><br>特殊性是从左向右排序的，特殊性值<strong>1, 0, 0, 0</strong>大于以0开头的所有特殊性值，不论后面的数字是什么</p>
+</blockquote>
+<h3 id="CSS-声明和特殊性"><a href="#CSS-声明和特殊性" class="headerlink" title="CSS 声明和特殊性"></a>CSS 声明和特殊性</h3><p>1、确定一个选择器的特殊性，这个值将会授予其所有相关声明，如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Section Heading 1 Part.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>: silver; <span class="attribute">background</span>: black;&#125;</span><br><span class="line"><span class="comment">/* h1标签的color和background属性的特殊性都为：0, 0, 0, 1 */</span></span><br></pre></td></tr></table></figure>
+
+<p>2、多条规则会被用户代理“解组”为单独的规则，如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Section Heading 1 Part.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>: silver; <span class="attribute">background</span>: black;&#125;</span><br><span class="line"><span class="comment">/* 解组后 */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>: silver;&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">background</span>: black;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 这两个规则的特殊性都是:0, 0, 0, 1，各声明得到的特殊性值也就是：0, 0, 0, 1 */</span></span><br></pre></td></tr></table></figure>
+
+<p>3、分组选择器会被用户代理“解组”为单独的规则，如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Section Heading 1 Part.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span>Section Heading 1 Part.<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span><span class="selector-class">.section</span> &#123;<span class="attribute">color</span>: silver; <span class="attribute">background</span>: black;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 解组后 */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>: silver;&#125; <span class="comment">/* 0, 0, 0, 1 */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">background</span>: black;&#125; <span class="comment">/* 0, 0, 0, 1 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">h2</span><span class="selector-class">.section</span> &#123;<span class="attribute">color</span>: silver;&#125; <span class="comment">/* 0, 0, 1, 1 */</span></span><br><span class="line"><span class="selector-tag">h2</span><span class="selector-class">.section</span> &#123;<span class="attribute">background</span>: black;&#125; <span class="comment">/* 0, 0, 1, 1 */</span></span><br></pre></td></tr></table></figure>
+
+<p>4、“解组”完后，单独选择器的单独规则开始根据计算出来的最高特殊性值来显示元素</p>
+<h3 id="通配选择器特殊性"><a href="#通配选择器特殊性" class="headerlink" title="通配选择器特殊性"></a>通配选择器特殊性</h3><p>1、通配选择器<code>*</code>的特殊性值为：<strong>0, 0, 0, 0</strong>，但需要注意的是通配选择器不等于没有特殊性（设置了要比没有设置强）</p>
+<p>例子如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">p</span> &#123;<span class="attribute">color</span>: black;&#125; <span class="comment">/* 0, 0, 0, 2 */</span></span><br><span class="line">* &#123;<span class="attribute">color</span>: gray;&#125; <span class="comment">/* 0, 0, 0, 0 */</span></span><br><span class="line"><span class="comment">/* 根据特殊性的值来计算div下包含的段落都是黑色，其他元素都是灰色 */</span></span><br></pre></td></tr></table></figure>
+
+<p>2、如果一个选择器中包含通配选择器和其他选择器，选择器的特殊性不会因为通配选择器的出现发生改变，如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a paragrah<span class="tag">&lt;<span class="name">strong</span>&gt;</span> Strong text<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">p</span> &#123;<span class="attribute">color</span>: black;&#125; <span class="comment">/* 0, 0, 0, 2 */</span></span><br><span class="line"><span class="selector-tag">body</span> * <span class="selector-tag">strong</span> &#123;<span class="attribute">color</span>: yellow;&#125; <span class="comment">/* 0, 0, 0, 2 */</span></span><br><span class="line"><span class="comment">/* 上面两个选择器的特殊性完全相等 */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ID和属性选择器的特殊性"><a href="#ID和属性选择器的特殊性" class="headerlink" title="ID和属性选择器的特殊性"></a>ID和属性选择器的特殊性</h3><p>ID选择器和指定ID属性的属性选择器在特殊性上有所不同，如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">tr</span> <span class="attr">id</span>=<span class="string">"totals"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"answer"</span>&gt;</span>Answer Content<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">html</span> &gt; <span class="selector-tag">body</span> <span class="selector-tag">table</span> <span class="selector-tag">tr</span><span class="selector-attr">[id="totals"]</span> <span class="selector-tag">td</span> <span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span> &#123;<span class="attribute">color</span>: maroon;&#125; <span class="comment">/* 0, 0, 1, 7 */</span></span><br><span class="line"><span class="selector-tag">li</span><span class="selector-id">#answer</span> &#123;<span class="attribute">color</span>: navy;&#125; <span class="comment">/* 0, 1, 0, 1 (Winner)*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="内联样式特殊性"><a href="#内联样式特殊性" class="headerlink" title="内联样式特殊性"></a>内联样式特殊性</h3><blockquote>
+<p>通常，特殊性的第一个0是为内联样式声明保留，它要比所有其他声明的特殊性都要高<br>内联样式声明的特殊性为：<strong>1, 0, 0, 0</strong></p>
+</blockquote>
+<p>例子如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">"color: green;"</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span>The meadow party<span class="tag">&lt;/<span class="name">h1</span>&gt;</span> /* 1, 0, 0, 0 */</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">h1</span><span class="selector-id">#header</span> &#123;<span class="attribute">color</span>: red;&#125; <span class="comment">/* 0, 1, 0, 1 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 因为内联样式特殊性要比其他声明的特殊性都高, 所以这里h1元素的文字内容颜色是绿色 */</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="CSS-重要性-CSS-Important"><a href="#CSS-重要性-CSS-Important" class="headerlink" title="CSS 重要性(CSS !Important)"></a>CSS 重要性(CSS !Important)</h2><blockquote>
+<ul>
+<li>重要性标识：在样式的声明分号前插入：<code>!important;</code></li>
+<li>标志为<code>!important;</code>的声明规则，没有特殊性的特殊性值，优先级是最高的</li>
+</ul>
+</blockquote>
+<p>例子如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>NightWing<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">font-style</span>: italic; <span class="attribute">color</span>: gray <span class="meta">!important</span>;&#125;</span><br><span class="line"><span class="selector-class">.title</span> &#123;<span class="attribute">color</span>: black; <span class="attribute">background</span>: silver;&#125;</span><br><span class="line">* &#123;<span class="attribute">background</span>: black <span class="meta">!important</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 因为添加了!important;的样式是优先级最高的，所以这里h1元素的最终样式应该为：</span></span><br><span class="line"><span class="comment">h1.title &#123;</span></span><br><span class="line"><span class="comment">  font-style: italic;</span></span><br><span class="line"><span class="comment">  color: gray !important;</span></span><br><span class="line"><span class="comment">  background: black !important;</span></span><br><span class="line"><span class="comment">&#125; </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="CSS-继承-CSS-Inheritance"><a href="#CSS-继承-CSS-Inheritance" class="headerlink" title="CSS 继承(CSS Inheritance)"></a>CSS 继承(CSS Inheritance)</h2><blockquote>
+<p>继承的值没有特殊性，甚至连0都没有；也就是说，<strong>0特殊性要比无特殊性更强</strong>（特殊性为0高于继承）</p>
+</blockquote>
+<p>1、0特殊性比无特殊性要强，例子如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"page-title"</span>&gt;</span>Meerkat <span class="tag">&lt;<span class="name">em</span>&gt;</span>Central<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Welcome to the best place on the web for meerkat information!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line">* &#123;<span class="attribute">color</span>: gray;&#125; <span class="comment">/* 0, 0, 0, 0*/</span></span><br><span class="line"><span class="selector-tag">h1</span><span class="selector-id">#page-title</span> &#123;<span class="attribute">color</span>: black;&#125; <span class="comment">/* 0, 1, 0, 1 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">因为这里em的color属性没有声明，先从h1元素继承，但又给通配选择器*声明了color属性</span></span><br><span class="line"><span class="comment">0 &gt; 无特殊性</span></span><br><span class="line"><span class="comment">所以最终呈现出来的样式为：</span></span><br><span class="line"><span class="comment">h1#page-title &#123;</span></span><br><span class="line"><span class="comment">  color: black;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">em &#123;</span></span><br><span class="line"><span class="comment">  color: gray;</span></span><br><span class="line"><span class="comment">  font-style: italic;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">p &#123;</span></span><br><span class="line"><span class="comment">  color: gray;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>2、不加区别地使用通配选择器（<code>*</code>）可能存在一些问题，需谨慎使用通配选择器（<code>*</code>）</p>
+<blockquote>
+<p>通配选择器（<code>*</code>）能匹配任何元素，又是0特殊性，优先于继承值，所以有一种短路继承的效果<br>为了避免这个问题，避免不加区别地使用通配选择器（<code>*</code>），从根本上解决这个问题</p>
+</blockquote>
+<p>3、子元素是<code>&lt;a&gt;</code>标签，<code>&lt;a&gt;</code>标签会使用浏览器用户代理样式表中的伪类样式（<code>a:link</code>），需要单独为<code>&lt;a&gt;</code>定义样式规则</p>
+<p>例子如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"toolbar"</span>&gt;</span>This is toolbar part <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#x"</span>&gt;</span>this is alink elements.<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-id">#toolbar</span> &#123;<span class="attribute">color</span>: white; <span class="attribute">background</span>: black;&#125;</span><br><span class="line"><span class="selector-id">#toolbar</span> <span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;<span class="attribute">color</span>: white;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="CSS可继承属性与不可继承属性"><a href="#CSS可继承属性与不可继承属性" class="headerlink" title="CSS可继承属性与不可继承属性"></a>CSS可继承属性与不可继承属性</h3><p><strong>思考一个问题：CSS中所有的属性都可以继承吗？</strong></p>
+<p>答案显然是否定的，在CSS中有些属性可以继承，有些不行。<br>那么，那些CSS属性可以继承，那些CSS属性不能继承？</p>
+<p>简单列举一部分例子如下：</p>
+<h4 id="CSS-可继承属性"><a href="#CSS-可继承属性" class="headerlink" title="CSS 可继承属性"></a>CSS 可继承属性</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS 字体系列属性 */</span></span><br><span class="line"><span class="selector-tag">font</span>: <span class="comment">/* 组合字体 */</span></span><br><span class="line"><span class="selector-tag">font-family</span>: <span class="comment">/* 规定元素的字体系列 */</span></span><br><span class="line"><span class="selector-tag">font-weight</span>: <span class="comment">/* 设置字体的粗细 */</span></span><br><span class="line"><span class="selector-tag">font-size</span>: <span class="comment">/* 设置字体的尺寸 */</span></span><br><span class="line"><span class="selector-tag">font-style</span>: <span class="comment">/* 定义字体的风格 */</span></span><br><span class="line"><span class="selector-tag">font-variant</span>: <span class="comment">/* 偏大或偏小的字体 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 文本系列属性 */</span></span><br><span class="line"><span class="selector-tag">text-indent</span>: <span class="comment">/* 文本缩进 */</span></span><br><span class="line"><span class="selector-tag">text-align</span>: <span class="comment">/* 文本水平对刘 */</span></span><br><span class="line"><span class="selector-tag">line-height</span>: <span class="comment">/* 行高 */</span></span><br><span class="line"><span class="selector-tag">word-spacing</span>: <span class="comment">/* 增加或减少单词间的空白 */</span></span><br><span class="line"><span class="selector-tag">letter-spacing</span>: <span class="comment">/* 增加或减少字符间的空白 */</span></span><br><span class="line"><span class="selector-tag">text-transform</span>: <span class="comment">/* 控制文本大小写 */</span></span><br><span class="line"><span class="selector-tag">direction</span>: <span class="comment">/* 规定文本的书写方向 */</span></span><br><span class="line"><span class="selector-tag">color</span>: <span class="comment">/* 文本颜色 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 元素可见性 */</span></span><br><span class="line"><span class="selector-tag">visibility</span>:</span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 表格布局属性 */</span></span><br><span class="line"><span class="selector-tag">caption-side</span>: <span class="comment">/* 定位表格标题位置 */</span></span><br><span class="line"><span class="selector-tag">border-collapse</span>: <span class="comment">/* 合并表格边框 */</span></span><br><span class="line"><span class="selector-tag">border-spacing</span>: <span class="comment">/* 设置相邻单元格的边框间的距离 */</span></span><br><span class="line"><span class="selector-tag">empty-cells</span>: <span class="comment">/* 单元格的边框的出现与消失 */</span></span><br><span class="line"><span class="selector-tag">table-layout</span>: <span class="comment">/* 表格的宽度由什么决定 */</span>&lt;<span class="selector-tag">automatic</span><span class="selector-class">.fixed</span><span class="selector-class">.inherit</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 列表布局属性 */</span></span><br><span class="line"><span class="selector-tag">list-style-type</span>: <span class="comment">/* 文字前面的小点点样式 */</span></span><br><span class="line"><span class="selector-tag">list-style-position</span>: <span class="comment">/* 小点点位置 */</span></span><br><span class="line"><span class="selector-tag">list-style</span>: <span class="comment">/* 以上的属性可通过这属性集合 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 引用 */</span></span><br><span class="line"><span class="selector-tag">quotes</span>: <span class="comment">/* 设置嵌套引用的引号类型 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 光标属性 */</span></span><br><span class="line"><span class="selector-tag">cursor</span>: <span class="comment">/* 箭头可以变成需要的形状 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 页面样式属性 */</span></span><br><span class="line"><span class="selector-tag">page</span>、<span class="selector-tag">page-break-inside</span>、<span class="selector-tag">windows</span>、<span class="selector-tag">orphans</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 声音样式属性 */</span></span><br><span class="line"><span class="selector-tag">speak</span>、<span class="selector-tag">speak-punctuation</span>、<span class="selector-tag">speak-numeral</span>、<span class="selector-tag">speak-header</span>、<span class="selector-tag">speech-rate</span>、<span class="selector-tag">volume</span>、<span class="selector-tag">voice-family</span>、<span class="selector-tag">pitch</span>、<span class="selector-tag">pitch-range</span>、<span class="selector-tag">stress</span>、<span class="selector-tag">richness</span>、、<span class="selector-tag">azimuth</span>、<span class="selector-tag">elevation</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>所有元素可以继承的属性</strong></p>
+<blockquote>
+<p>元素可见性：<code>visibility</code><br>光标属性：<code>cursor</code></p>
+</blockquote>
+<p><strong>内联元素可以继承的属性</strong></p>
+<blockquote>
+<p>字体系列属性<br>除<code>text-indent</code>、<code>text-align</code>之外的文本系列属性</p>
+</blockquote>
+<p><strong>块级元素可以继承的属性</strong></p>
+<blockquote>
+<p><code>text-indent</code>、<code>text-align</code></p>
+</blockquote>
+<h4 id="CSS-不可继承属性"><a href="#CSS-不可继承属性" class="headerlink" title="CSS 不可继承属性"></a>CSS 不可继承属性</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">displey</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 文本属性 */</span></span><br><span class="line"><span class="selector-tag">vertical-align</span>: <span class="comment">/* 垂直文本对齐 */</span></span><br><span class="line"><span class="selector-tag">text-decoration</span>: <span class="comment">/* 规定添加到文本的装饰 */</span></span><br><span class="line"><span class="selector-tag">text-shadow</span>: <span class="comment">/* 文本阴影效果 */</span></span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="comment">/* 空白符的处理 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 盒子模型属性 */</span></span><br><span class="line"><span class="selector-tag">width</span>、<span class="selector-tag">height</span>、<span class="selector-tag">margin</span> 、<span class="selector-tag">margin-top</span>、<span class="selector-tag">margin-right</span>、<span class="selector-tag">margin-bottom</span>、<span class="selector-tag">margin-left</span>、<span class="selector-tag">border</span>、<span class="selector-tag">border-style</span>、<span class="selector-tag">border-top-style</span>、<span class="selector-tag">border-right-style</span>、<span class="selector-tag">border-bottom-style</span>、<span class="selector-tag">border-left-style</span>、<span class="selector-tag">border-width</span>、<span class="selector-tag">border-top-width</span>、<span class="selector-tag">border-right-right</span>、<span class="selector-tag">border-bottom-width</span>、<span class="selector-tag">border-left-width</span>、<span class="selector-tag">border-color</span>、<span class="selector-tag">border-top-color</span>、<span class="selector-tag">border-right-color</span>、<span class="selector-tag">border-bottom-color</span>、<span class="selector-tag">border-left-color</span>、<span class="selector-tag">border-top</span>、<span class="selector-tag">border-right</span>、<span class="selector-tag">border-bottom</span>、<span class="selector-tag">border-left</span>、<span class="selector-tag">padding</span>、<span class="selector-tag">padding-top</span>、<span class="selector-tag">padding-right</span>、<span class="selector-tag">padding-bottom</span>、<span class="selector-tag">padding-left</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 背景属性 */</span></span><br><span class="line"><span class="selector-tag">background</span>、<span class="selector-tag">background-color</span>、<span class="selector-tag">background-image</span>、<span class="selector-tag">background-repeat</span>、<span class="selector-tag">background-position</span>、<span class="selector-tag">background-attachment</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 定位属性 */</span></span><br><span class="line"><span class="selector-tag">float</span>、<span class="selector-tag">clear</span>、<span class="selector-tag">position</span>、<span class="selector-tag">top</span>、<span class="selector-tag">right</span>、<span class="selector-tag">bottom</span>、<span class="selector-tag">left</span>、<span class="selector-tag">min-width</span>、<span class="selector-tag">min-height</span>、<span class="selector-tag">max-width</span>、<span class="selector-tag">max-height</span>、<span class="selector-tag">overflow</span>、<span class="selector-tag">clip</span>、<span class="selector-tag">z-index</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 生成内容属性 */</span></span><br><span class="line"><span class="selector-tag">content</span>、<span class="selector-tag">counter-reset</span>、<span class="selector-tag">counter-increment</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 轮廓样式属性 */</span></span><br><span class="line"><span class="selector-tag">outline-style</span>、<span class="selector-tag">outline-width</span>、<span class="selector-tag">outline-color</span>、<span class="selector-tag">outline</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 页面样式属性 */</span></span><br><span class="line"><span class="selector-tag">size</span>、<span class="selector-tag">page-break-before</span>、<span class="selector-tag">page-break-after</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS 声音样式属性 */</span></span><br><span class="line"><span class="selector-tag">pause-before</span>、<span class="selector-tag">pause-after</span>、<span class="selector-tag">pause</span>、<span class="selector-tag">cue-before</span>、<span class="selector-tag">cue-after</span>、<span class="selector-tag">cue</span>、<span class="selector-tag">play-during</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="CSS-层叠-CSS-Cascading"><a href="#CSS-层叠-CSS-Cascading" class="headerlink" title="CSS 层叠(CSS Cascading)"></a>CSS 层叠(CSS Cascading)</h2><p><strong>层叠规则</strong></p>
+<p>以下样式中，那条样式的声明会起作用？</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>This is Heading 1.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>: red;&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>: blue;&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li><code>!important;</code> 重要性标识优先</li>
+<li>按来源对应用到给定元素的所有声明排序有3种来源：<strong>创作人员 &gt; 读者 &gt; 用户代理(<code>user agent</code>)</strong></li>
+<li>按特殊性对应用到给定元素的所有声明排序，<strong>高特殊性</strong> &gt; <strong>低特殊性</strong></li>
+<li>按出现顺序对应用到给定元素的所有声明排序，在样式表或文档中越后出现，权重越大</li>
+</ul>
+</blockquote>
+<p>如果两个规则的权重、来源、特殊性完全相同，则样式表中后出现的一个规则会被使用</p>
+<hr>
+<h3 id="按权重和来源排序"><a href="#按权重和来源排序" class="headerlink" title="按权重和来源排序"></a>按权重和来源排序</h3><p>1、<code>!important;</code> 重要性标识优先</p>
+<p>例子如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"color: black;"</span>&gt;</span>This is a <span class="tag">&lt;<span class="name">em</span>&gt;</span>paragraph<span class="tag">&lt;/<span class="name">em</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* CSS */</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">color</span>: gray <span class="meta">!important</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  </span></span><br><span class="line"><span class="comment">  根据!important重要标识优先的规则</span></span><br><span class="line"><span class="comment">  最终呈现出来的样式应该是灰色，并且后面的em元素也会继承灰色</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/ernijie/article/details/90517766" target="_blank" rel="noopener"><em>css特殊性值（权重）需要搞明白</em></a></li>
+<li><a href="https://book.douban.com/subject/2308234/" target="_blank" rel="noopener"><em>《CSS 权威指南》</em></a></li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/CSS-%E7%89%B9%E6%AE%8A%E6%80%A7/" rel="tag"># CSS 特殊性</a>
+          
+            <a href="/tags/CSS-%E7%BB%A7%E6%89%BF/" rel="tag"># CSS 继承</a>
+          
+            <a href="/tags/CSS-%E5%B1%82%E5%8F%A0/" rel="tag"># CSS 层叠</a>
+          
+            <a href="/tags/CSS-%E7%BB%93%E6%9E%84/" rel="tag"># CSS 结构</a>
+          
+            <a href="/tags/CSS-%E7%89%B9%E6%AE%8A%E6%80%A7%E8%AE%A1%E7%AE%97/" rel="tag"># CSS 特殊性计算</a>
+          
+            <a href="/tags/CSS-Specificity/" rel="tag"># CSS Specificity</a>
+          
+            <a href="/tags/CSS-Inheritance/" rel="tag"># CSS Inheritance</a>
+          
+            <a href="/tags/CSS-Cascading/" rel="tag"># CSS Cascading</a>
+          
+            <a href="/tags/CSS-Structure/" rel="tag"># CSS Structure</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/23/git%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" rel="next" title="Git命令操作中的一些问题和解决方案">
+                <i class="fa fa-chevron-left"></i> Git命令操作中的一些问题和解决方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/26/css-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="prev" title="CSS性能优化">
+                CSS性能优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2019/11/25/css-结构和层叠总结/"
+           data-title="CSS 结构和层叠总结" data-url="http://imoldy.com/2019/11/25/css-%E7%BB%93%E6%9E%84%E5%92%8C%E5%B1%82%E5%8F%A0%E6%80%BB%E7%BB%93/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/my_photo_1.png"
+                alt="Br3ad" />
+            
+              <p class="site-author-name" itemprop="name">Br3ad</p>
+              <p class="site-description motion-element" itemprop="description">Talk less, listen more, and do more.</p>
+          </div>
+          <nav class="site-state motion-element">
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+          </nav>
+          
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:moldybr3ad@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/br3ad" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/835876986" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.douban.com/people/moldy_bread/" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-user"></i>豆瓣</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.instagram.com/x_bread/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+          
+          
+          
+
+        </div>
+      </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-特殊性-CSS-Specificity"><span class="nav-number">1.</span> <span class="nav-text">CSS 特殊性(CSS Specificity)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-特殊性值"><span class="nav-number">1.1.</span> <span class="nav-text">CSS 特殊性值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-声明和特殊性"><span class="nav-number">1.2.</span> <span class="nav-text">CSS 声明和特殊性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通配选择器特殊性"><span class="nav-number">1.3.</span> <span class="nav-text">通配选择器特殊性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID和属性选择器的特殊性"><span class="nav-number">1.4.</span> <span class="nav-text">ID和属性选择器的特殊性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内联样式特殊性"><span class="nav-number">1.5.</span> <span class="nav-text">内联样式特殊性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-重要性-CSS-Important"><span class="nav-number">2.</span> <span class="nav-text">CSS 重要性(CSS !Important)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-继承-CSS-Inheritance"><span class="nav-number">3.</span> <span class="nav-text">CSS 继承(CSS Inheritance)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS可继承属性与不可继承属性"><span class="nav-number">3.1.</span> <span class="nav-text">CSS可继承属性与不可继承属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS-可继承属性"><span class="nav-number">3.1.1.</span> <span class="nav-text">CSS 可继承属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS-不可继承属性"><span class="nav-number">3.1.2.</span> <span class="nav-text">CSS 不可继承属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-层叠-CSS-Cascading"><span class="nav-number">4.</span> <span class="nav-text">CSS 层叠(CSS Cascading)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按权重和来源排序"><span class="nav-number">4.1.</span> <span class="nav-text">按权重和来源排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考内容"><span class="nav-number">5.</span> <span class="nav-text">参考内容</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      <!--/noindex-->
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Br3ad</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
