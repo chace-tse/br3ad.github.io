@@ -2,7 +2,14 @@
 title: JavaScript 获取当前时间戳的几种方式
 date: 2020-04-21 15:43:33
 tags:
+- 前端
+- 前端基础
+- JavaScript
+- JavaScript 基础
+- JavaScript 时间戳
 category:
+- [前端]
+- [JavaScript]
 ---
 
 ## [`Date.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse)
