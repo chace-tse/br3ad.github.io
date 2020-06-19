@@ -1,18 +1,13 @@
 @charset "utf-8";
 
-
-
 /*  
-  * Resume For Xie Chang Chun 
-  * Author: @Br3ad.Xie
-  * Update：2019/11/04
-  * Tel: 13671012707
-  * @Email: moldybr3ad@gmail.com
+  * Resume For Chacexie
+  * Author: @Br3ad
+  * Update：2020 / 06 / 17
+  * @Email: moldybr3ad[at]gmail.com
   * @Github: https://github.com/br3ad
-  * @Sina Weibo：https://weibo.com/835876986
   * @Instagram：https://www.instagram.com/x_bread/
 */
-
 
 /*!
  * Reset Style 
@@ -84,7 +79,6 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
   content: "\e636";
 }
 
-
 /*!
  * Tool class
 */
@@ -102,7 +96,6 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 .hide {display: none!important;}
 .text-nowrap { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-
 /*!
  * For Old Internet Explorer Style 
 */
@@ -114,7 +107,6 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 .browser-tips .browser-download-alink:focus {
   color: #005292;
 }
-
 
 /*!
  * Layout 
@@ -281,7 +273,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 }
 .r-section-title {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 10px 0;
   border-bottom: 1px solid #f1f1f1;
 }
@@ -292,10 +284,11 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
   color: #474747;
   vertical-align: baseline;
 }
-.r-title-sub {
+.text-title-en {
   font-weight: 400;
   font-size: .9em;
   color: #474747;
+  text-transform: capitalize;
   vertical-align: baseline;
 }
 
@@ -332,15 +325,19 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
  * Job Experience Section
 */
 .r-job-list .item-job-block {
+  padding: 15px 0;
   white-space: normal;
   word-break: break-all;
   overflow: hidden;
 }
 .r-job-list .item-company-pic {
-  max-width: 90px;
-  padding-top: 18px;
   vertical-align: top;
+  max-width: 90px;
+  padding-top: 3px;
   margin-right: 16px;
+}
+.r-job-list .item-company-pic a {
+  display: block;
 }
 .r-job-list .item-company-pic img {
   max-width: 100%;
@@ -359,8 +356,9 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
   height: 1px;
   clip: rect(1px, 1px, 1px, 1px);
 }
+
+/* For Item Description Style */
 .r-job-list .item-company-desc {
-  padding: 15px 0;
   border-bottom: 1px solid #f1f1f1;
 }
 .r-job-list .item-job:last-child .item-company-desc {
@@ -394,7 +392,6 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
   margin-top: 5px;
   font-size: 14px;
 }
-
 
 /*!  
  * Project Section
@@ -436,6 +433,9 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
 }
 .r-project-list .item-project-zyb {
   background-color: #42c57a;
+}
+.r-project-list .item-project-tentcent {
+  background-color: #fff;
 }
 .r-project-list .item-project-cheilpengtai,
 .r-project-list .item-project-paiyue {
@@ -571,7 +571,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
   text-align: center;
   margin-bottom: 60px;
 }
-.r-footer-github {
+.r-footer-resume {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -580,7 +580,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
   line-height: 60px;
   text-align: center; 
  }
-.r-footer-github .footer-link {
+.r-footer-resume .footer-link {
   cursor: pointer;
   display: inline-block;
   vertical-align: baseline;
@@ -589,7 +589,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
   font-style: italic;
   line-height: 1;
 }
-.r-footer-github .fa-link {
+.r-footer-resume .fa-link {
   margin-right: 5px;
 }
 
@@ -687,7 +687,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
   /*!
    * Footer 
   */
-  .r-footer-github .footer-link {
+  .r-footer-resume .footer-link {
     font-size: 12px;
   }
 }
