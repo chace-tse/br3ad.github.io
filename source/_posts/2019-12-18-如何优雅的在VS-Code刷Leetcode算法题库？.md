@@ -5,6 +5,7 @@ tags:
 - 前端开发
 - 算法
 - 算法面试题
+- 前端算法
 - Leetcode
 - VS Code
 - Visual Studio Code
@@ -13,6 +14,7 @@ tags:
 - Leetcode algorithms
 category:
 - [前端]
+- [前端算法]
 - [Leetcode]
 - [algorithms]
 - [VS Code]

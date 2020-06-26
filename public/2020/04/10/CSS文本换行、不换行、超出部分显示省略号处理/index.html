@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="Br3ad">
 <meta property="og:description" content="CSS实现不换行、自动换行、强制换行 123456789101112131415&#x2F;&#x2F; 自动换行.summary &amp;#123; word-wrap: break-word; word-break: normal;&amp;#125;&#x2F;&#x2F; 强制不换行.summary &amp;#123;  white-space: nowrap;&amp;#125;&#x2F;&#x2F; 强制英文单词换行.summary &amp;#123;  word-break">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-21T07:46:41.479Z">
+<meta property="og:updated_time" content="2020-06-25T06:08:01.779Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -426,8 +426,10 @@
       
         <p><strong>CSS实现不换行、自动换行、强制换行</strong></p>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自动换行</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line"> <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line"> <span class="attribute">word-break</span>: normal;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 强制不换行</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 强制英文单词换行</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line">  <span class="attribute">word-break</span>: break-all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>CSS实现超出部分显示省略号</strong></p>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行文本不换行多余文本显示省略号</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>; <span class="comment">// For Element Width</span></span><br><span class="line">  <span class="attribute">white-space</span>: nowrap; <span class="comment">// 规定段落中的文本不进行换行</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden; <span class="comment">// 超出部分隐藏</span></span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis; <span class="comment">// 超出部分显示省略号</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多行文本超出隐藏多余文本显示省略号</span></span><br><span class="line"><span class="selector-class">.summary</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box; <span class="comment">// 将对象作为弹性伸缩盒子模型显示  *必须结合的属性*</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden; <span class="comment">// 超出部分隐藏</span></span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis; <span class="comment">// 超出部分显示省略号</span></span><br><span class="line">  -webkit-line-clamp: <span class="number">3</span>; <span class="comment">// 用来限制在一个块元素中显示的文本的行数</span></span><br><span class="line">  -webkit-box-orient: vertical; <span class="comment">// 设置伸缩盒对象的子元素的排列方式  *必须结合的属性*</span></span><br><span class="line">  <span class="attribute">word-break</span>: break-all; <span class="comment">// 让浏览器实现在任意位置的换行 *break-all为允许在单词内换行*</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>table表格中单元格单行文本不换行</strong></p>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// table表格中单元格单行文本不换行</span></span><br><span class="line">  <span class="selector-tag">table</span> &#123;</span><br><span class="line">   <span class="selector-tag">table</span>-layout: fixed;</span><br><span class="line">   <span class="selector-tag">tr</span> &#123;</span><br><span class="line">     <span class="selector-tag">td</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">60%</span>;</span><br><span class="line">        <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">        <span class="attribute">overflow</span>: hidden;</span><br><span class="line">        <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -568,7 +570,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -578,7 +580,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -588,7 +590,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
