@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Mac,MacBook Pro,macOS Catalina," />
 
 
 
@@ -123,15 +123,15 @@
 
 
 
-<meta name="description" content="Talk less, listen more, and do more.">
-<meta name="keywords" content="Br3ad, Br3ad的博客, 前端开发, 前端开发工程师, Moldy br3ad, Moldy, HTML, CSS, JavaScript, HTML5, CSS3">
+<meta name="description" content="1、打开终端，并执行以下命令行 查找系统所有.DS_Store文件并删除 1sudo find &#x2F; -name &quot;.DS_Store&quot; -depth -exec rm &amp;#123;&amp;#125; \;  2、输入电脑用户管理员密码，会开始进行删除，而这会需要一点时间，需要等一会。 3、彻底解决不让.DS_Store文件再产生，只需在终端执行以下命令，即可，若要将它开启时，只需改为false就可以 禁">
+<meta name="keywords" content="Mac,MacBook Pro,macOS Catalina">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac批量删除.DS_Store档案文件、与关闭.DS_Store文件产生">
 <meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2020&#x2F;06&#x2F;28&#x2F;Mac%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4-DS-Store%E6%A1%A3%E6%A1%88%E6%96%87%E4%BB%B6%E3%80%81%E4%B8%8E%E5%85%B3%E9%97%AD-DS-Store%E6%96%87%E4%BB%B6%E4%BA%A7%E7%94%9F&#x2F;index.html">
 <meta property="og:site_name" content="Br3ad">
-<meta property="og:description" content="Talk less, listen more, and do more.">
+<meta property="og:description" content="1、打开终端，并执行以下命令行 查找系统所有.DS_Store文件并删除 1sudo find &#x2F; -name &quot;.DS_Store&quot; -depth -exec rm &amp;#123;&amp;#125; \;  2、输入电脑用户管理员密码，会开始进行删除，而这会需要一点时间，需要等一会。 3、彻底解决不让.DS_Store文件再产生，只需在终端执行以下命令，即可，若要将它开启时，只需改为false就可以 禁">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-27T16:29:23.786Z">
+<meta property="og:updated_time" content="2020-06-27T16:32:44.611Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -365,6 +365,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/macOS/" itemprop="url" rel="index">
+                    <span itemprop="name">macOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -402,7 +435,31 @@
       
 
       
-        
+        <p>1、打开终端，并执行以下命令行</p>
+<p><strong>查找系统所有<code>.DS_Store</code>文件并删除</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo find / -name <span class="string">".DS_Store"</span> -depth -<span class="built_in">exec</span> rm &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+
+<p>2、输入电脑用户管理员密码，会开始进行删除，而这会需要一点时间，需要等一会。</p>
+<p>3、彻底解决不让<code>.DS_Store</code>文件再产生，只需在终端执行以下命令，即可，若要将它开启时，只需改为false就可以</p>
+<p><strong>禁用或启用自动生成</strong></p>
+<p><strong>禁止<code>.DS_Store</code>生成：</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.desktopservices DSDontWriteNetworkStores <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>恢复<code>.DS_Store</code>生成：</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.desktopservices DSDontWriteNetworkStores <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>4、在项目中如何删除自动生成的<code>.DS_Store</code>文件？</p>
+<p>如果项目中还没有生成<code>.DS_Store</code>文件，那么直接将<code>.DS_Store</code>加入到<code>.gitignore</code>文件就可以。<br>如果项目中已存在<code>.DS_Store</code>文件，需先从项目中将其删除，然后再将它加入到<code>.gitignore</code>文件。</p>
+<p><strong>删除项目中所有的<code>.DS_Store</code>文件</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch</span><br></pre></td></tr></table></figure>
+
+<p><strong>将<code>.DS_Store</code>文件加入到<code>.gitignore</code></strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> .DS_Store &gt;&gt; ~/.gitignore</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a href="https://support.apple.com/en-us/HT1629" target="_blank" rel="noopener">Mac OS X v10.4 and later: How to prevent .DS_Store file creation over network connections</a></p>
+</blockquote>
+
       
     </div>
     
@@ -416,6 +473,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Mac/" rel="tag"># Mac</a>
+          
+            <a href="/tags/MacBook-Pro/" rel="tag"># MacBook Pro</a>
+          
+            <a href="/tags/macOS-Catalina/" rel="tag"># macOS Catalina</a>
+          
+        </div>
       
 
       
@@ -492,7 +559,16 @@
     <div class="sidebar-inner">
       
       
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -579,6 +655,19 @@
 
         </div>
       </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      <!--/noindex-->
       
       
     </div>
