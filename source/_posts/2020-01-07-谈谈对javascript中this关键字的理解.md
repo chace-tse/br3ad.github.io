@@ -692,6 +692,8 @@ bar.func2(); // this.func1 is not a function
 
 > 在严格版中的默认的`this`不再是`window`，而是`undefined。`
 
+**几条判断`this`指向的方法：**
+
 1、查看函数在哪被调用
 2、点左侧有没有对象？如果有，它就是 “`this`” 的引用。如果没有，继续往下。
 3、该函数是不是用 “`call`”、“`apply`” 或者 “`bind`” 调用的？如果是，它会显式地指明 “`this`” 的引用。如果没有，继续往下。
@@ -716,4 +718,4 @@ bar.func2(); // this.func1 is not a function
 > [*JavaScript中的call、apply、bind深入理解*](https://www.jianshu.com/p/00dc4ad9b83f)
 > [*彻底弄清 this call apply bind 以及原生实现*](https://juejin.im/post/5c813aa5f265da2dd94cd7c2)
 > [*如何在 JavaScript 中使用 apply()，call()，bind()*](https://juejin.im/post/5c8617d86fb9a049e93d8e4a)
-> [*面试官问：能否模拟实现JS的bind方法*](https://juejin.im/post/5bec4183f265da616b1044d7)
+> [JavaScript 函数调用](https://www.runoob.com/js/js-function-invocation.html)
