@@ -264,7 +264,7 @@ var bar = {
   },
   func2: function () {
     setTimeout(() => {
-      this.func1();
+      this.func1(); // 箭头函数没有单独的this绑定，必须通过查找作用域链来决定其值
     }, 100);
   }
 };
@@ -288,7 +288,7 @@ var bar = {
     console.log(this.name); // Br3ad
   },
   func2: function () {
-    var _that = this;
+    var _that = this; // 这里把对象bar的作用域保存起来给一个变量_that
     setTimeout( function () {
       _that.func1();
     }, 100);
@@ -336,8 +336,6 @@ var bar = {
 };
 bar.func2(); // Br3ad
 ```
-
-
 
 #### 使用[*`call()`*](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
 
@@ -468,9 +466,9 @@ var b = bar.fn;
 b.call(bar, 1, 2); // 3
 ```
 
-### `bind()`和`apply()`、`call()`的区别
+### [`bind()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)和[`apply()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)、[`call()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)的区别
 
-现在，将刚刚的例子使用`bind()`试一下
+现在，将刚刚的例子使用[`bind()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)试一下
 
 ```javascript
 // function.bind()()
@@ -488,6 +486,8 @@ b.bind(bar, 1, 2); // 到这一步并没有输出，这是因为bind()方法创�
 
 > `bind()` 方法创建一个新的函数，在 `bind()` 被调用时，这个新函数的 `this` 被指定为 `bind()` 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。
 
+所以我们可以看出，`bind()` 是创建一个新的函数，我们必须要手动去调用：
+
 ```javascript
 // function
 var bar = {
@@ -502,7 +502,7 @@ b.bind(bar, 1, 2)(); // 调用bind()方法创建的新函数，并正确输出�
 
 ---
 
-## JavaScript 中的函数调用
+## JavaScript 中的函数调用方式
 
 **例7：**
 
@@ -529,26 +529,26 @@ var bar = {
     console.log(this.name);
   },
   func2: function () {
-    setTimeout( function(){
+    setTimeout(function(){
       this.func1();
     }, 100)
   }
 };
-bar.func2()
+bar.func2(); // Uncaught TypeError: this.func1 is not a function
+// 这里调用setTimeout的是全局对象，this指向的也是全局对象，而全局对象中并没有`func1()`这个函数，所以这里会报错
 ```
 
 **函数调用的方法一共有 4 种**
-> + **作为一个函数调用**
-> + **函数作为方法调用**
-> + **使用构造函数调用函数**
-> + **作为函数方法调用函数（[`call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)、[`apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)）**
+> **作为一个函数调用**
+> **函数作为方法调用**
+> **使用构造函数调用函数**
+> **作为函数方法调用函数（[`call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)、[`apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)）**
 
-### 作为一个函数调用
+### 作为函数调用
 
 **比如上面的例子1：**
 
 **例1：**
-
 ```javascript
 // non-strict mode
 var name = 'windowsName';
@@ -560,7 +560,8 @@ function foo () {
 foo();
 console.log('outer:' + this); // outer: [object Window]
 ```
-这是一个简单的函数，在浏览器运行环境中的非严格模式(non-strict mode)默认是属于全局对象 `window` 的，在严格模式(strict mode)，就是 `undefined`。**这是一个全局的函数，很容易产生命名冲突，不建议这样使用。**
+
+这是一个简单的函数，在浏览器运行环境中的非严格模式(non-strict mode)默认是属于全局对象 `window` 的，在严格模式(strict mode)，this指向的就是 `undefined`。**这是一个全局的函数，很容易产生命名冲突，不建议这样使用。**
 
 ```javascript
 // strict mode
@@ -569,14 +570,71 @@ var name = 'windowsName';
 function foo () {
   var name = 'Br3ad';
   console.log(this.name);
-}
+};
+foo(); // Uncaught TypeError: Cannot read property 'name' of undefined
+// 这里使用的是严格模式，this指向的全局对象，而全局对象没有被定义所以是undefined，所以这里会报错
 ```
 
 ### 函数作为方法调用
 
-### 使用构造函数调用函数
+将函数作为对象的方法使用。比如：
 
-### 作为函数方法调用函数
+**例2：**
+
+```javascript
+var name = 'windowName';
+var foo = {
+  name: 'Br3ad',
+  fn: function () {
+    console.log(this.name); // Br3ad
+  }
+};
+foo.fn(); // Br3ad
+```
+
+这里定义一个对象`foo`，对象`foo`有一个属性(`name`)和一个方法(`fn`)。
+
+然后，对象`foo`通过`.`方法调用了其中的`fn`方法
+
+还记得那句话**“this永远指向最后调用它的那个对象”**，所以在`fn`中的`this`就是指向 `foo` 的
+
+### 作为构造函数调用函数
+
+> 构造函数：关键字new建一个对象并调用一个函数（这个函数称作构造函数 Constructor）初始化新对象的属性
+> 如果函数调用前使用了new运算符，则是调用了构造函数
+> 这看起来就像创建了新的函数，但实际上JavaScript函数是重新创建的对象
+
+```javascript
+// 构造函数
+function myFunction(arg1, arg2) {
+  this.firstName = arg1;
+  this.lastName = arg2;
+}
+var foo = new myFunction('Li', 'Cherry');
+foo.lastName; // 'Cherry'
+```
+
+new 的过程
+
+```javascript
+var foo = new myFunction('Li', 'Cherry');
+new myFunction {
+  var obj = {};
+  obj.__proto__ = myFunction.prototype;
+  var result = myFunction.call(obj, 'Li', 'Cherry');
+  return typeof result === 'object' ? result : obj;
+}
+```
+
+1、创建一个空对象obj；
+2、将新创建的空对象的隐式原型指向其构造函数的显示原型
+3、使用`call`改变`this`的指向
+4、如果无返回值或者返回一个非对象值，则将 obj 返回作为新对象；
+如果返回值是一个新对象的话那么直接直接返回该对象。
+
+可以看到，在new的过程中，使用`call`改变了this的指向
+
+### 通过它们的`call()`和`apply()`方法间接调用
 
 > JavaScript 中，函数是对象
 > JavaScript 函数有它的属性和方法。
@@ -630,56 +688,7 @@ bar.func2(); // this.func1 is not a function
 
 ---
 
-```
-`This` 是在你调用一个函数，但尚未执行函数内部代码前被指定。(查看参考链接中的执行环境的文章，这个阶段，实际就是初始化变量对象，在初始化变量对象的时候，确定了`this`的指向)实际上，`this`是 被调用的函数的父作用域 提供的
-
-+ 影响`this`的指向：
-+ 对象中的方法
-+ 事件绑定
-+ 构造函数
-+ 定时器
-+ 函数对象的`call()`、`apply()`
-
-
-
-this查找引用：
-
-隐式绑定
-显式绑定
-new 绑定
-window绑定
-
-### 隐式绑定
-
-### 显式绑定
-
-## `call()`
-
-> “call” 是每个函数都有的一个方法，它允许你在调用函数时为函数指定上下文。
-
-
-## `apply()`
-
-## `bind()`
-
-### new 绑定
-
-### window绑定
-
-如果其它规则都没满足，JavaScript就会默认 this 指向 window 对象。
-
-> *在 ES5 添加的 严格模式 中，JavaScript 不会默认 this 指向 window 对象，而会正确地把 this 保持为 undefined。*
-
-```javascript
-'use strict'
-window.age = 27;
-function sayAge () {
-  console.log(`My age is ${this.age}`);
-}
-sayAge(); // TypeError: Cannot read property 'age' of undefined
-```
-
-### 严格模式
+## 严格模式
 
 > 在严格版中的默认的`this`不再是`window`，而是`undefined。`
 
@@ -690,8 +699,7 @@ sayAge(); // TypeError: Cannot read property 'age' of undefined
 5、是否在“严格模式”下？如果是，“`this`” 就是 `undefined`，如果不是
 6、JavaScript，“`this`” 会指向 “`window`” 对象
 
-
-## 参考链接：
+## 参考链接
 
 > [稀土掘金-this、apply、call、bind](https://juejin.im/post/59bfe84351882531b730bac2)
 > [阮一峰-JavaScript 的 this 原理](https://www.ruanyifeng.com/blog/2018/06/javascript-this.html)
