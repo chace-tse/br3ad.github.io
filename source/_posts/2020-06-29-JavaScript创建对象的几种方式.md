@@ -1,12 +1,13 @@
 ---
 title: JavaScript创建对象的几种方式
-date: 2020-06-29 23:09:22
+date: 2020-07-08 14:14:24
 tags:
 - 前端
 - 前端面试题
+- Object
+- Create object
 - JavaScript object
-- javascript对象
-- object
+- 创建对象
 category:
 - [前端]
 - [JavaScript]
@@ -106,6 +107,7 @@ var r = new RegExp('js'); // 创建一个可以进行模式匹配的 RegExp 对�
 
 ## Prototype（原型）模式
 
+
 ## 工厂模式
 
 使用同一个接口创建很多对象，会产生大量的重复代码。为了解决这个问题，开始使用工厂模式的一种变体。
@@ -131,8 +133,35 @@ console.log(person2); // {name: "Nicholas", age: 29, gender: "female", job: "Doc
 
 ## Constructor（构造函数）模式
 
+ECMAScript 中的构造函数可用来创建特定类型的对象，像`Object`和`Array`这样的原生构造函数，在运行时会自动出现在执行环境中，也可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法
 
+```javascript
+function Person (name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = function() {
+    console.log(this.name);
+  };
+};
+var person1 = new Person('Br3ad', 18, 'Software Enginner');
+var person2 = new Person('Li', 29, 'Doctor');
 
+person1.sayName(); // 'Br3ad'
+person2.sayName(); // 'Li'
+```
+
+**构造函数执行的流程：**
+
+**对比工厂模式，可以发现以下区别：**
+
+1、没有显示地创建对象
+2、直接将属性和方法赋给了`this`对象；
+3、没有`return`语句
+
+按照管理，构造函数始终都应该以一个大写字母开头，而非构造函数则应该以一个小写字母开头。（借鉴其他OO语言，为了区别其他ECMAScript中的其他函数）
+
+构造函数本身也是函数，只不过可以用来创建对象
 
 ## Constructor（构造函数）+ Prototype（原型）模式
 
@@ -146,10 +175,24 @@ console.log(person2); // {name: "Nicholas", age: 29, gender: "female", job: "Doc
 
 ## ES5中提供[`Object.create()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)方法创建
 
+> [MDN-Object.create()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)方法创建一个新对象，使用现有的对象来提供新创建的对象的`__proto__`
+
+```javascript
+const person = {
+  isHuman: false,
+  sayHi: function () {
+    console.log(`my name is ${this.name}. Am I human ? ${this.isHum}`)
+  }
+}
+const me = Object.create(person);
+
+me.name = 'Chace Xie';
+me.isHuman = true; // inherited properties can be overwritten
+me.sayHi(); // my name is Chace Xie. Am I human ? true
+```
+
 ## 参考链接
 
 > [JS创建对象](https://blog.csdn.net/Luck_ZZ/article/details/102984112)
 > [JavaScript中创建对象的几种方式](https://juejin.im/post/5cb34b456fb9a0688a680676)
 > [js 创建对象的几种方式](https://segmentfault.com/a/1190000013003584)
-> [阮一峰-JavaScript封装](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)
-> [MDN-Object-create](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)

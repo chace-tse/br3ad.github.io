@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="前端面试题,前端,JavaScript object,javascript对象,object," />
+  <meta name="keywords" content="前端面试题,前端,Object,Create object,JavaScript object,创建对象," />
 
 
 
@@ -124,14 +124,14 @@
 
 
 <meta name="description" content="一般情况下，JS中创建对象的方式可以用构造函数Object或者对象字面量的方式，但需要创建几个具有相同属性或方法的对象时，就得写大量的冗余代码。故而出现了下述几种创建对象的方法。  使用对象字面量创建对象对象字面量是对象定义的一种简写方式，目的在于简化创建包含大量属性的对象的过程 123456789var person = &amp;#123;  name: &amp;apos;Br3ad&amp;apos;,  gender: &amp;apos;mal">
-<meta name="keywords" content="前端面试题,前端,JavaScript object,javascript对象,object">
+<meta name="keywords" content="前端面试题,前端,Object,Create object,JavaScript object,创建对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript创建对象的几种方式">
-<meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2020&#x2F;06&#x2F;29&#x2F;JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2020&#x2F;07&#x2F;08&#x2F;JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="Br3ad">
 <meta property="og:description" content="一般情况下，JS中创建对象的方式可以用构造函数Object或者对象字面量的方式，但需要创建几个具有相同属性或方法的对象时，就得写大量的冗余代码。故而出现了下述几种创建对象的方法。  使用对象字面量创建对象对象字面量是对象定义的一种简写方式，目的在于简化创建包含大量属性的对象的过程 123456789var person = &amp;#123;  name: &amp;apos;Br3ad&amp;apos;,  gender: &amp;apos;mal">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-30T01:36:30.959Z">
+<meta property="og:updated_time" content="2020-07-07T06:14:58.972Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -162,7 +162,7 @@
 
 
 
-  <link rel="canonical" href="http://imoldy.com/2020/06/29/JavaScript创建对象的几种方式/"/>
+  <link rel="canonical" href="http://imoldy.com/2020/07/08/JavaScript创建对象的几种方式/"/>
 
 
 
@@ -325,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2020/06/29/JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2020/07/08/JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Br3ad">
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-29T23:09:22+08:00">
-                2020-06-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-08T14:14:24+08:00">
+                2020-07-08
               </time>
             
 
@@ -406,8 +406,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/06/29/JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/06/29/JavaScript创建对象的几种方式/" itemprop="commentCount"></span>
+                <a href="/2020/07/08/JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/07/08/JavaScript创建对象的几种方式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -461,8 +461,21 @@
 <p>原理：通过将对象的创建封装到一个方法中，可以无数次调用这个函数 </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span> (<span class="params">name, age, gender, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">  o.name = name;</span><br><span class="line">  o.age = age;</span><br><span class="line">  o.gender = gender;</span><br><span class="line">  o.job = job;</span><br><span class="line">  o.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> o;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">'Br3ad'</span>, <span class="number">18</span>, <span class="string">'male'</span>, <span class="string">'Software Engineer'</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">'Nicholas'</span>, <span class="number">29</span>, <span class="string">'female'</span>, <span class="string">'Doctor'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person1); <span class="comment">// &#123;name: "Br3ad", age: 18, gender: "male", job: "Software Engineer", sayName: ƒunction () &#123;&#125; &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(person2); <span class="comment">// &#123;name: "Nicholas", age: 29, gender: "female", job: "Doctor", sayName: ƒunction () &#123;&#125; &#125;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Constructor（构造函数）模式"><a href="#Constructor（构造函数）模式" class="headerlink" title="Constructor（构造函数）模式"></a>Constructor（构造函数）模式</h2><h2 id="Constructor（构造函数）-Prototype（原型）模式"><a href="#Constructor（构造函数）-Prototype（原型）模式" class="headerlink" title="Constructor（构造函数）+ Prototype（原型）模式"></a>Constructor（构造函数）+ Prototype（原型）模式</h2><h2 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h2><h2 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h2><h2 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h2><h2 id="ES6中Class定义类"><a href="#ES6中Class定义类" class="headerlink" title="ES6中Class定义类"></a>ES6中Class定义类</h2><h2 id="ES5中提供Object-create-方法创建"><a href="#ES5中提供Object-create-方法创建" class="headerlink" title="ES5中提供Object.create()方法创建"></a>ES5中提供<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener"><code>Object.create()</code></a>方法创建</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
-<p><a href="https://blog.csdn.net/Luck_ZZ/article/details/102984112" target="_blank" rel="noopener">JS创建对象</a><br><a href="https://juejin.im/post/5cb34b456fb9a0688a680676" target="_blank" rel="noopener">JavaScript中创建对象的几种方式</a><br><a href="https://segmentfault.com/a/1190000013003584" target="_blank" rel="noopener">js 创建对象的几种方式</a><br><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" rel="noopener">阮一峰-JavaScript封装</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener">MDN-Object-create</a></p>
+<h2 id="Constructor（构造函数）模式"><a href="#Constructor（构造函数）模式" class="headerlink" title="Constructor（构造函数）模式"></a>Constructor（构造函数）模式</h2><p>ECMAScript 中的构造函数可用来创建特定类型的对象，像<code>Object</code>和<code>Array</code>这样的原生构造函数，在运行时会自动出现在执行环境中，也可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.job = job;</span><br><span class="line">  <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Br3ad'</span>, <span class="number">18</span>, <span class="string">'Software Enginner'</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">'Li'</span>, <span class="number">29</span>, <span class="string">'Doctor'</span>);</span><br><span class="line"></span><br><span class="line">person1.sayName(); <span class="comment">// 'Br3ad'</span></span><br><span class="line">person2.sayName(); <span class="comment">// 'Li'</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>构造函数执行的流程：</strong></p>
+<p><strong>对比工厂模式，可以发现以下区别：</strong></p>
+<p>1、没有显示地创建对象<br>2、直接将属性和方法赋给了<code>this</code>对象；<br>3、没有<code>return</code>语句</p>
+<p>按照管理，构造函数始终都应该以一个大写字母开头，而非构造函数则应该以一个小写字母开头。（借鉴其他OO语言，为了区别其他ECMAScript中的其他函数）</p>
+<p>构造函数本身也是函数，只不过可以用来创建对象</p>
+<h2 id="Constructor（构造函数）-Prototype（原型）模式"><a href="#Constructor（构造函数）-Prototype（原型）模式" class="headerlink" title="Constructor（构造函数）+ Prototype（原型）模式"></a>Constructor（构造函数）+ Prototype（原型）模式</h2><h2 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h2><h2 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h2><h2 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h2><h2 id="ES6中Class定义类"><a href="#ES6中Class定义类" class="headerlink" title="ES6中Class定义类"></a>ES6中Class定义类</h2><h2 id="ES5中提供Object-create-方法创建"><a href="#ES5中提供Object-create-方法创建" class="headerlink" title="ES5中提供Object.create()方法创建"></a>ES5中提供<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener"><code>Object.create()</code></a>方法创建</h2><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener">MDN-Object.create()</a>方法创建一个新对象，使用现有的对象来提供新创建的对象的<code>__proto__</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  isHuman: <span class="literal">false</span>,</span><br><span class="line">  sayHi: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`my name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>. Am I human ? <span class="subst">$&#123;<span class="keyword">this</span>.isHum&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> me = <span class="built_in">Object</span>.create(person);</span><br><span class="line"></span><br><span class="line">me.name = <span class="string">'Chace Xie'</span>;</span><br><span class="line">me.isHuman = <span class="literal">true</span>; <span class="comment">// inherited properties can be overwritten</span></span><br><span class="line">me.sayHi(); <span class="comment">// my name is Chace Xie. Am I human ? true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a href="https://blog.csdn.net/Luck_ZZ/article/details/102984112" target="_blank" rel="noopener">JS创建对象</a><br><a href="https://juejin.im/post/5cb34b456fb9a0688a680676" target="_blank" rel="noopener">JavaScript中创建对象的几种方式</a><br><a href="https://segmentfault.com/a/1190000013003584" target="_blank" rel="noopener">js 创建对象的几种方式</a></p>
 </blockquote>
 
       
@@ -485,11 +498,13 @@
           
             <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
           
+            <a href="/tags/Object/" rel="tag"># Object</a>
+          
+            <a href="/tags/Create-object/" rel="tag"># Create object</a>
+          
             <a href="/tags/JavaScript-object/" rel="tag"># JavaScript object</a>
           
-            <a href="/tags/javascript%E5%AF%B9%E8%B1%A1/" rel="tag"># javascript对象</a>
-          
-            <a href="/tags/object/" rel="tag"># object</a>
+            <a href="/tags/%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/" rel="tag"># 创建对象</a>
           
         </div>
       
@@ -502,8 +517,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/29/JavaScript%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%BB%A7%E6%89%BF%E6%96%B9%E6%A1%88/" rel="next" title="JavaScript中常用的继承方案">
-                <i class="fa fa-chevron-left"></i> JavaScript中常用的继承方案
+              <a href="/2020/07/07/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%9B%85%E8%99%8E%E5%86%9B%E8%A7%84/" rel="next" title="前端性能优化之雅虎军规">
+                <i class="fa fa-chevron-left"></i> 前端性能优化之雅虎军规
               </a>
             
           </div>
@@ -511,10 +526,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/30/%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3JavaScript%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F%E5%92%8C%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F/" rel="prev" title="彻底理解JavaScript函数的调用方式和传参方式">
-                彻底理解JavaScript函数的调用方式和传参方式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,8 +556,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2020/06/29/JavaScript创建对象的几种方式/"
-           data-title="JavaScript创建对象的几种方式" data-url="http://imoldy.com/2020/06/29/JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+      <div class="ds-thread" data-thread-key="2020/07/08/JavaScript创建对象的几种方式/"
+           data-title="JavaScript创建对象的几种方式" data-url="http://imoldy.com/2020/07/08/JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
       </div>
     </div>
 
@@ -598,7 +609,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -608,7 +619,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -618,7 +629,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

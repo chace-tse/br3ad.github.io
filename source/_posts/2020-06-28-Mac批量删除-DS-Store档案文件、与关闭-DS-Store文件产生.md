@@ -55,4 +55,3 @@ echo .DS_Store >> ~/.gitignore
 ## 参考链接
 
 > [Mac OS X v10.4 and later: How to prevent .DS_Store file creation over network connections](https://support.apple.com/en-us/HT1629)
-> 

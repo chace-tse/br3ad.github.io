@@ -29,6 +29,30 @@ category:
 
 ## 混入方式继承多个对象
 
+## [`Object.create`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)实现类式继承
+
+```javascript
+// Shape - superclass
+function Shape () {
+  this.x = 0;
+  this.y = 0;
+}
+// superclass method
+Shape.prototype.move = function (x, y) {
+  this.x += x;
+  this.y += y;
+  console.log('Shape moved')
+}
+
+// Rectangle - superclass
+function Rectangle() {
+  Shape.call(this); // call super constructor
+}
+
+// subclass extends superclass
+
+```
+
 ## ES6 `Class`类继承`extends`
 
 ## 参考链接
