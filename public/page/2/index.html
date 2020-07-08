@@ -325,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2020/06/28/Mac%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4-DS-Store%E6%A1%A3%E6%A1%88%E6%96%87%E4%BB%B6%E3%80%81%E4%B8%8E%E5%85%B3%E9%97%AD-DS-Store%E6%96%87%E4%BB%B6%E4%BA%A7%E7%94%9F/">
+    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2020/06/28/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3CSS%E4%B8%ADBFC%EF%BC%88Block-Formatting-Context%EF%BC%89%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E4%B8%8A%E4%B8%8B%E6%96%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Br3ad">
@@ -344,7 +344,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/06/28/Mac%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4-DS-Store%E6%A1%A3%E6%A1%88%E6%96%87%E4%BB%B6%E3%80%81%E4%B8%8E%E5%85%B3%E9%97%AD-DS-Store%E6%96%87%E4%BB%B6%E4%BA%A7%E7%94%9F/" itemprop="url">Mac批量删除.DS_Store档案文件、与关闭.DS_Store文件产生</a></h1>
+                <a class="post-title-link" href="/2020/06/28/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3CSS%E4%B8%ADBFC%EF%BC%88Block-Formatting-Context%EF%BC%89%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E4%B8%8A%E4%B8%8B%E6%96%87/" itemprop="url">深入理解CSS中BFC（Block Formatting Context）块级格式上下文</a></h1>
         
 
         <div class="post-meta">
@@ -356,7 +356,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-28T00:29:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-28T00:56:32+08:00">
                 2020-06-28
               </time>
             
@@ -379,8 +379,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -390,8 +390,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/macOS/" itemprop="url" rel="index">
-                    <span itemprop="name">macOS</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -408,8 +408,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/06/28/Mac%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4-DS-Store%E6%A1%A3%E6%A1%88%E6%96%87%E4%BB%B6%E3%80%81%E4%B8%8E%E5%85%B3%E9%97%AD-DS-Store%E6%96%87%E4%BB%B6%E4%BA%A7%E7%94%9F/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/06/28/Mac批量删除-DS-Store档案文件、与关闭-DS-Store文件产生/" itemprop="commentCount"></span>
+                <a href="/2020/06/28/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3CSS%E4%B8%ADBFC%EF%BC%88Block-Formatting-Context%EF%BC%89%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E4%B8%8A%E4%B8%8B%E6%96%87/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/06/28/深入理解CSS中BFC（Block-Formatting-Context）块级格式上下文/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -439,16 +439,13 @@
       
         
           
-          1、打开终端，并执行以下命令行
-查找系统所有.DS_Store文件并删除
-1sudo find / -name ".DS_Store" -depth -exec rm &#123;&#125; \;
+          常见定位方案普通流 (normal flow)
 
-2、输入电脑用户管理员密码，会开始进行删除，而这会需要一点时间，需要等一会。
-3、彻底解决不让.D
+在普通流中，元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/06/28/Mac%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4-DS-Store%E6%A1%A3%E6%A1%88%E6%96%87%E4%BB%B6%E3%80%81%E4%B8%8E%E5%85%B3%E9%97%AD-DS-Store%E6%96%87%E4%BB%B6%E4%BA%A7%E7%94%9F/#more" rel="contents">
+            <a class="btn" href="/2020/06/28/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3CSS%E4%B8%ADBFC%EF%BC%88Block-Formatting-Context%EF%BC%89%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E4%B8%8A%E4%B8%8B%E6%96%87/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2118,7 +2115,7 @@ set
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
