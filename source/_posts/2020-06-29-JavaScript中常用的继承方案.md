@@ -1,8 +1,14 @@
 ---
 title: JavaScript中常用的继承方案
 date: 2020-06-29 20:30:16
-tags:
+- 前端
+- 前端基础
+- JavaScript
+- JavaScript 基础
+- JavaScript 继承
 category:
+- [前端]
+- [JavaScript]
 ---
 
 > 大部分面向对象的编程语言，都是通过“类”（class）实现对象的继承。传统上，**JavaScript语言的继承不通过class，而是通过“原型对象”（prototype）实现**
