@@ -16,7 +16,6 @@ category:
 **什么是原型以及什么是原型链**
 
 > 原型（prototype）：
-
 > 原型链（prototype chain）：
 
 **JavaScript 继承机制的设计思想就是，原型对象的所有属性和方法，都能被实例对象共享**
@@ -70,5 +69,3 @@ function Rectangle() {
 > [阮一峰-javascript继承思想](Javascript继承机制的设计思想)
 > [阮一峰-javascript教程-对象与继承](https://javascript.ruanyifeng.com/oop/prototype.html)
 > [阮一峰-javascript教程-对象的继承](https://wangdoc.com/javascript/oop/prototype.html)
-
-https://juejin.im/post/5e2ff7dce51d4558021a1a4d
