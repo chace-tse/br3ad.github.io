@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="前端," />
+  <meta name="keywords" content="前端,前端性能优化," />
 
 
 
@@ -123,16 +123,16 @@
 
 
 
-<meta name="description" content="前端性能的一个重要指标是页面加载时间，不仅事关用户体验，也是搜索引擎排名考虑的一个因素。   如何提高网站的速度？ 页面内容（Page Content）服务器（Sever）CookieCSSJavaScript图片（image）移动端（Mobile）参考链接 Best Practices for Speeding Up Your Web Site Google Best Practices 前端性">
-<meta name="keywords" content="前端">
+<meta name="description" content="1、对前端性能优化的基础认知2、网络环境3、加载顺序4、本地存储：常用本地存储api 5、如何评定优化结果和收益SDK 前端性能的一个重要指标是页面加载时间，不仅事关用户体验，也是搜索引擎排名考虑的一个因素。   如何提高网站的速度？ 页面内容（Page Content）服务器（Sever）CookieCSSJavaScript图片（image）移动端（Mobile）参考链接 还在看那些老掉牙的性">
+<meta name="keywords" content="前端,前端性能优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端性能优化之雅虎军规">
-<meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2020&#x2F;07&#x2F;07&#x2F;%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%9B%85%E8%99%8E%E5%86%9B%E8%A7%84&#x2F;index.html">
+<meta property="og:title" content="前端性能优化">
+<meta property="og:url" content="http:&#x2F;&#x2F;imoldy.com&#x2F;2020&#x2F;07&#x2F;07&#x2F;%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96&#x2F;index.html">
 <meta property="og:site_name" content="Br3ad">
-<meta property="og:description" content="前端性能的一个重要指标是页面加载时间，不仅事关用户体验，也是搜索引擎排名考虑的一个因素。   如何提高网站的速度？ 页面内容（Page Content）服务器（Sever）CookieCSSJavaScript图片（image）移动端（Mobile）参考链接 Best Practices for Speeding Up Your Web Site Google Best Practices 前端性">
+<meta property="og:description" content="1、对前端性能优化的基础认知2、网络环境3、加载顺序4、本地存储：常用本地存储api 5、如何评定优化结果和收益SDK 前端性能的一个重要指标是页面加载时间，不仅事关用户体验，也是搜索引擎排名考虑的一个因素。   如何提高网站的速度？ 页面内容（Page Content）服务器（Sever）CookieCSSJavaScript图片（image）移动端（Mobile）参考链接 还在看那些老掉牙的性">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;imoldy.com&#x2F;images&#x2F;yahoo_preformance_rules.png">
-<meta property="og:updated_time" content="2020-07-07T10:48:33.796Z">
+<meta property="og:updated_time" content="2020-07-14T15:57:43.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;imoldy.com&#x2F;images&#x2F;yahoo_preformance_rules.png">
 
@@ -164,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="http://imoldy.com/2020/07/07/前端性能优化之雅虎军规/"/>
+  <link rel="canonical" href="http://imoldy.com/2020/07/07/前端性能优化/"/>
 
 
 
 
 
-  <title>前端性能优化之雅虎军规 | Br3ad</title>
+  <title>前端性能优化 | Br3ad</title>
   
 
 
@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2020/07/07/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%9B%85%E8%99%8E%E5%86%9B%E8%A7%84/">
+    <link itemprop="mainEntityOfPage" href="http://imoldy.com/2020/07/07/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Br3ad">
@@ -344,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端性能优化之雅虎军规</h1>
+          <h1 class="post-title" itemprop="name headline">前端性能优化</h1>
         
 
         <div class="post-meta">
@@ -397,8 +397,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/07/07/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%9B%85%E8%99%8E%E5%86%9B%E8%A7%84/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/07/07/前端性能优化之雅虎军规/" itemprop="commentCount"></span>
+                <a href="/2020/07/07/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/07/07/前端性能优化/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -426,16 +426,22 @@
       
 
       
-        <p>前端性能的一个重要指标是页面加载时间，不仅事关用户体验，也是搜索引擎排名考虑的一个因素。</p>
+        <p>1、对前端性能优化的基础认知<br>2、网络环境<br>3、加载顺序<br>4、本地存储：常用本地存储api</p>
+<p>5、如何评定优化结果和收益<br>SDK</p>
+<p>前端性能的一个重要指标是页面加载时间，不仅事关用户体验，也是搜索引擎排名考虑的一个因素。</p>
 <p><img src="../../../../images/yahoo_preformance_rules.png" alt="yahoo-web-preformance"></p>
 <hr>
 <p><strong>如何提高网站的速度？</strong></p>
 <h2 id="页面内容（Page-Content）"><a href="#页面内容（Page-Content）" class="headerlink" title="页面内容（Page Content）"></a>页面内容（Page Content）</h2><h2 id="服务器（Sever）"><a href="#服务器（Sever）" class="headerlink" title="服务器（Sever）"></a>服务器（Sever）</h2><h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h2 id="图片（image）"><a href="#图片（image）" class="headerlink" title="图片（image）"></a>图片（image）</h2><h2 id="移动端（Mobile）"><a href="#移动端（Mobile）" class="headerlink" title="移动端（Mobile）"></a>移动端（Mobile）</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://developer.yahoo.com/performance/rules.html?guccounter=1" target="_blank" rel="noopener">Best Practices for Speeding Up Your Web Site</a></li>
-<li><a href="https://developers.google.com/speed/docs/insights/rules" target="_blank" rel="noopener">Google Best Practices</a></li>
-<li><a href="https://juejin.im/post/5b73ef38f265da281e048e51" target="_blank" rel="noopener">前端性能优化之雅虎35条军规</a></li>
-<li><a href="https://www.cnblogs.com/rubylouvre/p/3471490.html" target="_blank" rel="noopener">司徒正美-用CSS开启硬件加速来提高网站性能（转）</a></li>
-<li><a href="https://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css" target="_blank" rel="noopener">Increase Your Site’s Performance with Hardware-Accelerated CSS</a></li>
+<li><a href="https://juejin.im/post/5f0b056de51d45349917bf16" target="_blank" rel="noopener"><em>还在看那些老掉牙的性能优化文章么？这些最新性能指标了解下</em></a></li>
+<li><a href="https://developer.yahoo.com/performance/rules.html?guccounter=1" target="_blank" rel="noopener"><em>Best Practices for Speeding Up Your Web Site</em></a></li>
+<li><a href="https://developers.google.com/speed/docs/insights/rules" target="_blank" rel="noopener"><em>Google Best Practices</em></a></li>
+<li><a href="https://juejin.im/post/5b73ef38f265da281e048e51" target="_blank" rel="noopener"><em>前端性能优化之雅虎35条军规</em></a></li>
+<li><a href="https://www.cnblogs.com/rubylouvre/p/3471490.html" target="_blank" rel="noopener"><em>司徒正美-用CSS开启硬件加速来提高网站性能（转）</em></a></li>
+<li><a href="https://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css" target="_blank" rel="noopener"><em>Increase Your Site’s Performance with Hardware-Accelerated CSS</em></a></li>
+<li><a href="http://www.imooc.com/learn/50" target="_blank" rel="noopener"><em>imooc-Yahoo军规</em></a></li>
+<li><a href="http://www.imooc.com/learn/580" target="_blank" rel="noopener"><em>前端性能优化-基础知识认知</em></a></li>
+<li><a href="http://www.imooc.com/learn/866" target="_blank" rel="noopener"><em>前端性能优化-通用的缓存SDK</em></a></li>
 </ul>
 
       
@@ -455,6 +461,8 @@
         <div class="post-tags">
           
             <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag"># 前端性能优化</a>
           
         </div>
       
@@ -510,8 +518,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2020/07/07/前端性能优化之雅虎军规/"
-           data-title="前端性能优化之雅虎军规" data-url="http://imoldy.com/2020/07/07/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%9B%85%E8%99%8E%E5%86%9B%E8%A7%84/">
+      <div class="ds-thread" data-thread-key="2020/07/07/前端性能优化/"
+           data-title="前端性能优化" data-url="http://imoldy.com/2020/07/07/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
       </div>
     </div>
 
@@ -563,7 +571,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -573,7 +581,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -583,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
