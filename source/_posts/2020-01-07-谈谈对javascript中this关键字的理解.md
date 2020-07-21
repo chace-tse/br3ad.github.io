@@ -700,6 +700,7 @@ bar.func2(); // this.func1 is not a function
 4、该函数是不是用 “`new`” 调用的？如果是，“`this`” 指向的就是 `JavaScript` 解释器新创建的对象。如果没有，继续往下。
 5、是否在“严格模式”下？如果是，“`this`” 就是 `undefined`，如果不是
 6、JavaScript，“`this`” 会指向 “`window`” 对象
+7、匿名函数的执行环境`this`具有全局性，其`this`对象通常指向`window`（听过`call()`或`apply()`改变函数执行环境的情况下，`this`就会指向其他对象）
 
 ## 参考链接
 
