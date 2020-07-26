@@ -706,6 +706,7 @@ bar.func2(); // this.func1 is not a function
 
 > [稀土掘金-this、apply、call、bind](https://juejin.im/post/59bfe84351882531b730bac2)
 > [阮一峰-JavaScript 的 this 原理](https://www.ruanyifeng.com/blog/2018/06/javascript-this.html)
+> [阮一峰-Javascript 的 this 用法](https://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html)
 > [javascript this指向](https://note.youdao.com/ynoteshare1/index.html?id=b2fab3b044aa90033395df0c8c9ca3a4&type=note)
 > [*How to use the apply(), call(), and bind() methods in JavaScript*](https://www.freecodecamp.org/news/how-to-use-the-apply-call-and-bind-methods-in-javascript-80a8e6096a90/)
 > [*Understanding This, Bind, Call, and Apply in JavaScript*](https://www.taniarascia.com/this-bind-call-apply-javascript/)

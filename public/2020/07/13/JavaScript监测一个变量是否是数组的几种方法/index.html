@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="Br3ad">
 <meta property="og:description" content="在JavaScript中，数据类型检测有如下方法： 12345typeofinstanceofconstructorObject.prototype.toString.callArray.isArray  typeof() typeof 操作符返回一个字符串，表示未经计算的操作数的类型。  1234567891011121314151617&#x2F;&#x2F; 基本类型console.log(typeof nul">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-13T11:15:36.567Z">
+<meta property="og:updated_time" content="2020-07-24T09:24:19.767Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -446,7 +446,7 @@
       
 
       
-        <p>在JavaScript中，数据类型检测有如下方法：</p>
+        <p><strong>在JavaScript中，数据类型检测有如下方法：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span></span><br><span class="line"><span class="keyword">instanceof</span></span><br><span class="line"><span class="keyword">constructor</span></span><br><span class="line">Object.prototype.toString.call</span><br><span class="line">Array.isArray</span><br></pre></td></tr></table></figure>
 
 <h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof" target="_blank" rel="noopener"><code>typeof()</code></a></h2><blockquote>
@@ -486,14 +486,13 @@
 <h2 id="ES5中的APIArray-isArray"><a href="#ES5中的APIArray-isArray" class="headerlink" title="ES5中的APIArray.isArray()"></a>ES5中的API<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray" target="_blank" rel="noopener"><code>Array.isArray()</code></a></h2><blockquote>
 <p>ES5中新增了一个方法：<code>Array.isArray()</code> 用于确定传递的值是否是一个 <code>Array</code>。（只支持IE9+、Firefox 4+、Safari 5+、Opera 10.5+和Chrome，IE8之前的版本不兼容）</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">foo</span>: <span class="number">123</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.isArray(array); <span class="comment">// true;</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">// true;</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(obj); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">undefined</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="built_in">Array</span>.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">foo</span>: <span class="number">123</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.isArray(array); <span class="comment">// true;</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">// true;</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(obj); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">undefined</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">null</span>); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="built_in">Array</span>.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>最佳写法：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [&#123; <span class="attr">abc</span>: <span class="number">1</span>, <span class="attr">abc</span>: <span class="number">2</span>&#125;];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArrayFn</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Array</span>.isArray === <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(value);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">'[object Array]'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isArrayFn(arr)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(isArrayFn(arr2)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
-
 <h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof" target="_blank" rel="noopener">MDN-JavaScript <code>typeof</code></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="noopener">MDN-JavaScript ‘instanceof’</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString" target="_blank" rel="noopener">MDN-JavaScript <code>Object.toString</code></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray" target="_blank" rel="noopener">MDN-JavaScript <code>Array.isArray</code></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/GetPrototypeOf" target="_blank" rel="noopener">MDN-JavaScript <code>Object.getPrototypeOf()</code></a><br><a href=""></a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof" target="_blank" rel="noopener">MDN-JavaScript <code>typeof</code></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="noopener">MDN-JavaScript ‘instanceof’</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString" target="_blank" rel="noopener">MDN-JavaScript <code>Object.toString</code></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray" target="_blank" rel="noopener">MDN-JavaScript <code>Array.isArray</code></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/GetPrototypeOf" target="_blank" rel="noopener">MDN-JavaScript <code>Object.getPrototypeOf()</code></a><br><a href="https://segmentfault.com/a/1190000006150186" target="_blank" rel="noopener">在JavaScript中，如何判断数组是数组？</a></p>
 </blockquote>
 
       
@@ -629,7 +628,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -639,7 +638,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -649,7 +648,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-count">104</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

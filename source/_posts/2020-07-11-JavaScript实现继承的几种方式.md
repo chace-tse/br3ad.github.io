@@ -57,7 +57,6 @@ category:
 
 ### 混入方式继承多个对象
 
-
 ### [`Object.create`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)实现类式继承
 
 ```javascript

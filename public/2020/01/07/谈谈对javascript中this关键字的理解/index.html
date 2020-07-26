@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="Br3ad">
 <meta property="og:description" content="MDN JavaScript thisJavaScript Function.prototype.call()JavaScript Function.prototype.apply()JavaScript Function.prototype.bind()  this的概念理解 this 永远指向一个对象，并且指向最后调用它的那个对象；this 的指向完全取决于函数调用的位置；  this的指向">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-21T04:41:20.876Z">
+<meta property="og:updated_time" content="2020-07-21T04:44:43.067Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -659,7 +659,7 @@
 <p><strong>几条判断<code>this</code>指向的方法：</strong></p>
 <p>1、查看函数在哪被调用<br>2、点左侧有没有对象？如果有，它就是 “<code>this</code>” 的引用。如果没有，继续往下。<br>3、该函数是不是用 “<code>call</code>”、“<code>apply</code>” 或者 “<code>bind</code>” 调用的？如果是，它会显式地指明 “<code>this</code>” 的引用。如果没有，继续往下。<br>4、该函数是不是用 “<code>new</code>” 调用的？如果是，“<code>this</code>” 指向的就是 <code>JavaScript</code> 解释器新创建的对象。如果没有，继续往下。<br>5、是否在“严格模式”下？如果是，“<code>this</code>” 就是 <code>undefined</code>，如果不是<br>6、JavaScript，“<code>this</code>” 会指向 “<code>window</code>” 对象<br>7、匿名函数的执行环境<code>this</code>具有全局性，其<code>this</code>对象通常指向<code>window</code>（听过<code>call()</code>或<code>apply()</code>改变函数执行环境的情况下，<code>this</code>就会指向其他对象）</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
-<p><a href="https://juejin.im/post/59bfe84351882531b730bac2" target="_blank" rel="noopener">稀土掘金-this、apply、call、bind</a><br><a href="https://www.ruanyifeng.com/blog/2018/06/javascript-this.html" target="_blank" rel="noopener">阮一峰-JavaScript 的 this 原理</a><br><a href="https://note.youdao.com/ynoteshare1/index.html?id=b2fab3b044aa90033395df0c8c9ca3a4&type=note" target="_blank" rel="noopener">javascript this指向</a><br><a href="https://www.freecodecamp.org/news/how-to-use-the-apply-call-and-bind-methods-in-javascript-80a8e6096a90/" target="_blank" rel="noopener"><em>How to use the apply(), call(), and bind() methods in JavaScript</em></a><br><a href="https://www.taniarascia.com/this-bind-call-apply-javascript/" target="_blank" rel="noopener"><em>Understanding This, Bind, Call, and Apply in JavaScript</em></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><em>Function.prototype.apply()</em></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><em>Function.prototype.call()</em></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><em>Function.prototype.bind()</em></a><br><a href="https://juejin.im/post/5b9f176b6fb9a05d3827d03f" target="_blank" rel="noopener"><em>理解 JavaScript 中的 this、call、apply 和 bind</em></a><br><a href="https://tylermcginnis.com/this-keyword-call-apply-bind-javascript/" target="_blank" rel="noopener"><em>Understanding the “this” keyword, call, apply, and bind in JavaScript</em></a><br><a href="https://juejin.im/post/5c876ba96fb9a049ae08bc63" target="_blank" rel="noopener"><em>JavaScript 之 this 指南</em></a><br><a href="https://zhuanlan.zhihu.com/p/71553017" target="_blank" rel="noopener"><em>javascript 基础之 call, apply, bind</em></a><br><a href="https://www.jianshu.com/p/00dc4ad9b83f" target="_blank" rel="noopener"><em>JavaScript中的call、apply、bind深入理解</em></a><br><a href="https://juejin.im/post/5c813aa5f265da2dd94cd7c2" target="_blank" rel="noopener"><em>彻底弄清 this call apply bind 以及原生实现</em></a><br><a href="https://juejin.im/post/5c8617d86fb9a049e93d8e4a" target="_blank" rel="noopener"><em>如何在 JavaScript 中使用 apply()，call()，bind()</em></a><br><a href="https://www.runoob.com/js/js-function-invocation.html" target="_blank" rel="noopener">JavaScript 函数调用</a></p>
+<p><a href="https://juejin.im/post/59bfe84351882531b730bac2" target="_blank" rel="noopener">稀土掘金-this、apply、call、bind</a><br><a href="https://www.ruanyifeng.com/blog/2018/06/javascript-this.html" target="_blank" rel="noopener">阮一峰-JavaScript 的 this 原理</a><br><a href="https://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html" target="_blank" rel="noopener">阮一峰-Javascript 的 this 用法</a><br><a href="https://note.youdao.com/ynoteshare1/index.html?id=b2fab3b044aa90033395df0c8c9ca3a4&type=note" target="_blank" rel="noopener">javascript this指向</a><br><a href="https://www.freecodecamp.org/news/how-to-use-the-apply-call-and-bind-methods-in-javascript-80a8e6096a90/" target="_blank" rel="noopener"><em>How to use the apply(), call(), and bind() methods in JavaScript</em></a><br><a href="https://www.taniarascia.com/this-bind-call-apply-javascript/" target="_blank" rel="noopener"><em>Understanding This, Bind, Call, and Apply in JavaScript</em></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><em>Function.prototype.apply()</em></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><em>Function.prototype.call()</em></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><em>Function.prototype.bind()</em></a><br><a href="https://juejin.im/post/5b9f176b6fb9a05d3827d03f" target="_blank" rel="noopener"><em>理解 JavaScript 中的 this、call、apply 和 bind</em></a><br><a href="https://tylermcginnis.com/this-keyword-call-apply-bind-javascript/" target="_blank" rel="noopener"><em>Understanding the “this” keyword, call, apply, and bind in JavaScript</em></a><br><a href="https://juejin.im/post/5c876ba96fb9a049ae08bc63" target="_blank" rel="noopener"><em>JavaScript 之 this 指南</em></a><br><a href="https://zhuanlan.zhihu.com/p/71553017" target="_blank" rel="noopener"><em>javascript 基础之 call, apply, bind</em></a><br><a href="https://www.jianshu.com/p/00dc4ad9b83f" target="_blank" rel="noopener"><em>JavaScript中的call、apply、bind深入理解</em></a><br><a href="https://juejin.im/post/5c813aa5f265da2dd94cd7c2" target="_blank" rel="noopener"><em>彻底弄清 this call apply bind 以及原生实现</em></a><br><a href="https://juejin.im/post/5c8617d86fb9a049e93d8e4a" target="_blank" rel="noopener"><em>如何在 JavaScript 中使用 apply()，call()，bind()</em></a><br><a href="https://www.runoob.com/js/js-function-invocation.html" target="_blank" rel="noopener">JavaScript 函数调用</a></p>
 </blockquote>
 
       
@@ -793,7 +793,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -803,7 +803,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -813,7 +813,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-count">104</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

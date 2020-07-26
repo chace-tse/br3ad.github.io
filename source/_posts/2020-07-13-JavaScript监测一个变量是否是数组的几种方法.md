@@ -13,7 +13,7 @@ category:
 - [JavaScript原型]
 ---
 
-在JavaScript中，数据类型检测有如下方法：
+**在JavaScript中，数据类型检测有如下方法：**
 
 ```javascript
 typeof
@@ -121,8 +121,6 @@ if (Array.isArray(value)) {
 
 ## 用`constructor`方法
 
-
-
 ## [`Object.prototype.toString.call()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
 
 > `toString()` 方法返回一个表示该对象的字符串。
@@ -137,7 +135,7 @@ if (Array.isArray(value)) {
 
 ```javascript
 let array = [1, 2, 3];
-let obj = {foo: 123};
+let obj = { foo: 123 };
 
 Array.isArray(array); // true;
 Array.isArray([]); // true;
@@ -165,7 +163,6 @@ console.log(isArrayFn(arr)); // true
 console.log(isArrayFn(arr2)); // true
 ```
 
-
 ## 参考连接
 
 > [MDN-JavaScript `typeof`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof)
@@ -173,4 +170,4 @@ console.log(isArrayFn(arr2)); // true
 > [MDN-JavaScript `Object.toString`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
 > [MDN-JavaScript `Array.isArray`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
 > [MDN-JavaScript `Object.getPrototypeOf()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/GetPrototypeOf)
-> []()
+> [在JavaScript中，如何判断数组是数组？](https://segmentfault.com/a/1190000006150186)
