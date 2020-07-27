@@ -52,9 +52,7 @@ console.log(1 === true); // false
 ```
 
 **缺点：**
-
 使用`===`全等（严格比较）运算符来比较两个值不能有效地处理`NaN`(非数字的`number`类型)和`NaN`(非数字的`number`类型)以及处理负零`-0`，这个时候就需要用到`Object.is()`方法来进行比较
-
 
 ## [`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
 
@@ -82,6 +80,8 @@ console.log(Object.is('1', 1)); // false
 console.log(Object.is('1', '1'); // true
 console.log(Object.is(1, true)); // false
 ```
+
+`Object.is(+0, 0)` 是 `false`, `Object.is(NaN, NaN)` 是 `true`
 
 ## `==`相等运算符、`===`全等（严格比较）运算符、`Object.is()`的区别
 

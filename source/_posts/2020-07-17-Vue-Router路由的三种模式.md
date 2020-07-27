@@ -4,7 +4,7 @@ date: 2020-07-17 19:09:50
 tags:
 - Vue
 - 前端
-- Vue路由模式
+- Vue-Router
 category:
 - [Vue]
 - [前端]
