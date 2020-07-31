@@ -31,7 +31,6 @@ category:
 > 原型：
 
 > `prototype`属性：每一个函数都有一个`prototype`属性，这个属性是指向一个对象的引用，这个对象称作“原型对象”（prototype object）每一个函数都包含不同的原型对象。将函数用作构造函数的时候，新创建的对象会从原型对象上继承属性和方法。
-
 > 原型链（prototype chain）：
 
 ## JavaScript中实现对象的继承
