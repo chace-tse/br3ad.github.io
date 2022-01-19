@@ -129,11 +129,11 @@ scheme: Mist
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  E-Mail: mailto:moldybr3ad@gmail.com || envelope
-  GitHub: https://github.com/br3ad || github
+  E-Mail: mailto:tochacexie@gmail.com || envelope
+  GitHub: https://github.com/chace-tse || github
   微博: https://weibo.com/835876986 || weibo
   豆瓣: https://www.douban.com/people/moldy_bread/ || user
-  Instagram: https://www.instagram.com/chacexxie/ || instagram
+  #Instagram: https://www.instagram.com/chacexxie/ || instagram
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
 

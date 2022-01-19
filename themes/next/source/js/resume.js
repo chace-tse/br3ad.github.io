@@ -1,12 +1,11 @@
 /*!
-  * Resume For Xie Chang Chun
-  * Author: @Chacexie
-  * Update：2020 / 06 / 19
+  * Resume For Chace Tse
+  * Author: @Chacetse
+  * Update：2022 / 01 / 19
   * Tel: 13671012707
-  * @Email: moldybr3ad[at]gmail.com
-  * @Github: https://github.com/br3ad
+  * @Email: tochacexie[at]gmail.com
+  * @Github: https://github.com/chace-tse
   * @Sina Weibo：https://weibo.com/835876986
-  * @Instagram：https://www.instagram.com/chacexxie/
 */
 
 window.onload = function () {
