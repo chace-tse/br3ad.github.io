@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>how to keep footers at the bottom of the page(4).</title>
+  <style>
+    /*!
+     * How To Keep Footers At The Bottom Of The Page （Four）
+     * Support Browser：Chrome、Firefox、Opera
+    */
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      display: -webkit-flex; /* For Wekbit */
+      display: -ms-flexbox; /* For IE */
+      display: flex;
+      flex-flow: column;     /* Boyd sub elements in vertical direction */
+      min-height: 100vh;  /* Occupy the entire viewport height */
+      color: #fff;
+      text-align: center;
+      font-size: 1.25em;
+    }
+    .header {
+      padding: .5em 0;
+      background: #1671b3;
+      text-transform: capitalize;
+    }
+    .content {
+      -webkit-flex: 1;
+      flex: 1; /* Safari and IE are not support */ 
+      color: #000;
+    }
+    .footer {
+      padding: 1em 0;
+      background: #363636;
+      text-transform: capitalize;
+    }
+  </style>
+</head>
+<body>
+  <!--  Sticky Footer -->
+  <div class="header">Header Section</div>
+  <!-- /header -->
+  <div class="content">Test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test.</div>
+  <!-- /content -->
+  <div class="footer">Footer Section</div>
+  <!-- /footer -->
+</body>
+</html>

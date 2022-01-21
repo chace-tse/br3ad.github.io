@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS3 Box Layout column aliquots.</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    /*!
+      * CSS3 Box Layout column aliquots
+     */
+    .box {
+      display: -webkit-box;
+      padding: 15em;
+      display: box;
+      height: 5em;
+      line-height: 5em;
+      overflow: hidden;
+      text-transform: capitalize;
+    }
+    .item {
+      width: 0;
+      color: #fff;
+      font-size: 2em;
+      font-weight: 600;
+      -webkit-box-flex: 1;
+      box-flex: 1;
+      -webkit-box-pack: center;
+      box-pack: center;
+      -webkit-box-align: center;
+      box-align: center;
+      text-align: center;
+    }
+    .item-one{
+      -webkit-box-flex: 2;
+      box-flex: 2;
+    }
+    .box .item:nth-child(1) {
+      background-color: #2196F3;
+    }
+    .box .item:nth-child(2) {
+      background-color: #9C27B0;
+    }
+    .box .item:nth-child(3) {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">CSS3 box layout column aliquots.</h2>
+  <div class="box">
+    <div class="item item-one">column 1</div>
+    <div class="item">column 2</div>
+    <div class="item">column 3</div>
+  </div>
+  <!-- /box -->
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Counter.</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    /*!
+     * Counter
+    */
+    .counter-list {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      list-style: none;
+      width: 360px;
+      max-width: 360px;
+      padding: 1em;
+      counter-reset: item;
+      background-color: rgba(29, 31, 32, 0.8);
+    }
+    .counter-list > .item {
+      overflow: hidden;
+      position: relative;
+      height: 21px;
+      margin: 10px 0;
+      cursor: pointer;
+      color: #fff;
+      font: 14px/21px "Microsoft Yahei";
+    }
+    .counter-list > .item:before {
+      display: inline-block;
+      vertical-align: middle;
+      counter-increment: item;
+      content: counter(item)"";
+      width: 18px;
+      height: 18px;
+      margin: 0 10px;
+      border-radius: 50%;
+      text-align: center;
+      background-color: #9c3c38;
+      font: 300 14px/18px "Microsoft Yahei";
+    }
+    .counter-list > .item:hover:before {
+      -webkit-animation: Rotates 1s 1 linear;
+      animation: Rotates 1s 1 linear;
+    }
+    @keyframes Rotates {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(360deg);
+      }
+    }
+    @-webkit-keyframes Rotates {
+      0%,
+      100% {
+        -webkit-transform: rotate(0deg);
+      }
+      50% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">CSS counter.</h2>
+  <ul class="counter-list">
+    <li class="item">test</li>
+    <li class="item">test</li>
+    <li class="item">test</li>
+    <li class="item">test</li>
+    <li class="item">test</li>
+    <li class="item">test</li>
+    <li class="item">test</li>
+    <li class="item">test</li>
+    <li class="item">test</li>
+    <li class="item">test</li>
+  </ul>
+  <!-- /counter-list -->
+</body>
+</html>

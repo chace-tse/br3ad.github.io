@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS element horizontal vertical center.</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    body {
+      height: 100vh;
+      text-align: center;
+      font-size: 0;
+    }
+    body:before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+      width: 1%;
+    }
+    /*!
+     * Title 
+    */
+    .title {
+      padding: 2em;
+      font-size: 16px;
+      font-weight: 100;
+      color: #fff;
+      text-align: center;
+      text-transform: capitalize;
+      display: inline-block;
+      vertical-align: middle;
+      background-color: rgba(135, 19, 59, .8);
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">CSS element horizontal vertical center.</h2>
+</body>
+</html>

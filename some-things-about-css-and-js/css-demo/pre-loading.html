@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Preloader</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    /*!
+      * CSS Preloader
+    */
+    /*!
+     * Preloader
+    */
+    .preloader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 390px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .preloader > li {
+      opacity: 0;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 18px;
+      border-radius: 100%;
+      line-height: 1;
+      color: #fff;
+    }
+    @keyframes loading-box-preloader {
+      0% {
+        opacity: 1;
+        transform: translateX(-300px);
+      }
+
+      54%,
+      56% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(300px);
+      }
+    }
+    .preloader > li:nth-child(6) {
+      -webkit-animation: loading-box-preloader 3s infinite ease-in-out;
+      animation: loading-box-preloader 3s infinite ease-in-out;
+    }
+    .preloader > li:nth-child(5) {
+      -webkit-animation: loading-box-preloader 3s .1s infinite ease-in-out;
+      animation: loading-box-preloader 3s .1s infinite ease-in-out;
+    }
+    .preloader > li:nth-child(4) {
+      -webkit-animation: loading-box-preloader 3s .2s infinite ease-in-out;
+      animation: loading-box-preloader 3s .2s infinite ease-in-out;
+    }
+    .preloader > li:nth-child(3) {
+      -webkit-animation: loading-box-preloader 3s .3s infinite ease-in-out;
+      animation: loading-box-preloader 3s .3s infinite ease-in-out;
+    }
+    .preloader > li:nth-child(2) {
+      -webkit-animation: loading-box-preloader 3s 350ms infinite ease-in-out;
+      animation: loading-box-preloader 3s 350ms infinite ease-in-out;
+    }
+    .preloader > li:nth-child(1) {
+      -webkit-animation: loading-box-preloader 3s .4s infinite ease-in-out;
+      animation: loading-box-preloader 3s .4s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">CSS preloader.</h2>
+  <ul class="preloader">
+    <li>•</li>
+    <li>•</li>
+    <li>•</li>
+    <li>•</li>
+    <li>•</li>
+    <li>•</li>
+  </ul>
+  <!-- /preloader -->
+</body>
+</html>

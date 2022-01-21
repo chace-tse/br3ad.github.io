@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="../../css/font-awesome-4.7.0.min.css" rel="stylesheet">
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    /*!
+     * Back To Top Button
+    */
+    .placeholder-element {
+      padding: 2em 0;
+      margin: 1em 0;
+      color: #fff;
+      font-size: 2em;
+      text-transform: capitalize;
+      text-align: center;
+    }
+   .btn-back-to-up {
+      display: none;
+      z-index: 9999;
+      position: fixed;
+      right: 15px;
+      bottom: 100px;
+      text-align: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      font-size: 0;
+      line-height: 0;
+      text-shadow: none;
+      border: 0 none;
+      color: transparent;
+      transition: all .5s;
+      background-color: #515151;
+      cursor: pointer;
+      text-decoration: none;
+   }
+   .btn-back-to-up .icon-arrow-up {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      color: #fff;
+   }
+  </style>
+  <title>Back To Top</title>
+</head>
+<body>
+  <div class="placeholder-element">placeholder-element</div>
+  <div class="placeholder-element">placeholder-element</div>
+  <div class="placeholder-element">placeholder-element</div>
+  <div class="placeholder-element">placeholder-element</div>
+  <div class="placeholder-element">placeholder-element</div>
+  <div class="placeholder-element">placeholder-element</div>
+  <div class="placeholder-element">placeholder-element</div>
+  <div class="placeholder-element">placeholder-element</div>
+  <div class="placeholder-element">placeholder-element</div>
+  <div class="placeholder-element">placeholder-element</div>
+  <a id="btnBackToTop" class="btn-back-to-up"><i class="fa fa-arrow-up icon-arrow-up" aria-hidden="true"></i>Back To Top</a>
+  <script>
+    window.onload = function(){
+    var oBtn = document.getElementById("btnBackToTop");
+      // 获取文档的高度
+      var clientHeight = document.documentElement.clientHeight;
+      var time = null;
+      var isTop = true;
+      var cancelScroll = false;
+      window.onscroll = function(){
+        // 浏览器窗口滚动时执行
+        // 获取浏览器距离顶部滚动距离
+        var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollHeight >= clientHeight) {
+          oBtn.style.display = 'block';
+        } else {
+          oBtn.style.display = 'none';
+        }
+        if (!isTop) {
+          clearInterval(time);
+        }
+        isTop = false;
+      }
+      oBtn.onclick = function(){
+          // 绑定按钮的点击事件
+          if (cancelScroll == false) {
+            // 设置定时器，使按钮点击返回顶部时的效果更顺滑
+            time = setInterval(function(){
+              var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+              var isSpeed = Math.floor(-scrollHeight / 10);
+              document.documentElement.scrollTop = document.body.scrollTop = scrollHeight + isSpeed;
+              isTop = true;
+              if (scrollHeight == 0){
+                clearInterval(time);
+              }
+            }, 30);
+          } else {
+            clearInterval(time);
+            cancelScroll = true;
+          }
+      }
+    }
+  </script>
+</body>
+</html>
