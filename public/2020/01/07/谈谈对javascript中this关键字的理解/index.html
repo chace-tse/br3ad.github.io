@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端面试题,前端,JavaScript this,JavaScript 作用域问题," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="MDN JavaScript thisJavaScript Function.prototype.call()JavaScript Function.prototype.apply()JavaScript Function.prototype.bind()  this的概念理解 this 永远指向一个对象，并且指向最后调用它的那个对象；this 的指向完全取决于函数调用的位置；  this的指向">
+<meta name="keywords" content="前端面试题,前端,JavaScript this,JavaScript 作用域问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈谈对JavaScript中this、call()、apply()、bind()的理解">
+<meta property="og:url" content="http:&#x2F;&#x2F;imooldy.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;%E8%B0%88%E8%B0%88%E5%AF%B9javascript%E4%B8%ADthis%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3&#x2F;index.html">
+<meta property="og:site_name" content="Chace Tse">
+<meta property="og:description" content="MDN JavaScript thisJavaScript Function.prototype.call()JavaScript Function.prototype.apply()JavaScript Function.prototype.bind()  this的概念理解 this 永远指向一个对象，并且指向最后调用它的那个对象；this 的指向完全取决于函数调用的位置；  this的指向">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2022-01-20T11:00:49.048Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://imooldy.com/2020/01/07/谈谈对javascript中this关键字的理解/"/>
+
+
+
+
+
+  <title>谈谈对JavaScript中this、call()、apply()、bind()的理解 | Chace Tse</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chace Tse<span class="site-title-sub"> 的博客</span></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-building"></i> <br />
+            
+            Projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-movies">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-film"></i> <br />
+            
+            Movies
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-reading">
+          <a href="/reading/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Reading
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imooldy.com/2020/01/07/%E8%B0%88%E8%B0%88%E5%AF%B9javascript%E4%B8%ADthis%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chace Tse">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my_photo_1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chace Tse">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">谈谈对JavaScript中this、call()、apply()、bind()的理解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-07T12:12:11+08:00">
+                2020-01-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/07/%E8%B0%88%E8%B0%88%E5%AF%B9javascript%E4%B8%ADthis%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/01/07/谈谈对javascript中this关键字的理解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="MDN"><a href="#MDN" class="headerlink" title="MDN"></a>MDN</h2><blockquote>
+<p><em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener"><code>JavaScript this</code></a></em><br><em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><code>JavaScript Function.prototype.call()</code></a></em><br><em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><code>JavaScript Function.prototype.apply()</code></a></em><br><em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><code>JavaScript Function.prototype.bind()</code></a></em></p>
+</blockquote>
+<h2 id="this的概念理解"><a href="#this的概念理解" class="headerlink" title="this的概念理解"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener"><em><code>this</code>的概念</em></a>理解</h2><blockquote>
+<p><strong><em><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener"><code>this</code></a> 永远指向一个对象，并且指向最后调用它的那个对象；</em></strong><br><strong><em><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener"><code>this</code></a> 的指向完全取决于函数调用的位置；</em></strong></p>
+</blockquote>
+<h2 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener"><em><code>this</code></em></a>的指向</h2><blockquote>
+<p><em>在绝大多数情况下，函数的调用方式决定了<code>this</code>的值。<code>this</code>不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用的，ES2015 引入了支持this词法解析的箭头函数（它在闭合的执行环境内设置this的值）。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener">(来自MDN)</a></em></p>
+</blockquote>
+<!-- > **`this` 永远指向最后调用它的那个对象**
+> **`this` 永远指向一个对象；**
+> **`this` 的指向完全取决于函数调用的位置；**
+> **`this` 会根据运行环境的改变而改变，同时，函数中的`this`也只能在运行时才能最终确定运行环境；**
+> **如果返回值是一个对象，那么`this`指向的就是那个返回的对象，如果返回值不是一个对象那么`this`还是指向函数的实例。** -->
+<h3 id="全局环境-Global-context"><a href="#全局环境-Global-context" class="headerlink" title="全局环境(Global context)"></a>全局环境(Global context)</h3><blockquote>
+<p><em>无论是否在严格模式下，在全局执行环境中（在任何函数体外部）<code>this</code> 都指向全局对象 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener">(来自MDN)</a></em></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conosole.log(<span class="keyword">this</span> === <span class="built_in">window</span>); <span class="comment">// true</span></span><br><span class="line">a = <span class="number">37</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// 37</span></span><br><span class="line"><span class="keyword">this</span>.b = <span class="string">'Br3ad'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b); <span class="comment">// Br3ad</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函数（运行内）环境-Function-context"><a href="#函数（运行内）环境-Function-context" class="headerlink" title="函数（运行内）环境(Function context)"></a>函数（运行内）环境(Function context)</h3><blockquote>
+<p><em>在函数内部，<code>this</code>的值取决于函数被调用的方式。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener">(来自MDN)</a></em></p>
+</blockquote>
+<h4 id="简单调用"><a href="#简单调用" class="headerlink" title="简单调用"></a>简单调用</h4><p><strong>非严格模式下：</strong><br>因为下面的代码不在严格模式下，且 <code>this</code> 的值不是由该调用设置的，所以 <code>this</code> 的值默认指向全局对象(<code>window</code>)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// non-strict mode</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 在浏览器中：</span></span><br><span class="line">func1() === <span class="built_in">window</span>; <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 在node中：</span></span><br><span class="line">func1() === global; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>严格模式下：</strong><br><code>this</code>将保持他进入执行环境时的值，所以下面的<code>this</code>将会默认为<code>undefined</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// strict mode</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br><span class="line">func2 === <span class="literal">undefined</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>所以，可以得出结论在严格模式下，如果 <code>this</code> 没有被执行环境（execution context）定义，那它将保持为 <code>undefined</code>。</p>
+<p><strong>首先，来看下面一个简单的例子：</strong></p>
+<p><strong>例 1：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Br3ad'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// windowsName</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'inner: '</span> + <span class="keyword">this</span>); <span class="comment">// [Object Window]</span></span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'outer: '</span> + <span class="keyword">this</span>); <span class="comment">// [Object Window]</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么这里<code>console.log</code>是 windowsName？</p>
+<p>因为<strong>“<code>this</code>永远指向最后调用它的那个对象”</strong>，调用<code>foo</code>的地方<code>foo()</code>，前面没有调用的对象那么就是指向全局对象 <code>Object window</code>，相当于<code>window.foo()</code></p>
+<p>这里没有使用严格模式，如果使用严格模式的情况下，全局对象就是<code>undefined</code>，那么就会报错<code>Uncaught TypeError: Cannot read property &#39;name&#39; of undefined</code></p>
+<p><strong>请看下面的例子：</strong></p>
+<p><strong>例 2：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Use Strict Mode</span></span><br><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Br3ad'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'inner: '</span> + <span class="keyword">this</span>); <span class="comment">// inner: undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// Uncaught TypeError: Cannot read property 'name' of undefined</span></span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'outer: '</span> + <span class="keyword">this</span>); <span class="comment">// [Object Window]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>再看下面的例子：</strong></p>
+<p><strong>例 3：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// Br3ad</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">bar.fn(); <span class="comment">// Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，函数 <code>fn</code> 是对象 <code>bar</code> 调用的，所以打印的值就是 <code>bar</code> 中的 <code>name</code> 的值。</p>
+<p><strong>基于上面的例子，再做个改动：</strong></p>
+<p><strong>例 4：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// Br3ad</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">window</span>.bar.fn(); <span class="comment">// Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<p>这里<code>console.log</code>为<code>Br3ad</code>，最后调用它的对象是<code>bar</code>,还是因为<strong>“<code>this</code> 永远指向最后调用它的那个对象”</strong></p>
+<p><strong>再来看下面这个例子：</strong></p>
+<p><strong>例 5：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  <span class="comment">// name: 'Br3ad',</span></span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">window</span>.bar.fn(); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么<code>console.log</code>会打印<code>undefined</code>呢？</p>
+<p>因为，如刚刚所描述的那样，调用<code>fn</code>的是<code>bar</code>这个对象，也就是说<code>fn</code>内部的<code>this</code>是对象<code>bar</code>，而对象<code>bar</code>中并没有对<code>name</code>字段进行定义，所以<code>console.log</code>的<code>this.name</code>的值为<code>undefined</code>。</p>
+<p>这个例子还是印证了刚才的结论：<strong>this 永远指向最后调用它的那个对象</strong>，因为最后调用<code>fn</code>的对象是<code>bar</code>，所以就算<code>bar</code>中没有<code>name</code>这个属性，也不会继续向上一个对象寻找<code>this.name</code>，而是直接输出<code>undefined</code>。</p>
+<p><strong>再来看一个复杂点的例子：</strong></p>
+<p><strong>例 6：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// windowsName</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fun = bar.fn;</span><br><span class="line">fun(); <span class="comment">// windowsName</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么这里<code>console.log</code>打印出的不是<code>Br3ad</code>？因为虽然<code>bar</code>对象的<code>fn</code>方法赋值给了变量<code>fun</code>了，但是没有调用，回到之前我们的结论：<strong>“this 永远指向最后调用它的那个对象”</strong>，由于刚刚的<code>fun</code>并没有调用，所以<code>fn()</code>最后仍然是被<code>window</code>调用的。所以这里<code>this</code>指向的也就是<code>window</code>。</p>
+<p>以上的例子，不难发现<code>this</code>的指向并不是在创建的时候就可以确定的，在 <code>es5</code> 中，永远是：<strong><code>this</code> 永远指向最后调用它的那个对象</strong></p>
+<p><strong>再来看一个例子：</strong></p>
+<p><strong>例 7：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowName'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Br3ad'</span>;</span><br><span class="line">  innerFunction();</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">innerFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// windowsName</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">fn(); <span class="comment">// windowsName</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="怎么改变-this-的指向"><a href="#怎么改变-this-的指向" class="headerlink" title="怎么改变 this 的指向?"></a>怎么改变 <code>this</code> 的指向?</h2><p>改变this的指向主要有以下几种方法：</p>
+<ul>
+<li>使用<code>ES6</code>的<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener"><code>箭头函数(Arrow function expressions)</code></a></li>
+<li>在函数内部使用<code>_this = this</code></li>
+<li>使用<code>apply()</code>、<code>call()</code>、<code>bind()</code></li>
+<li><code>new</code> 实例化一个对象</li>
+</ul>
+<p><strong>请看下面的例子：</strong></p>
+<p><strong>例子8：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  func1: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);  <span class="comment">// this.func1 is not a function</span></span><br><span class="line">  &#125;,</span><br><span class="line">  func2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.func1();</span><br><span class="line">    &#125;, <span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">bar.func2(); <span class="comment">// this.func1 is not a function</span></span><br></pre></td></tr></table></figure>
+
+<p>在不使用箭头函数的情况下，是会报错的，因为最后调用<code>setTimeout</code>的对象是<code>window</code>，但是在<code>window</code>中并没有<code>func1</code>函数。</p>
+<p>在改变 <code>this</code> 指向这一节将把这个例子作为 <code>Demo</code> 进行改造</p>
+<p>那么，箭头函数是如何实现的？</p>
+<h3 id="箭头函数（Arrow-function-expressions）"><a href="#箭头函数（Arrow-function-expressions）" class="headerlink" title="箭头函数（Arrow function expressions）"></a>箭头函数（Arrow function expressions）</h3><hr>
+<p><strong>箭头函数的 <code>this</code> 始终指向函数定义时的 <code>this</code>，而非执行时。</strong>记住：“箭头函数没有单独的<code>this</code>绑定，必须通过查找作用域链来决定其值，如果箭头函数被非箭头函数包含，则 <code>this</code> 绑定的是最近一层非箭头函数的 <code>this</code>，否则，<code>this</code> 为 <code>undefined</code>(箭头函数会从自己的作用域链的上一层继承<code>this</code>)”。</p>
+<p><strong>请看下面的例子：</strong></p>
+<p><strong>例9：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  func1: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// Br3ad</span></span><br><span class="line">  &#125;,</span><br><span class="line">  func2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.func1(); <span class="comment">// 箭头函数没有单独的this绑定，必须通过查找作用域链来决定其值</span></span><br><span class="line">    &#125;, <span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">bar.func2(); <span class="comment">// Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在函数内部使用-that-this"><a href="#在函数内部使用-that-this" class="headerlink" title="在函数内部使用_that = this"></a>在函数内部使用<code>_that = this</code></h3><hr>
+<p>如果不使用ES6，那么这种方式应该是最简单的不会出错的方式，先将调用这个函数的对象保存在变量<code>_this</code>中，然后在函数中都是用这个<code>_that</code>，这样<code>_that</code>就不会改变了。</p>
+<p><strong>请看下面的例子：</strong></p>
+<p><strong>例10：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  func1: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// Br3ad</span></span><br><span class="line">  &#125;,</span><br><span class="line">  func2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _that = <span class="keyword">this</span>; <span class="comment">// 这里把对象bar的作用域保存起来给一个变量_that</span></span><br><span class="line">    setTimeout( <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      _that.func1();</span><br><span class="line">    &#125;, <span class="number">100</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">bar.func2(); <span class="comment">// Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<p>这个例子中，在<code>func2</code>中，首先设置<code>var _that = this;</code>，这里的<code>this</code>是调用func2的对象<code>bar</code>，为了防止在<code>func2</code>中的<code>setTimeout</code>被<code>window</code>调用而导致的在<code>setTimeout</code>中的<code>this</code>为<code>window</code>。将<code>this(指向变量bar)</code>赋值给一个变量<code>_that</code>，这样，在<code>func2</code>中使用<code>_that</code>就是指向对象<code>bar</code>了。</p>
+<h3 id="使用-apply-、call-、bind"><a href="#使用-apply-、call-、bind" class="headerlink" title="使用 apply()、call()、bind()"></a>使用 <code>apply()</code>、<code>call()</code>、<code>bind()</code></h3><p>使用<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><code>apply()</code></a>、<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><code>call()</code></a>、<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><code>bind()</code></a>函数也是可以改变<code>this</code>的指向，先来看一下是怎么实现的：</p>
+<h4 id="使用apply"><a href="#使用apply" class="headerlink" title="使用apply()"></a>使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><em><code>apply()</code></em></a></h4><p>来看看MDN对<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><code>apply()</code></a>的用法定义：</p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><code>apply()</code></a>方法调用一个具有给定<code>this</code>值的函数，以及作为一个数组（或类似数组对象）提供的参数</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>.<span class="title">apply</span>(<span class="params">thisArg, [argsArray]</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>请看下面的例子：</strong></p>
+<p><strong>例11：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function.apply()</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  func1: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// Br3ad</span></span><br><span class="line">  &#125;,</span><br><span class="line">  func2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.func1(); <span class="comment">// Br3ad</span></span><br><span class="line">    &#125;.apply(bar), <span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">bar.func2(); <span class="comment">// Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用call"><a href="#使用call" class="headerlink" title="使用call()"></a>使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><em><code>call()</code></em></a></h4><p>来看看MDN对<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><code>call()</code></a>的用法定义：</p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><code>call()</code></a>方法使用一个指定的 <code>this</code> 值和单独给出的一个或多个参数来调用一个函数。</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>.<span class="title">call</span>(<span class="params">thisArg, arg1, arg2, arg3, ar4, ...</span>);</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>请看下面的例子：</strong></p>
+<p><strong>例子12：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function.call()</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  func1: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// Br3ad</span></span><br><span class="line">  &#125;,</span><br><span class="line">  func2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout( <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.func1();</span><br><span class="line">    &#125;.call(bar), <span class="number">100</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">bar.func2(); <span class="comment">// Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用bind"><a href="#使用bind" class="headerlink" title="使用bind()"></a>使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><em><code>bind()</code></em></a></h4><p>来看看MDN对<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><code>bind()</code></a>的用法定义：</p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><code>bind()</code></a>方法创建一个新的函数，在 <code>bind()</code> 被调用时，这个新函数的 <code>this</code> 被指定为 <code>bind()</code> 的第一个参数，而其余参数将作为新函数的参数，供调用时使用</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>.<span class="title">bind</span>(<span class="params">thisArg[, arg1[, arg2[, ...]]]</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>请看下面的例子：</strong></p>
+<p><strong>例子13</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function.bind()</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  func1: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// Br3ad</span></span><br><span class="line">  &#125;,</span><br><span class="line">  func2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.func1();</span><br><span class="line">    &#125;.bind(bar)(), <span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">bar.func2(); <span class="comment">// Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JavaScript-中-call-、apply-、bind-的区别？"><a href="#JavaScript-中-call-、apply-、bind-的区别？" class="headerlink" title="JavaScript 中 call()、apply()、bind()的区别？"></a>JavaScript 中 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><code>call()</code></a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><code>apply()</code></a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><code>bind()</code></a>的区别？</h2><p>现在，我们都知道使用<code>call()</code>、<code>apply()</code>、<code>bind()</code>函数都可以改变JavaScript中<code>this</code>的指向，但是这三个函数稍有不同。</p>
+<p>在<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><code>MDN</code></a>中定义<code>apply()</code>如下：</p>
+<blockquote>
+<p><code>apply()</code> 方法调用一个具有给定<code>this</code>值的函数，以及作为一个数组（或类似数组对象）提供的参数</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>.<span class="title">apply</span>(<span class="params">thisArg, [argsArray]</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>参数：</strong></p>
+<blockquote>
+<p><code>thisArg</code>(必须) 在 <code>func</code> 函数运行时使用的 <code>this</code> 值。请注意，<code>this</code>可能不是该方法看到的实际值：如果这个函数处于非严格模式下，则指定为 <code>null</code> 或 <code>undefined</code> 时会自动替换为指向全局对象，原始值会被包装。</p>
+</blockquote>
+<blockquote>
+<p><code>argsArray</code>(可选) 一个数组或者类数组对象，其中的数组元素将作为单独的参数传给 <code>func</code> 函数。如果该参数的值为 <code>null</code> 或  <code>undefined</code>，则表示不需要传入任何参数。从<code>ECMAScript 5</code>开始可以使用类数组对象。</p>
+</blockquote>
+<h3 id="apply-和-call-的区别"><a href="#apply-和-call-的区别" class="headerlink" title="apply() 和 call() 的区别"></a><code>apply()</code> 和 <code>call()</code> 的区别</h3><p><code>apply()</code> 和 <code>call()</code> 基本类似，他们的区别只是传入的参数不同</p>
+<p>call()的语法为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>.<span class="title">call</span>(<span class="params">thisArg, arg1, arg2, ...</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p><code>apply()</code>和<code>call()</code>的区别就是：</p>
+<blockquote>
+<p><strong><code>call()</code>方法接受的是若干个参数列表，而<code>apply()</code>接收的是一个包含多个参数的数组。</strong></p>
+</blockquote>
+<p><strong>请看下面的例子：</strong></p>
+<p><strong>例子14：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function.apply()</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a + b); <span class="comment">// 3</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b = bar.fn;</span><br><span class="line">b.apply(bar, [<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>例子15：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function.call()</span></span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a + b); <span class="comment">// 3</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b = bar.fn;</span><br><span class="line">b.call(bar, <span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="bind-和apply-、call-的区别"><a href="#bind-和apply-、call-的区别" class="headerlink" title="bind()和apply()、call()的区别"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><code>bind()</code></a>和<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><code>apply()</code></a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><code>call()</code></a>的区别</h3><p>现在，将刚刚的例子使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><code>bind()</code></a>试一下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function.bind()()</span></span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a + b);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b = bar.fn;</span><br><span class="line">b.bind(bar, <span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 到这一步并没有输出，这是因为bind()方法创建了一个新函数，需要进一步调用才能执行</span></span><br></pre></td></tr></table></figure>
+
+<p>会发现并没有输出，这是为什么呢，我们来看一下 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><code>MDN</code></a> 上的文档说明：</p>
+<blockquote>
+<p><code>bind()</code> 方法创建一个新的函数，在 <code>bind()</code> 被调用时，这个新函数的 <code>this</code> 被指定为 <code>bind()</code> 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。</p>
+</blockquote>
+<p>所以我们可以看出，<code>bind()</code> 是创建一个新的函数，我们必须要手动去调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function</span></span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a + b); <span class="comment">// 3</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b = bar.fn; <span class="comment">// 到这一步并没有输出，这是因为bind()方法创建了一个新函数，需要进一步调用才能执行</span></span><br><span class="line">b.bind(bar, <span class="number">1</span>, <span class="number">2</span>)(); <span class="comment">// 调用bind()方法创建的新函数，并正确输出了结果：3</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="JavaScript-中的函数调用方式"><a href="#JavaScript-中的函数调用方式" class="headerlink" title="JavaScript 中的函数调用方式"></a>JavaScript 中的函数调用方式</h2><p><strong>例7：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Br3ad'</span>;</span><br><span class="line">  innerFunction();</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">innerFunction</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// windowsName</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+
+<p><strong>例8：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  func1: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">  func2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.func1();</span><br><span class="line">    &#125;, <span class="number">100</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">bar.func2(); <span class="comment">// Uncaught TypeError: this.func1 is not a function</span></span><br><span class="line"><span class="comment">// 这里调用setTimeout的是全局对象，this指向的也是全局对象，而全局对象中并没有`func1()`这个函数，所以这里会报错</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>函数调用的方法一共有 4 种</strong></p>
+<blockquote>
+<p><strong>作为一个函数调用</strong><br><strong>函数作为方法调用</strong><br><strong>使用构造函数调用函数</strong><br><strong>作为函数方法调用函数（<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><code>call()</code></a>、<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><code>apply()</code></a>）</strong></p>
+</blockquote>
+<h3 id="作为函数调用"><a href="#作为函数调用" class="headerlink" title="作为函数调用"></a>作为函数调用</h3><p><strong>比如上面的例子1：</strong></p>
+<p><strong>例1：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// non-strict mode</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Br3ad'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// windowsName</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'inner:'</span> + <span class="keyword">this</span>); <span class="comment">// inner: [object Window]</span></span><br><span class="line">&#125;;</span><br><span class="line">foo();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'outer:'</span> + <span class="keyword">this</span>); <span class="comment">// outer: [object Window]</span></span><br></pre></td></tr></table></figure>
+
+<p>这是一个简单的函数，在浏览器运行环境中的非严格模式(non-strict mode)默认是属于全局对象 <code>window</code> 的，在严格模式(strict mode)，this指向的就是 <code>undefined</code>。<strong>这是一个全局的函数，很容易产生命名冲突，不建议这样使用。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// strict mode</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Br3ad'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line">foo(); <span class="comment">// Uncaught TypeError: Cannot read property 'name' of undefined</span></span><br><span class="line"><span class="comment">// 这里使用的是严格模式，this指向的全局对象，而全局对象没有被定义所以是undefined，所以这里会报错</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函数作为方法调用"><a href="#函数作为方法调用" class="headerlink" title="函数作为方法调用"></a>函数作为方法调用</h3><p>将函数作为对象的方法使用。比如：</p>
+<p><strong>例2：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowName'</span>;</span><br><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// Br3ad</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">foo.fn(); <span class="comment">// Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<p>这里定义一个对象<code>foo</code>，对象<code>foo</code>有一个属性(<code>name</code>)和一个方法(<code>fn</code>)。</p>
+<p>然后，对象<code>foo</code>通过<code>.</code>方法调用了其中的<code>fn</code>方法</p>
+<p>还记得那句话<strong>“this永远指向最后调用它的那个对象”</strong>，所以在<code>fn</code>中的<code>this</code>就是指向 <code>foo</code> 的</p>
+<h3 id="作为构造函数调用函数"><a href="#作为构造函数调用函数" class="headerlink" title="作为构造函数调用函数"></a>作为构造函数调用函数</h3><blockquote>
+<p>构造函数：关键字new建一个对象并调用一个函数（这个函数称作构造函数 Constructor）初始化新对象的属性<br>如果函数调用前使用了new运算符，则是调用了构造函数<br>这看起来就像创建了新的函数，但实际上JavaScript函数是重新创建的对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">arg1, arg2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstName = arg1;</span><br><span class="line">  <span class="keyword">this</span>.lastName = arg2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> myFunction(<span class="string">'Li'</span>, <span class="string">'Cherry'</span>);</span><br><span class="line">foo.lastName; <span class="comment">// 'Cherry'</span></span><br></pre></td></tr></table></figure>
+
+<p>new 的过程</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> myFunction(<span class="string">'Li'</span>, <span class="string">'Cherry'</span>);</span><br><span class="line"><span class="keyword">new</span> myFunction &#123;</span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">  obj.__proto__ = myFunction.prototype;</span><br><span class="line">  <span class="keyword">var</span> result = myFunction.call(obj, <span class="string">'Li'</span>, <span class="string">'Cherry'</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> result === <span class="string">'object'</span> ? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1、创建一个空对象obj；<br>2、将新创建的空对象的隐式原型指向其构造函数的显示原型<br>3、使用<code>call</code>改变<code>this</code>的指向<br>4、如果无返回值或者返回一个非对象值，则将 obj 返回作为新对象；<br>如果返回值是一个新对象的话那么直接直接返回该对象。</p>
+<p>可以看到，在new的过程中，使用<code>call</code>改变了this的指向</p>
+<h3 id="通过它们的call-和apply-方法间接调用"><a href="#通过它们的call-和apply-方法间接调用" class="headerlink" title="通过它们的call()和apply()方法间接调用"></a>通过它们的<code>call()</code>和<code>apply()</code>方法间接调用</h3><blockquote>
+<p>JavaScript 中，函数是对象<br>JavaScript 函数有它的属性和方法。<br><code>call()</code>和<code>apply()</code>是预定义的函数方法。两个方法可用于调用函数，两个方法的第一个参数必须是对象本身<br>JavaScript 严格模式（strict mode）下，在调用函数时第一个参数会成为<code>this</code>的值，即使该参数不是一个对象<br>JavaScript 非严格模式（non-strict mode）下，如果第一个参数的值是<code>null</code>或<code>undefined</code>，它将使用全局对象替代。</p>
+</blockquote>
+<p><strong>再来看例子6:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Br3ad'</span>;</span><br><span class="line">  innerFunction();</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">innerFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">// windowsName</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+
+<p>这里的<code>innerFunction()</code>的调用属于第一种调用方式：作为一个函数调用（作为一个函数调用、没有挂载在任何对象上，所以对于没有挂载在任何对象的函数，在非严格模式（non-strict mode）下就是指向window的）</p>
+<p><strong>然后再看一下例7:</strong></p>
+<p><strong>例7：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'windowsName'</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  func1: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">  func2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.func1()</span><br><span class="line">    &#125;, <span class="number">100</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">bar.func2(); <span class="comment">// this.func1 is not a function</span></span><br></pre></td></tr></table></figure>
+
+<p>得出结论，可以简单理解为：<strong>匿名函数的<code>this</code>永远指向<code>window</code></strong></p>
+<p>在这之前，我们得出结论：<strong><code>this</code>永远指向最后调用它的那个对象</strong>，那么去找最后调用匿名函数的对象，<br>但是因为匿名函数没有名字，所以没有办法被其他对象调用匿名函数的。所以：<strong>匿名函数的 <code>this</code> 永远指向 <code>window</code></strong></p>
+<p>那么问题来了，匿名函数是如何被定义的？匿名函数是自执行的，就是在匿名函数后面加<code>()</code>让其自执行。其次就是虽然匿名函数不能被其他对象调用，但是可以被其他函数调用，比如<strong>例7</strong>中的<code>setTimeout</code></p>
+<hr>
+<h2 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h2><blockquote>
+<p>在严格版中的默认的<code>this</code>不再是<code>window</code>，而是<code>undefined。</code></p>
+</blockquote>
+<p><strong>几条判断<code>this</code>指向的方法：</strong></p>
+<p>1、查看函数在哪被调用<br>2、点左侧有没有对象？如果有，它就是 “<code>this</code>” 的引用。如果没有，继续往下。<br>3、该函数是不是用 “<code>call</code>”、“<code>apply</code>” 或者 “<code>bind</code>” 调用的？如果是，它会显式地指明 “<code>this</code>” 的引用。如果没有，继续往下。<br>4、该函数是不是用 “<code>new</code>” 调用的？如果是，“<code>this</code>” 指向的就是 <code>JavaScript</code> 解释器新创建的对象。如果没有，继续往下。<br>5、是否在“严格模式”下？如果是，“<code>this</code>” 就是 <code>undefined</code>，如果不是<br>6、JavaScript，“<code>this</code>” 会指向 “<code>window</code>” 对象<br>7、匿名函数的执行环境<code>this</code>具有全局性，其<code>this</code>对象通常指向<code>window</code>（听过<code>call()</code>或<code>apply()</code>改变函数执行环境的情况下，<code>this</code>就会指向其他对象）</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a href="https://juejin.im/post/59bfe84351882531b730bac2" target="_blank" rel="noopener">稀土掘金-this、apply、call、bind</a><br><a href="https://www.ruanyifeng.com/blog/2018/06/javascript-this.html" target="_blank" rel="noopener">阮一峰-JavaScript 的 this 原理</a><br><a href="https://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html" target="_blank" rel="noopener">阮一峰-Javascript 的 this 用法</a><br><a href="https://note.youdao.com/ynoteshare1/index.html?id=b2fab3b044aa90033395df0c8c9ca3a4&type=note" target="_blank" rel="noopener">javascript this指向</a><br><a href="https://www.freecodecamp.org/news/how-to-use-the-apply-call-and-bind-methods-in-javascript-80a8e6096a90/" target="_blank" rel="noopener"><em>How to use the apply(), call(), and bind() methods in JavaScript</em></a><br><a href="https://www.taniarascia.com/this-bind-call-apply-javascript/" target="_blank" rel="noopener"><em>Understanding This, Bind, Call, and Apply in JavaScript</em></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener"><em>Function.prototype.apply()</em></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener"><em>Function.prototype.call()</em></a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener"><em>Function.prototype.bind()</em></a><br><a href="https://juejin.im/post/5b9f176b6fb9a05d3827d03f" target="_blank" rel="noopener"><em>理解 JavaScript 中的 this、call、apply 和 bind</em></a><br><a href="https://tylermcginnis.com/this-keyword-call-apply-bind-javascript/" target="_blank" rel="noopener"><em>Understanding the “this” keyword, call, apply, and bind in JavaScript</em></a><br><a href="https://juejin.im/post/5c876ba96fb9a049ae08bc63" target="_blank" rel="noopener"><em>JavaScript 之 this 指南</em></a><br><a href="https://zhuanlan.zhihu.com/p/71553017" target="_blank" rel="noopener"><em>javascript 基础之 call, apply, bind</em></a><br><a href="https://www.jianshu.com/p/00dc4ad9b83f" target="_blank" rel="noopener"><em>JavaScript中的call、apply、bind深入理解</em></a><br><a href="https://juejin.im/post/5c813aa5f265da2dd94cd7c2" target="_blank" rel="noopener"><em>彻底弄清 this call apply bind 以及原生实现</em></a><br><a href="https://juejin.im/post/5c8617d86fb9a049e93d8e4a" target="_blank" rel="noopener"><em>如何在 JavaScript 中使用 apply()，call()，bind()</em></a><br><a href="https://www.runoob.com/js/js-function-invocation.html" target="_blank" rel="noopener">JavaScript 函数调用</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 前端面试题</a>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          
+            <a href="/tags/JavaScript-this/" rel="tag"># JavaScript this</a>
+          
+            <a href="/tags/JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" rel="tag"># JavaScript 作用域问题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/05/%E8%AF%AD%E4%B9%89%E5%8C%96git%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF/" rel="next" title="语义化git提交信息">
+                <i class="fa fa-chevron-left"></i> 语义化git提交信息
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/08/npm-install%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85%E8%B6%85%E8%BF%87%E6%9C%80%E5%A4%A7%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E5%A4%A7%E5%B0%8F%E7%9A%84error/" rel="prev" title="npm install安装依赖包出现超过最大调用堆栈大小">
+                npm install安装依赖包出现超过最大调用堆栈大小 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2020/01/07/谈谈对javascript中this关键字的理解/"
+           data-title="谈谈对JavaScript中this、call()、apply()、bind()的理解" data-url="http://imooldy.com/2020/01/07/%E8%B0%88%E8%B0%88%E5%AF%B9javascript%E4%B8%ADthis%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/my_photo_1.png"
+                alt="Chace Tse" />
+            
+              <p class="site-author-name" itemprop="name">Chace Tse</p>
+              <p class="site-description motion-element" itemprop="description">Talk less, listen more, and do more.</p>
+          </div>
+          <nav class="site-state motion-element">
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">104</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+          </nav>
+          
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tochacexie@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chace-tse" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/835876986" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.douban.com/people/moldy_bread/" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-user"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+          
+          
+          
+
+        </div>
+      </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MDN"><span class="nav-number">1.</span> <span class="nav-text">MDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this的概念理解"><span class="nav-number">2.</span> <span class="nav-text">this的概念理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this的指向"><span class="nav-number">3.</span> <span class="nav-text">this的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局环境-Global-context"><span class="nav-number">3.1.</span> <span class="nav-text">全局环境(Global context)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数（运行内）环境-Function-context"><span class="nav-number">3.2.</span> <span class="nav-text">函数（运行内）环境(Function context)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单调用"><span class="nav-number">3.2.1.</span> <span class="nav-text">简单调用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么改变-this-的指向"><span class="nav-number">4.</span> <span class="nav-text">怎么改变 this 的指向?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数（Arrow-function-expressions）"><span class="nav-number">4.1.</span> <span class="nav-text">箭头函数（Arrow function expressions）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在函数内部使用-that-this"><span class="nav-number">4.2.</span> <span class="nav-text">在函数内部使用_that = this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-apply-、call-、bind"><span class="nav-number">4.3.</span> <span class="nav-text">使用 apply()、call()、bind()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用apply"><span class="nav-number">4.3.1.</span> <span class="nav-text">使用apply()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用call"><span class="nav-number">4.3.2.</span> <span class="nav-text">使用call()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用bind"><span class="nav-number">4.3.3.</span> <span class="nav-text">使用bind()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-中-call-、apply-、bind-的区别？"><span class="nav-number">5.</span> <span class="nav-text">JavaScript 中 call()、apply()、bind()的区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apply-和-call-的区别"><span class="nav-number">5.1.</span> <span class="nav-text">apply() 和 call() 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind-和apply-、call-的区别"><span class="nav-number">5.2.</span> <span class="nav-text">bind()和apply()、call()的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-中的函数调用方式"><span class="nav-number">6.</span> <span class="nav-text">JavaScript 中的函数调用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作为函数调用"><span class="nav-number">6.1.</span> <span class="nav-text">作为函数调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作为方法调用"><span class="nav-number">6.2.</span> <span class="nav-text">函数作为方法调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作为构造函数调用函数"><span class="nav-number">6.3.</span> <span class="nav-text">作为构造函数调用函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过它们的call-和apply-方法间接调用"><span class="nav-number">6.4.</span> <span class="nav-text">通过它们的call()和apply()方法间接调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#严格模式"><span class="nav-number">7.</span> <span class="nav-text">严格模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">8.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      <!--/noindex-->
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chace Tse</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

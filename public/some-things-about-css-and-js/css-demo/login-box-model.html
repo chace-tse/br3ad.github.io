@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>login model</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    .login-mask {
+      z-index: 9998;
+      display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, .4);
+    }
+    .login-box {
+      z-index: 9999;
+      padding: 30px 40px;
+      border-radius: 20px;
+      border: 10px solid #dcdcdc;
+      width: 305px;
+      height: 480px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      background: #fff;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .login-close-btn {
+      position: absolute;
+      font-size: 20px;
+      padding: 5px;
+      text-align: center;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      color: #aaa;
+      border-radius: 50%;
+      background-color: #f00;
+    }
+    .login-nav-list {
+      height: 38px;
+      line-height: 38px;
+      border-radius: 20px;
+      font-size: 0;
+      margin-bottom: 50px;
+      border: 1px solid #666;
+    }
+    .login-nav-list > li {
+      display: inline-block;
+      vertical-align: middle;
+      width: 50%;
+      height: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .login-nav-list > li.active {
+      border-radius: 20px 0 0 20px;
+      background: #666;
+      color: #fff;
+    }
+    .login-box .login-form fieldset {
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .login-box .login-form input[type="text"],
+    .login-box .login-form input[type="password"] {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-indent: 20px;
+      border: 0 none;
+      border-radius: 20px;
+      outline: 0;
+      font-size: 14px;
+      background: #f8f8f8;
+      -webkit-box-shadow: inset 0 0 7px rgba(174,174,174,.22);
+      -moz-box-shadow: inset 0 0 7px rgba(174,174,174,.22);
+      box-shadow: inset 0 0 7px rgba(174,174,174,.22);
+      margin-bottom: 14px;
+    }
+    .login-box .login-form .error-text {
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      color: red;
+      font-size: 14px;
+    }
+    .login-box .agreement-block {
+      overflow: hidden;
+      margin: 10px 0 38px;
+      width: 100%;
+      font-size: 14px;
+    }
+    .login-box .agreement-block .agreement-label {
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+      color: #666;
+    }
+    .login-box .agreement-block .agreement-radio {
+      vertical-align: baseline;
+      margin: 0 8px;
+    }
+    .login-box .forgot-password {
+      float: right;
+      cursor: pointer;
+      color: #666;
+      text-decoration: none;
+    }
+    .login-box .login-btn {
+      width: 100%;
+      height: 34px;
+      line-height: 34px;
+      background-color: #222;
+      border-radius: 17px;
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">login box model.</h2>
+  <div class="login-mask" id="login-mask"></div>
+  <!-- // login-mask -->
+  <div class="login-box" id="login-box">
+    <div class="login-box-intro">
+      <ul class="login-nav-list">
+        <li class="item-nav item-login active">登陆</li>
+        <li class="item-nav item-reg">注册</li>
+      </ul>
+      <!-- // login-nav-list -->
+      <form action="#x" class="login-form">
+        <fieldset>
+          <input type="text" placeholder="账号/手机号" id="username">
+          <p class="error-text">用户名不合法，请重新输入</p>
+        </fieldset>
+        <fieldset>
+          <input type="password" placeholder="密码" id="password">
+          <p class="error-text">密码不合法，请重新输入</p>
+        </fieldset>
+        <div class="agreement-block">
+          <label for="inputRadio" class="agreement-label">
+            <input type="radio" id="inputRadio" value="agreement" class="agreement-radio">30天自动登陆
+          </label>
+          <!-- // agreement-label-->
+          <a href="#x" id="forgotPassword" class="forgot-password">忘记密码</a>
+        </div>
+        <!-- // agreement-block -->
+        <button class="login-btn" id="loginBtn">登 陆</button>
+      </form>
+      <!-- // login-form -->
+    </div>
+    <!-- // login-box-intro -->
+    <div class="login-close-btn" id="closeBtn"></div>
+  </div>
+  <!-- // login-box-->
+</body>
+</html>
