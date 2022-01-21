@@ -11,6 +11,9 @@
   "hexo": {
     "version": "4.0.0"
   },
+  "node": {
+    "version": "13.7.0"
+  },
   "dependencies": {
     "hexo": "^4.0.0",
     "hexo-deployer-git": "^2.1.0",
