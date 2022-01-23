@@ -1,4 +1,4 @@
-<h1 align="center"> :computer: Br3ad Blog Publick Deploy Directory.</h1>
+<h1 align="center"> :computer: Chacetse Blog Publick Deploy Directory.</h1>
 
 ## 问题一
 ---
@@ -48,7 +48,7 @@
 ```sh
 deploy:
   type: git
-  repository: https://github.com/br3ad/br3ad.github.io
+  repository: https://github.com/chace-tse/br3ad.github.io
   branch: master
 ```
 
