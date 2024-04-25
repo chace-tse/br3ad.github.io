@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JavaScript The palindrome function determines if the palindrome is true.</title>
+	<link href="../../css/font-awesome-4.7.0.min.css" rel="stylesheet">
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+	<style>
+		h3.title {
+			padding: .5em 0;
+      font-size: 20px;
+			text-align: left;
+      border-bottom: 1px solid rgba(135, 135, 135, 1);
+		}
+	</style>
+</head>
+<body>
+	<section class="js-container">
+		<h2 class="title">JavaScript the palindrome function determines if the palindrome is true.</h2>
+		<pre class="js-pre"><code class="js-code">  // 回文是指正读和反读都一样的字符串，比如“level”、“noon” 等等就是回文
+  function checkPalindrome(str) {
+    var removeChar = str.replace(/[\W_]/g, '').toLowerCase();
+    var checkPalindrome = removeChar.split('').reverse().join('');
+    return removeChar === checkPalindrome;
+  }
+  console.log(checkPalindrome('level')); // true
+  console.log(checkPalindrome('abc')); // false
+  console.log(checkPalindrome('nonon')); // true
+
+  // 也可以简写成如下
+  function checkPalindrome (str) {
+    return str.replace(/[\W_]/g, '').toLowerCase() === str.replace(/[\W_]/g, '').toLowerCase().split('').reverse().join('');
+  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+</code></pre>
+	<!-- /js-pre -->
+	</section>
+	<!-- /js-container -->
+	<script type="text/javascript">
+		/*
+			* @parame: {str} 需要校验回文的字符串
+			*
+		*/
+		// 回文是指正读和反读都一样的字符串，比如“level”、“noon” 等等就是回文
+		function checkPalindrome(str) {
+			var removeChar = str.replace(/[\W_]/g, '').toLowerCase();
+			var checkPalindrome = removeChar.split('').reverse().join('');
+    	return removeChar === checkPalindrome;
+		};
+		console.log(checkPalindrome('level')); // true
+		console.log(checkPalindrome('abc')); // false
+		console.log(checkPalindrome('nonon')); // true
+		console.log(checkPalindrome('race car')); // true
+		console.log(checkPalindrome('not a palindrome')); // false
+		console.log(checkPalindrome('A man, a plan, a canal. Panama')); // true
+		console.log(checkPalindrome('never odd or even')); // true
+		console.log(checkPalindrome('nope')); // false
+		console.log(checkPalindrome('almostomla')); // false
+		console.log(checkPalindrome('My age is 0, 0 si ega ym.')); // true
+		console.log(checkPalindrome('1 eye for of 1 eye.')); // false
+		console.log(checkPalindrome('0_0 (: /-\ :) 0–0')); // true
+		console.log(checkPalindrome('我爱妈妈，妈妈爱我')); // true
+		console.log(checkPalindrome('16461')); // true
+		console.log(checkPalindrome('javascript')); // false
+		console.log(checkPalindrome('Hello world')); // false
+		// 也可以写成
+		function checkPalindrome(str) {
+			return str.replace(/[\W_]/g, '').toLowerCase() === str.replace(/[\W_]/g, '').toLowerCase().split('').reverse().join('');
+		}
+	</script>
+</body>
+</html>
