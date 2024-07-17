@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,前端性能优化,DOM性能优化,重绘&重排," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="浏览器下载完页面中的所有组件——HTML 标记、JavaScript、CSS、images————之后会解析并生成两个内部数据结构 DOM Tree  表示页面结构  Render Tree  表示DOM节点如何显示  浏览器的渲染过程1、处理HTML标记并构造DOM树2、处理CSS标记并构造CSSOM树3、将DOM与CSSOM合并成一个渲染树4、根据渲染树（Render Tree）来布局，以计算">
+<meta name="keywords" content="前端,前端性能优化,DOM性能优化,重绘&amp;重排">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端性能优化之重绘和重排（Repaints and Reflow）">
+<meta property="og:url" content="http:&#x2F;&#x2F;imooldy.com&#x2F;2020&#x2F;07&#x2F;14&#x2F;%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92&#x2F;index.html">
+<meta property="og:site_name" content="Chace Tse">
+<meta property="og:description" content="浏览器下载完页面中的所有组件——HTML 标记、JavaScript、CSS、images————之后会解析并生成两个内部数据结构 DOM Tree  表示页面结构  Render Tree  表示DOM节点如何显示  浏览器的渲染过程1、处理HTML标记并构造DOM树2、处理CSS标记并构造CSSOM树3、将DOM与CSSOM合并成一个渲染树4、根据渲染树（Render Tree）来布局，以计算">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;imooldy.com&#x2F;images&#x2F;render_tree_construction.png">
+<meta property="og:updated_time" content="2024-07-17T13:45:18.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;imooldy.com&#x2F;images&#x2F;render_tree_construction.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://imooldy.com/2020/07/14/前端性能优化之重绘和重排/"/>
+
+
+
+
+
+  <title>前端性能优化之重绘和重排（Repaints and Reflow） | Chace Tse</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chace Tse<span class="site-title-sub"> 的博客</span></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-building"></i> <br />
+            
+            Projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-movies">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-film"></i> <br />
+            
+            Movies
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-reading">
+          <a href="/reading/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Reading
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imooldy.com/2020/07/14/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chace Tse">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my_photo_1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chace Tse">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端性能优化之重绘和重排（Repaints and Reflow）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-14T19:15:29+08:00">
+                2020-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/14/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/07/14/前端性能优化之重绘和重排/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>浏览器下载完页面中的所有组件——<code>HTML</code> 标记、<code>JavaScript</code>、<code>CSS</code>、<code>images</code>————之后会解析并生成两个内部数据结构</p>
+<p><strong>DOM Tree</strong></p>
+<blockquote>
+<p>表示页面结构</p>
+</blockquote>
+<p><strong>Render Tree</strong></p>
+<blockquote>
+<p>表示DOM节点如何显示</p>
+</blockquote>
+<h2 id="浏览器的渲染过程"><a href="#浏览器的渲染过程" class="headerlink" title="浏览器的渲染过程"></a>浏览器的渲染过程</h2><p>1、处理<code>HTML</code>标记并构造<code>DOM</code>树<br>2、处理<code>CSS</code>标记并构造<code>CSSOM</code>树<br>3、将<code>DOM</code>与<code>CSSOM</code>合并成一个渲染树<br>4、根据渲染树（Render Tree）来布局，以计算每个节点的几何信息<br>5、将各个节点绘制到屏幕</p>
+<h2 id="生成Render-Tree渲染树"><a href="#生成Render-Tree渲染树" class="headerlink" title="生成Render Tree渲染树"></a>生成Render Tree渲染树</h2><p><img src="../../../../images/render_tree_construction.png" alt="render-tree"></p>
+<h2 id="触发重排（Reflow）和重绘（Repaint）"><a href="#触发重排（Reflow）和重绘（Repaint）" class="headerlink" title="触发重排（Reflow）和重绘（Repaint）"></a>触发重排（Reflow）和重绘（Repaint）</h2><blockquote>
+<p><code>DOM</code>元素的添加、修改（内容）、删除（Reflow + Repaint）<br>仅修改<code>DOM</code>元素的字体颜色（只有Repaint，因为不需要调整布局）</p>
+</blockquote>
+<h2 id="重绘（Repaints）"><a href="#重绘（Repaints）" class="headerlink" title="重绘（Repaints）"></a>重绘（Repaints）</h2><blockquote>
+<p>当页面中DOM元素样式以及可见性<code>visibility</code>发生改变的时候，但是并不影响布局（eg: <code>color</code>、<code>outline</code>、<code>visibility</code>、<code>background-color</code>等），浏览器会将新样式赋予给元素并重新绘制它，这个过程称为重绘（Repaints）</p>
+</blockquote>
+<h2 id="重排（Reflows）"><a href="#重排（Reflows）" class="headerlink" title="重排（Reflows）"></a>重排（Reflows）</h2><blockquote>
+<p>当 <code>Render Tree</code> 中涉及到部分或整个页面的布局, 因元素的<strong>尺寸（Size）</strong>、<strong>布局（Layout）</strong>、<strong>隐藏（Display）</strong>等改变而需要重新构建导致了其所有子元素以及<code>DOM</code>中紧随其后的祖先元素的随后的浏览器重新渲染的过程称为 <strong>重排(Reflows)</strong></p>
+</blockquote>
+<p><strong>哪些操作会导致浏览器的重排（Reflows）呢？</strong></p>
+<ul>
+<li>添加或删除可见的 <code>DOM</code> 元素</li>
+<li>元素位置改变</li>
+<li>元素尺寸改变（包括：<code>margin</code>(外边距)、<code>padding</code>(内边距)、<code>border-width</code>(边框厚度)、<code>width</code>(宽度)、<code>height</code>(高度)等属性改变）。</li>
+<li>页面渲染器初始化</li>
+<li>调整浏览器窗口大小（Resizing the window）</li>
+<li>改变字体（Changing the font）</li>
+<li>增加或移除样式表（Adding or removing a stylesheet）</li>
+<li>内容变化，比如用户在<code>input</code>框中输入文字（Content changes, such as a user typing text in an input box），文本改变成图片被另一个不同尺寸的图片替代</li>
+<li>激活<code>CSS</code>伪类，比如：<code>:hover</code>(IE 中为兄弟结点伪类的激活)（Activation of CSS pseudo classes such as :hover (in IE the activation of the pseudo class of a sibling)）</li>
+<li>操作<code>class</code>属性（Manipulating the class attribute）</li>
+<li>脚本操作DOM（A script manipulating the DOM）</li>
+<li>计算 <code>offsetWidth</code> 和 <code>offsetHeight</code> 属性（Calculating offsetWidth and offsetHeight）</li>
+<li>设置 Style 属性的值 （Setting a property of the style attribute）</li>
+</ul>
+<p><strong>总结：</strong></p>
+<blockquote>
+<p>重排必将引起重绘，重绘不一定会引起重排。</p>
+</blockquote>
+<h2 id="性能影响"><a href="#性能影响" class="headerlink" title="性能影响"></a>性能影响</h2><p>有时即使仅仅重排（Reflow）一个单一的元素，它的父元素以及任何跟随它的元素也会产生重排（Reflow）</p>
+<p>现代浏览器会对频繁的重排（Reflow）或重绘（Repaints）进行优化：</p>
+<p>由于每次重排都会产生计算消耗，大多数浏览器可通过队列化修改并批量执行来优化重排过程。</p>
+<p>可通过以下方法强制刷新队列并要求计划任务立刻执行。获取布局信息的操作会导致队列刷新，比如以下方法：</p>
+<ul>
+<li><code>offsetTop</code>、<code>offsetLeft</code>、<code>offsetWidth</code>、<code>offsetHeight</code></li>
+<li><code>scrollTop</code>、<code>scrollLeft</code>、<code>scrollWidth</code>、<code>scrollHeight</code></li>
+<li><code>clientTop</code>、<code>clientLeft</code>、<code>clientWidth</code>、<code>clientHeight</code></li>
+<li><code>scrollIntoView()</code>、<code>scrollIntoViewIfNeeded()</code>、</li>
+<li><code>getComputedStyle()</code></li>
+<li><code>getBoundingClientRect()</code></li>
+<li><code>scrollTo()</code></li>
+</ul>
+<p>因为队列中可能会有影响到这些属性或方法返回值的操作，即使你希望获取的信息与队列中操作引发的改变无关，浏览器也会强行清空队列，确保你拿到的值是最精确的。</p>
+<h2 id="优化重绘重排"><a href="#优化重绘重排" class="headerlink" title="优化重绘重排"></a>优化重绘重排</h2><h2 id="如何避免重排（Reflow）或将它们对性能的影响降到最低？"><a href="#如何避免重排（Reflow）或将它们对性能的影响降到最低？" class="headerlink" title="如何避免重排（Reflow）或将它们对性能的影响降到最低？"></a>如何避免重排（Reflow）或将它们对性能的影响降到最低？</h2><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://www.zhangxinxu.com/wordpress/2010/01/%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98%EF%BC%9Acss%E6%80%A7%E8%83%BD%E8%AE%A9javascript%E5%8F%98%E6%85%A2%EF%BC%9F/" target="_blank" rel="noopener"><em>重排与重绘：CSS性能让JavaScript变慢？</em></a></li>
+<li><a href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#The_browsers_we_will_talk_about" target="_blank" rel="noopener"><em>重排与重绘：CSS性能让JavaScript变慢？</em></a></li>
+<li><a href="https://juejin.im/post/5cfe1bb3518825225162cf93" target="_blank" rel="noopener"><em>前端性能-重排&amp;重绘</em></a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn" target="_blank" rel="noopener"><em>google-developers渲染树构建、布局及绘制</em></a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag"># 前端性能优化</a>
+          
+            <a href="/tags/DOM%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag"># DOM性能优化</a>
+          
+            <a href="/tags/%E9%87%8D%E7%BB%98-%E9%87%8D%E6%8E%92/" rel="tag"># 重绘&重排</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/13/JavaScript%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E6%98%AF%E6%95%B0%E7%BB%84%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" rel="next" title="JavaScript监测一个变量是否是数组的几种方法">
+                <i class="fa fa-chevron-left"></i> JavaScript监测一个变量是否是数组的几种方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/14/Vue%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" rel="prev" title="Vue父子组件通信的几种方式">
+                Vue父子组件通信的几种方式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2020/07/14/前端性能优化之重绘和重排/"
+           data-title="前端性能优化之重绘和重排（Repaints and Reflow）" data-url="http://imooldy.com/2020/07/14/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/my_photo_1.png"
+                alt="Chace Tse" />
+            
+              <p class="site-author-name" itemprop="name">Chace Tse</p>
+              <p class="site-description motion-element" itemprop="description">Talk less, listen more, and do more.</p>
+          </div>
+          <nav class="site-state motion-element">
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+          </nav>
+          
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tochacexie@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chace-tse" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/835876986" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.douban.com/people/moldy_bread/" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-user"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+          
+          
+          
+
+        </div>
+      </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的渲染过程"><span class="nav-number">1.</span> <span class="nav-text">浏览器的渲染过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成Render-Tree渲染树"><span class="nav-number">2.</span> <span class="nav-text">生成Render Tree渲染树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发重排（Reflow）和重绘（Repaint）"><span class="nav-number">3.</span> <span class="nav-text">触发重排（Reflow）和重绘（Repaint）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘（Repaints）"><span class="nav-number">4.</span> <span class="nav-text">重绘（Repaints）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排（Reflows）"><span class="nav-number">5.</span> <span class="nav-text">重排（Reflows）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能影响"><span class="nav-number">6.</span> <span class="nav-text">性能影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化重绘重排"><span class="nav-number">7.</span> <span class="nav-text">优化重绘重排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何避免重排（Reflow）或将它们对性能的影响降到最低？"><span class="nav-number">8.</span> <span class="nav-text">如何避免重排（Reflow）或将它们对性能的影响降到最低？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">9.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      <!--/noindex-->
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chace Tse</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

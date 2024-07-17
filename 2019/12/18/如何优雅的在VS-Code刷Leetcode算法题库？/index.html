@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端开发,前端算法,算法,算法面试题,Leetcode,VS Code,Visual Studio Code,algorithms,Leetcode算法题,Leetcode algorithms," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Requirements &#x2F; 要求 VS Code和Node的版本要求  VS Code 1.30.1+ Node.js 8+   Quick Start &#x2F; 快速开始 首先，我们需要给VS Code安装一个leetcode插件 安装方法：  打开VS Code  -&amp;gt; 左边操作栏找到Extensions -&amp;gt; 搜索插件名称：leetcode -&amp;gt; install  VS Cod">
+<meta name="keywords" content="前端开发,前端算法,算法,算法面试题,Leetcode,VS Code,Visual Studio Code,algorithms,Leetcode算法题,Leetcode algorithms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何优雅的在VS Code刷Leetcode算法题库？">
+<meta property="og:url" content="http:&#x2F;&#x2F;imooldy.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%9C%A8VS-Code%E5%88%B7Leetcode%E7%AE%97%E6%B3%95%E9%A2%98%E5%BA%93%EF%BC%9F&#x2F;index.html">
+<meta property="og:site_name" content="Chace Tse">
+<meta property="og:description" content="Requirements &#x2F; 要求 VS Code和Node的版本要求  VS Code 1.30.1+ Node.js 8+   Quick Start &#x2F; 快速开始 首先，我们需要给VS Code安装一个leetcode插件 安装方法：  打开VS Code  -&amp;gt; 左边操作栏找到Extensions -&amp;gt; 搜索插件名称：leetcode -&amp;gt; install  VS Cod">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2024-07-17T13:45:18.253Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://imooldy.com/2019/12/18/如何优雅的在VS-Code刷Leetcode算法题库？/"/>
+
+
+
+
+
+  <title>如何优雅的在VS Code刷Leetcode算法题库？ | Chace Tse</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chace Tse<span class="site-title-sub"> 的博客</span></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-building"></i> <br />
+            
+            Projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-movies">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-film"></i> <br />
+            
+            Movies
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-reading">
+          <a href="/reading/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Reading
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imooldy.com/2019/12/18/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%9C%A8VS-Code%E5%88%B7Leetcode%E7%AE%97%E6%B3%95%E9%A2%98%E5%BA%93%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chace Tse">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my_photo_1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chace Tse">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何优雅的在VS Code刷Leetcode算法题库？</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-18T20:57:03+08:00">
+                2019-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">前端算法</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithms</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/VS-Code/" itemprop="url" rel="index">
+                    <span itemprop="name">VS Code</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode-algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode-algorithms</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/18/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%9C%A8VS-Code%E5%88%B7Leetcode%E7%AE%97%E6%B3%95%E9%A2%98%E5%BA%93%EF%BC%9F/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/12/18/如何优雅的在VS-Code刷Leetcode算法题库？/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Requirements-要求"><a href="#Requirements-要求" class="headerlink" title="Requirements / 要求"></a>Requirements / 要求</h2><hr>
+<p><strong>VS Code和Node的版本要求</strong></p>
+<ul>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener"><em>VS Code 1.30.1+</em></a></li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener"><em>Node.js 8+</em></a></li>
+</ul>
+<hr>
+<h2 id="Quick-Start-快速开始"><a href="#Quick-Start-快速开始" class="headerlink" title="Quick Start / 快速开始"></a>Quick Start / 快速开始</h2><hr>
+<p>首先，我们需要给VS Code安装一个<code>leetcode</code>插件</p>
+<p><strong>安装方法：</strong></p>
+<blockquote>
+<p>打开<code>VS Code</code>  -&gt; 左边操作栏找到<code>Extensions</code> -&gt; 搜索插件名称：<code>leetcode</code> -&gt; <code>install</code></p>
+</blockquote>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-leetcode" target="_blank" rel="noopener"><em>VS Code LeetCode在线下载地址</em></a></p>
+<hr>
+<h2 id="Features-功能"><a href="#Features-功能" class="headerlink" title="Features / 功能"></a>Features / 功能</h2><hr>
+<h3 id="登陆登出"><a href="#登陆登出" class="headerlink" title="登陆登出"></a>登陆登出</h3><ul>
+<li>点击<code>LeetCode Explorer</code>中的<code>Sign in to LeetCode</code> 即可登入。</li>
+</ul>
+<ul>
+<li>也可以使用快捷键(<code>Ctrl+shift+p</code>)唤起下列命令登入或利用cookie登入或登出:<ul>
+<li><strong>LeetCode: Sign in</strong></li>
+<li><strong>LeetCode: Sign in (by cookie)</strong></li>
+<li><strong>LeetCode: Sign out</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="选择题目"><a href="#选择题目" class="headerlink" title="选择题目"></a>选择题目</h3><ul>
+<li>直接点击题目或者在 <code>LeetCode Explorer</code> 中右键题目并选择 <code>Preview Problem</code> 可查看题目描述</li>
+<li>选择 <code>Show Problem</code> 可直接进行答题。</li>
+</ul>
+<blockquote>
+<p>注意：可以通过更新配置项 <code>leetcode.workspaceFolder</code> 来指定保存题目文件所用的工作区路径。默认工作区路径为：<strong>$HOME/.leetcode/</strong>。<br>注意：可以通过更新配置项 <code>leetcode.showCommentDescription</code> 来指定是否要在注释中包含题目描述。<br>注意：可以通过 <code>LeetCode: Switch Default Language</code> 命令变更答题时默认使用编程语言。</p>
+</blockquote>
+<h3 id="编辑器快捷方式"><a href="#编辑器快捷方式" class="headerlink" title="编辑器快捷方式"></a>编辑器快捷方式</h3><ul>
+<li><code>Submit</code>: 提交你的答案至 <code>LeetCode</code>；</li>
+<li><code>Test</code>: 用给定的测试用例测试你的答案；</li>
+<li><code>Solution</code>: 显示该问题的高票解答；</li>
+<li><code>Description</code>: 显示该问题的题目描述。<blockquote>
+<p><em>注意：可以通过 <code>leetcode.editor.shortcuts</code> 配置项来定制需要激活的快捷方式。默认情况下只有 <code>Submit</code> 和 <code>Test</code> 会被激活。</em></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="通过关键字搜索题目"><a href="#通过关键字搜索题目" class="headerlink" title="通过关键字搜索题目"></a>通过关键字搜索题目</h3><ul>
+<li>点击 <code>LeetCode Explorer</code> 导航栏中的搜索按钮可按照关键字搜索题目。</li>
+</ul>
+<hr>
+<h2 id="Problem-问题"><a href="#Problem-问题" class="headerlink" title="Problem / 问题"></a>Problem / 问题</h2><hr>
+<h3 id="国内无法登陆海外版问题"><a href="#国内无法登陆海外版问题" class="headerlink" title="国内无法登陆海外版问题"></a>国内无法登陆海外版问题</h3><p><strong>如何解决VS Code的<code>vscode-leetcode</code>插件无法登陆海外版的问题？</strong></p>
+<blockquote>
+<p><em>注意：<a href="https://leetcode.com" target="_blank" rel="noopener">登陆的endpoint(端点)：https://leetcode.com（并非中国leetcode-cn.com社区）</a></em></p>
+</blockquote>
+<p><strong>几个解决方案：</strong></p>
+<p>1、切换 LeetCode 版本为中国版，点击<code>Switch Endpoint</code>切换为<code>leetcode-cn.com</code>(中国社区版)<br>2、用<code>leetcode-cli</code>命令行工具进行登陆<br>3、正常输入用户名和密码无法登陆的情况下，通过获取<a href="https://leetcode.com" target="_blank" rel="noopener"><em>leetcode.com</em></a>的<code>Cookies</code>信息进行登陆。</p>
+<p><strong>具体实现步骤：</strong></p>
+<ul>
+<li>先保证退出账户</li>
+<li>确保当前激活的节点为<code>leetcode.com</code>（而非<code>leetcode-cn.com</code>）</li>
+<li>访问端点：<a href="https://leetcode.com" target="_blank" rel="noopener"><em>https://leetcode.com</em></a>并打开Chrome开发者工具，选择<code>Network</code> -&gt; 选择<code>XHR</code></li>
+<li>Web端登陆账号密码后，并点击problems按钮获取leetcode的session和csrf token信息</li>
+<li>找到<code>all</code>这个<code>api</code>接口：<code>https://leetcode.com/api/problems/all/</code>，并copy完整的<code>Cookies</code></li>
+<li>打卡VS Code用快捷键：<code>ctrl + shift + p</code> 输入leetcode，选择<code>Sign In by Cookie</code></li>
+<li>输入邮箱 -&gt; paste 刚刚从览器copy的<code>cookies</code>信息 -&gt; ok,done. Start coding…</li>
+</ul>
+<hr>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://github.com/jdneo/vscode-leetcode" target="_blank" rel="noopener"><em>vscode-leetcode Github</em></a></li>
+<li><a href="https://github.com/jdneo/vscode-leetcode/blob/master/docs/README_zh-CN.md" target="_blank" rel="noopener"><em>vscode-leetcode 中文使用教程</em></a></li>
+<li><a href="https://github.com/jdneo/vscode-leetcode/issues/478" target="_blank" rel="noopener"><em>github issues: Failed to log in with a leetcode.com account</em></a></li>
+<li><a href="https://github.com/jdneo/vscode-leetcode/issues/478" target="_blank" rel="noopener"><em>浏览器获取cookies的方法</em></a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E7%AE%97%E6%B3%95/" rel="tag"># 前端算法</a>
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 算法面试题</a>
+          
+            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+          
+            <a href="/tags/VS-Code/" rel="tag"># VS Code</a>
+          
+            <a href="/tags/Visual-Studio-Code/" rel="tag"># Visual Studio Code</a>
+          
+            <a href="/tags/algorithms/" rel="tag"># algorithms</a>
+          
+            <a href="/tags/Leetcode%E7%AE%97%E6%B3%95%E9%A2%98/" rel="tag"># Leetcode算法题</a>
+          
+            <a href="/tags/Leetcode-algorithms/" rel="tag"># Leetcode algorithms</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/17/javascript%E4%B8%AD%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2/" rel="next" title="javascript中隐式转换">
+                <i class="fa fa-chevron-left"></i> javascript中隐式转换
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/05/%E8%AF%AD%E4%B9%89%E5%8C%96git%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF/" rel="prev" title="语义化git提交信息">
+                语义化git提交信息 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2019/12/18/如何优雅的在VS-Code刷Leetcode算法题库？/"
+           data-title="如何优雅的在VS Code刷Leetcode算法题库？" data-url="http://imooldy.com/2019/12/18/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%9C%A8VS-Code%E5%88%B7Leetcode%E7%AE%97%E6%B3%95%E9%A2%98%E5%BA%93%EF%BC%9F/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/my_photo_1.png"
+                alt="Chace Tse" />
+            
+              <p class="site-author-name" itemprop="name">Chace Tse</p>
+              <p class="site-description motion-element" itemprop="description">Talk less, listen more, and do more.</p>
+          </div>
+          <nav class="site-state motion-element">
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+          </nav>
+          
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tochacexie@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chace-tse" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/835876986" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.douban.com/people/moldy_bread/" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-user"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+          
+          
+          
+
+        </div>
+      </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Requirements-要求"><span class="nav-number">1.</span> <span class="nav-text">Requirements / 要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start-快速开始"><span class="nav-number">2.</span> <span class="nav-text">Quick Start / 快速开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Features-功能"><span class="nav-number">3.</span> <span class="nav-text">Features / 功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登陆登出"><span class="nav-number">3.1.</span> <span class="nav-text">登陆登出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择题目"><span class="nav-number">3.2.</span> <span class="nav-text">选择题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器快捷方式"><span class="nav-number">3.3.</span> <span class="nav-text">编辑器快捷方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过关键字搜索题目"><span class="nav-number">3.4.</span> <span class="nav-text">通过关键字搜索题目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-问题"><span class="nav-number">4.</span> <span class="nav-text">Problem / 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#国内无法登陆海外版问题"><span class="nav-number">4.1.</span> <span class="nav-text">国内无法登陆海外版问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      <!--/noindex-->
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chace Tse</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

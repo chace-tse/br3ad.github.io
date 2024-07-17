@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS RGBA or Opacity</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff;
+    }
+    .title {
+      color: #000;
+    }
+    .box {
+      margin: 20px 0;
+      padding: 15px 0;
+      color: #5a2714;
+      text-align: center;
+      background-color: #000;
+    }
+    .box .text-paragraph {
+      text-transform: uppercase;
+      color: #5a2714;
+    }
+    .text {
+      color: #000;
+      text-align: center;
+    }
+    /*!
+     * RGBA
+    */
+    .rgba {
+      background-color: rgba(0, 0, 0, .8);
+    }
+    /*!
+     * Opacity
+    */
+    .opacity {
+      opacity: .8;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">the difference between RGBA and opacity.</h2>
+  <div class="box rgba"><p class="text-paragraph">rgba</p></div>
+  <div class="box opacity"><p class="text-paragraph">opacity</p></div>
+  <p class="text">opacity会继承父元素的opacity属性，而rgba设置元素的后代元素不会继承不透明属性</p>
+</body>
+</html>

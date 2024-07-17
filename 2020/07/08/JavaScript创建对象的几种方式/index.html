@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端面试题,前端,Object,Create object,JavaScript object,创建对象," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="理解对象何为对象？（Object）  ECMA-262把对象定义为：“无序属性的集合，其属性可以包含基本值、对象或者函数。”严格来讲，对象是一组没有特定顺序的值。对象的每个属性或方法都有一个名字，而每个名字都映射到一个值，可以把ECMAScript的对象想象成散列表：无非就是一组名值对，其中值可以是数据或函数（来源：JavaScript 高级程序设计 第3版）  最简单的方式，创建一个Object">
+<meta name="keywords" content="前端面试题,前端,Object,Create object,JavaScript object,创建对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript创建对象的几种方式">
+<meta property="og:url" content="http:&#x2F;&#x2F;imooldy.com&#x2F;2020&#x2F;07&#x2F;08&#x2F;JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F&#x2F;index.html">
+<meta property="og:site_name" content="Chace Tse">
+<meta property="og:description" content="理解对象何为对象？（Object）  ECMA-262把对象定义为：“无序属性的集合，其属性可以包含基本值、对象或者函数。”严格来讲，对象是一组没有特定顺序的值。对象的每个属性或方法都有一个名字，而每个名字都映射到一个值，可以把ECMAScript的对象想象成散列表：无非就是一组名值对，其中值可以是数据或函数（来源：JavaScript 高级程序设计 第3版）  最简单的方式，创建一个Object">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2024-07-17T13:45:18.255Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://imooldy.com/2020/07/08/JavaScript创建对象的几种方式/"/>
+
+
+
+
+
+  <title>JavaScript创建对象的几种方式 | Chace Tse</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chace Tse<span class="site-title-sub"> 的博客</span></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-building"></i> <br />
+            
+            Projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-movies">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-film"></i> <br />
+            
+            Movies
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-reading">
+          <a href="/reading/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Reading
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imooldy.com/2020/07/08/JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chace Tse">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my_photo_1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chace Tse">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript创建对象的几种方式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-08T14:14:24+08:00">
+                2020-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/08/JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/07/08/JavaScript创建对象的几种方式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="理解对象"><a href="#理解对象" class="headerlink" title="理解对象"></a>理解对象</h2><p><strong>何为对象？（Object）</strong></p>
+<blockquote>
+<p>ECMA-262把对象定义为：“无序属性的集合，其属性可以包含基本值、对象或者函数。”<br>严格来讲，对象是一组没有特定顺序的值。对象的每个属性或方法都有一个名字，而每个名字都映射到一个值，可以把<code>ECMAScript</code>的对象想象成散列表：无非就是一组名值对，其中值可以是数据或函数（<em>来源：JavaScript 高级程序设计 第3版</em>）</p>
+</blockquote>
+<p>最简单的方式，创建一个Object的实例，然后再为它添加属性和方法，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>(); <span class="comment">// new了一个`Object`的实例对象并保存名为`person`的变量中</span></span><br><span class="line">person.name = <span class="string">'Chace'</span>; <span class="comment">// 给`person`对象添加了一个名为name的属性并赋值为字符串'Chace'</span></span><br><span class="line">person.age = <span class="number">18</span>; <span class="comment">// 给`person`对象添加了一个名为age的属性并赋值为数字18</span></span><br><span class="line">person.job = <span class="string">'Software Engineer'</span>; <span class="comment">// 给`person`对象添加了一个名为job的属性并赋值为字符串'Software Engineer'</span></span><br><span class="line"></span><br><span class="line">person.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;; <span class="comment">// 给person对象添加了一个名为`sayName()`的方法，这个方法用于显示`this.name`(将被解析为`person.name`)的值</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><blockquote>
+<p>一般情况下，JS中创建对象的方式可以用构造函数<code>Object</code>或者对象字面量的方式，但需要创建几个具有相同属性或方法的对象时，就得写大量的冗余代码。故而出现了下述几种创建对象的方法。</p>
+</blockquote>
+<h3 id="使用对象字面量创建对象"><a href="#使用对象字面量创建对象" class="headerlink" title="使用对象字面量创建对象"></a>使用对象字面量创建对象</h3><p>对象字面量是对象定义的一种简写方式，目的在于简化创建包含大量属性的对象的过程</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span>,</span><br><span class="line">  gender: <span class="string">'male'</span>,</span><br><span class="line">  age: <span class="number">18</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// 'Br3ad'</span></span><br><span class="line"><span class="built_in">console</span>.log(person.gender); <span class="comment">// 'male'</span></span><br><span class="line"><span class="built_in">console</span>.log(person.age); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+
+<p>在使用对象字面量语法时，属性名也可以使用字符串，例子如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">'Br3ad'</span>,</span><br><span class="line">  <span class="string">"gender"</span>: <span class="string">'male'</span>,</span><br><span class="line">  <span class="string">"age"</span>: <span class="number">18</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;name: 'Br3ad', gender: 'male', age: 18&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，使用对象字面量语法时，如果留空其花括号，则可以定义只包含默认属性和方法的对象，例子如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;&#125;; <span class="comment">// 与 new Object() 相同</span></span><br><span class="line">person.name = <span class="string">'Br3ad'</span>;</span><br><span class="line">person.gender = <span class="string">'male'</span>;</span><br><span class="line">person.age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>对象字面量的语法，推荐只在考虑对象名的可读性时使用。</strong></p>
+<p>对象字面量创建方式也是向函数传递大量可选参数的首选方式，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayInfo</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> output = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> args.name == <span class="string">'string'</span>) &#123;</span><br><span class="line">    output += <span class="string">'Name: '</span> + args.name + <span class="string">'\n'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> args.age == <span class="string">'number'</span>) &#123;</span><br><span class="line">    output += <span class="string">'Age：'</span> + args.age + <span class="string">'\n'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(output);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">displayInfo(&#123;</span><br><span class="line">  name: <span class="string">'Nicholas'</span>,</span><br><span class="line">  age: <span class="number">18</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// Name：Nicholas</span></span><br><span class="line"><span class="comment">// Age：18</span></span><br><span class="line"></span><br><span class="line">displayInfo(&#123;</span><br><span class="line">  name: <span class="string">'Br3ad'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// Name：Br3ad</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="通过new操作符创建对象"><a href="#通过new操作符创建对象" class="headerlink" title="通过new操作符创建对象"></a>通过<code>new</code>操作符创建对象</h3><p>使用<code>new</code>操作符创建并初始化一个新对象，关键字<code>new</code>后跟随一个<code>Object</code>构造函数，例子如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>(); <span class="comment">// 创建一个空对象并保存在变量person中，和&#123;&#125;一样</span></span><br><span class="line">person.name = <span class="string">'Br3ad'</span>;</span><br><span class="line">person.gender = <span class="string">'male'</span>;</span><br><span class="line">person.age = <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// 'Br3ad'</span></span><br><span class="line"><span class="built_in">console</span>.log(person.gender); <span class="comment">// 'male'</span></span><br><span class="line"><span class="built_in">console</span>.log(person.age); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+
+<p>JavaScript语言核心中的原始类型都包含内置构造函数，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>(); <span class="comment">// 创建一个空对象，和 &#123;&#125; 一样</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">// 创建一个空数组，和 [] 一样</span></span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// 创建一个表示当前时间的 Date 对象</span></span><br><span class="line"><span class="keyword">var</span> r = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'js'</span>); <span class="comment">// 创建一个可以进行模式匹配的 RegExp 对象</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="工厂模式（Factory-pattern）"><a href="#工厂模式（Factory-pattern）" class="headerlink" title="工厂模式（Factory pattern）"></a>工厂模式（Factory pattern）</h3><p>工厂模式是软件工程使用同一个接口创建很多对象，会产生大量的重复代码。为了解决这个问题，开始使用工厂模式的一种变体。</p>
+<p>这种模式抽象了创建具体对象的过程。考虑到在ECMAScript中无法创建类，用函数来封装以特定接口创建对象的细节，这个就被称工厂模式（Factory Pattern）</p>
+<p><strong>原理：通过将对象的创建封装到一个方法中，可以无数次调用这个函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span> (<span class="params">name, age, gender, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">  o.name = name;</span><br><span class="line">  o.age = age;</span><br><span class="line">  o.gender = gender;</span><br><span class="line">  o.job = job;</span><br><span class="line">  o.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> o;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">'Br3ad'</span>, <span class="number">18</span>, <span class="string">'male'</span>, <span class="string">'Software Engineer'</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">'Nicholas'</span>, <span class="number">29</span>, <span class="string">'female'</span>, <span class="string">'Doctor'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person1); <span class="comment">// &#123;name: "Br3ad", age: 18, gender: "male", job: "Software Engineer", sayName: ƒunction () &#123;&#125; &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(person2); <span class="comment">// &#123;name: "Nicholas", age: 29, gender: "female", job: "Doctor", sayName: ƒunction () &#123;&#125; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="构造函数（Constructor）模式"><a href="#构造函数（Constructor）模式" class="headerlink" title="构造函数（Constructor）模式"></a>构造函数（Constructor）模式</h3><blockquote>
+<p>关键字new后跟随一个函数调用，这里的函数称作构造函数（<code>Constructor</code>）</p>
+</blockquote>
+<p>ECMAScript 中的构造函数可用来创建特定类型的对象，像<code>Object</code>和<code>Array</code>这样的原生构造函数，在运行时会自动出现在执行环境中，也可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.job = job;</span><br><span class="line">  <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Br3ad'</span>, <span class="number">18</span>, <span class="string">'Software Enginner'</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">'Li'</span>, <span class="number">29</span>, <span class="string">'Doctor'</span>);</span><br><span class="line"></span><br><span class="line">person1.sayName(); <span class="comment">// 'Br3ad'</span></span><br><span class="line">person2.sayName(); <span class="comment">// 'Li'</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>对比工厂模式，可以发现以下区别：</strong></p>
+<p>1、没有显示地创建对象<br>2、直接将属性和方法赋给了<code>this</code>对象；<br>3、没有<code>return</code>语句<br>4、创建对象时需要使用<code>new</code>关键字</p>
+<p><em>PS：按照惯例，构造函数始终都应该以一个大写字母开头，而非构造函数则应该以一个小写字母开头。（借鉴其他OO语言，为了区别其他ECMAScript中的其他函数）因为构造函数本身也是函数，只不过可以用来创建对象而已。</em></p>
+<p>要创建<code>Person</code>的新实例，必须使用<code>new</code>操作符。</p>
+<p><strong>构造函数执行的几个步骤：</strong><br>(1)、创建一个新对象<br>(2)、将构造函数的作用域赋给新对象（因此<code>this</code>就指向了这个新对象）<br>(3)、执行构造函数中的代码（为这个新对象添加属性）<br>(4)、放回新对象</p>
+<p><strong>构造函数和普通函数的区别？</strong></p>
+<p>1、构造函数本身也是函数，只不过可以用来创建对象<br>2、调用方式不同，任何函数只要通过<code>new</code>操作符来调用，那它就可以作为构造函数（Constructor）；不通过<code>new</code>操作符来调用，那和普通函数没什么区别</p>
+<p>通过构造函数创建的实例对象都有一个<code>constructor</code>（构造函数）属性，该属性指向实例对象的构造函数<code>Person</code>，请看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.job = job;</span><br><span class="line">  <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Br3ad'</span>, <span class="number">29</span>, <span class="string">'Software Engineer'</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">'Chace'</span>, <span class="number">18</span>, <span class="string">'Doctor'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 构造函数创建的实例对象会有一个constructor属性，用与指向实例对象的构造函数Person</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.constructor == Person); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.constructor == Person); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>将构造函数当函数来使用</strong><br>例子如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当作构造函数使用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">  <span class="keyword">this</span>.job = job;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'Br3ad'</span>, <span class="number">29</span>, <span class="string">'Software Engineer'</span>);</span><br><span class="line">person.sayName(); <span class="comment">// 'Br3ad'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当作普通函数来调用</span></span><br><span class="line">Person(<span class="string">'Chace'</span>, <span class="number">18</span>, <span class="string">'Front-end Developer'</span>); <span class="comment">// 添加到window对象</span></span><br><span class="line"><span class="built_in">window</span>.sayName(); <span class="comment">// 'Chace'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在另一个对象的作用域中调用</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">Person.call(o, <span class="string">'imoldy'</span>, <span class="number">20</span>, <span class="string">'Teacher'</span>);</span><br><span class="line">o.sayName(); <span class="comment">// 'imoldy'</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>构造函数的问题</strong></p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h3 id="Constructor（构造函数）-原型模式"><a href="#Constructor（构造函数）-原型模式" class="headerlink" title="Constructor（构造函数）+ 原型模式"></a>Constructor（构造函数）+ 原型模式</h3><h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><h3 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h3><h3 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h3><h3 id="ES6中Class定义类"><a href="#ES6中Class定义类" class="headerlink" title="ES6中Class定义类"></a>ES6中Class定义类</h3><h3 id="ES5中提供Object-create-方法创建"><a href="#ES5中提供Object-create-方法创建" class="headerlink" title="ES5中提供Object.create()方法创建"></a>ES5中提供<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener"><code>Object.create()</code></a>方法创建</h3><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener">MDN-Object.create()</a>方法创建一个新对象，使用现有的对象来提供新创建的对象的<code>__proto__</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  isHuman: <span class="literal">false</span>,</span><br><span class="line">  sayHi: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`my name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>. Am I human ? <span class="subst">$&#123;<span class="keyword">this</span>.isHum&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> me = <span class="built_in">Object</span>.create(person);</span><br><span class="line"></span><br><span class="line">me.name = <span class="string">'Chace Xie'</span>;</span><br><span class="line">me.isHuman = <span class="literal">true</span>; <span class="comment">// inherited properties can be overwritten</span></span><br><span class="line">me.sayHi(); <span class="comment">// my name is Chace Xie. Am I human ? true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a href="https://blog.csdn.net/Luck_ZZ/article/details/102984112" target="_blank" rel="noopener">JS创建对象</a><br><a href="https://juejin.im/post/5cb34b456fb9a0688a680676" target="_blank" rel="noopener">JavaScript中创建对象的几种方式</a><br><a href="https://segmentfault.com/a/1190000013003584" target="_blank" rel="noopener">js 创建对象的几种方式</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 前端面试题</a>
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          
+            <a href="/tags/Object/" rel="tag"># Object</a>
+          
+            <a href="/tags/Create-object/" rel="tag"># Create object</a>
+          
+            <a href="/tags/JavaScript-object/" rel="tag"># JavaScript object</a>
+          
+            <a href="/tags/%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/" rel="tag"># 创建对象</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/08/MacOS%E7%BB%88%E7%AB%AF%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9C/" rel="next" title="MacOS终端的一些常用命令行操作（Mac OS Terminal Command Line Mac/Linux）">
+                <i class="fa fa-chevron-left"></i> MacOS终端的一些常用命令行操作（Mac OS Terminal Command Line Mac/Linux）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/09/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" rel="prev" title="浏览器从输入URL到页面加载发生了什么">
+                浏览器从输入URL到页面加载发生了什么 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2020/07/08/JavaScript创建对象的几种方式/"
+           data-title="JavaScript创建对象的几种方式" data-url="http://imooldy.com/2020/07/08/JavaScript%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/my_photo_1.png"
+                alt="Chace Tse" />
+            
+              <p class="site-author-name" itemprop="name">Chace Tse</p>
+              <p class="site-description motion-element" itemprop="description">Talk less, listen more, and do more.</p>
+          </div>
+          <nav class="site-state motion-element">
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+          </nav>
+          
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tochacexie@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chace-tse" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/835876986" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.douban.com/people/moldy_bread/" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-user"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+          
+          
+          
+
+        </div>
+      </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解对象"><span class="nav-number">1.</span> <span class="nav-text">理解对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">2.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用对象字面量创建对象"><span class="nav-number">2.1.</span> <span class="nav-text">使用对象字面量创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过new操作符创建对象"><span class="nav-number">2.2.</span> <span class="nav-text">通过new操作符创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工厂模式（Factory-pattern）"><span class="nav-number">2.3.</span> <span class="nav-text">工厂模式（Factory pattern）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数（Constructor）模式"><span class="nav-number">2.4.</span> <span class="nav-text">构造函数（Constructor）模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型模式"><span class="nav-number">2.5.</span> <span class="nav-text">原型模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructor（构造函数）-原型模式"><span class="nav-number">2.6.</span> <span class="nav-text">Constructor（构造函数）+ 原型模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态原型模式"><span class="nav-number">2.7.</span> <span class="nav-text">动态原型模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寄生构造函数模式"><span class="nav-number">2.8.</span> <span class="nav-text">寄生构造函数模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#稳妥构造函数模式"><span class="nav-number">2.9.</span> <span class="nav-text">稳妥构造函数模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6中Class定义类"><span class="nav-number">2.10.</span> <span class="nav-text">ES6中Class定义类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES5中提供Object-create-方法创建"><span class="nav-number">2.11.</span> <span class="nav-text">ES5中提供Object.create()方法创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      <!--/noindex-->
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chace Tse</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
