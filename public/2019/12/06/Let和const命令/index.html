@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="前端开发,前端面试题,var,let,const,变量作用域,JavaScript,JavaScript变量,JavaScript 基础知识," />
+  <meta name="keywords" content="前端开发,前端面试题,JavaScript,JavaScript 基础知识,var,let,const,变量作用域,JavaScript变量," />
 
 
 
@@ -124,14 +124,24 @@
 
 
 <meta name="description" content="Var 变量ECMAScript 的变量是松散类型的，所谓松散类型就是可以用来保存任何类型的数据。每个变量仅仅是一个用于保存值的占位符而已。定义变量时要使用var操作符（注意var是一个关键字），后跟变量名; 1var message; &#x2F;&#x2F; undefined 未经过初始化的变量，会保存一个特殊的——值 undefined ，表示未经初始化 可以在修改变量值的同时修改值的类型 1234var m">
-<meta name="keywords" content="前端开发,前端面试题,var,let,const,变量作用域,JavaScript,JavaScript变量,JavaScript 基础知识">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Var、Let和const命令">
-<meta property="og:url" content="http:&#x2F;&#x2F;imooldy.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;Let%E5%92%8Cconst%E5%91%BD%E4%BB%A4&#x2F;index.html">
+<meta property="og:url" content="http://imooldy.com/2019/12/06/Let%E5%92%8Cconst%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Chace Tse">
 <meta property="og:description" content="Var 变量ECMAScript 的变量是松散类型的，所谓松散类型就是可以用来保存任何类型的数据。每个变量仅仅是一个用于保存值的占位符而已。定义变量时要使用var操作符（注意var是一个关键字），后跟变量名; 1var message; &#x2F;&#x2F; undefined 未经过初始化的变量，会保存一个特殊的——值 undefined ，表示未经初始化 可以在修改变量值的同时修改值的类型 1234var m">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-07-17T13:45:18.253Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-12-06T07:59:18.000Z">
+<meta property="article:modified_time" content="2024-07-20T13:06:47.328Z">
+<meta property="article:author" content="Chace Tse">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="前端面试题">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="JavaScript 基础知识">
+<meta property="article:tag" content="var">
+<meta property="article:tag" content="let">
+<meta property="article:tag" content="const">
+<meta property="article:tag" content="变量作用域">
+<meta property="article:tag" content="JavaScript变量">
 <meta name="twitter:card" content="summary">
 
 
@@ -178,7 +188,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -506,6 +516,10 @@
           
             <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 前端面试题</a>
           
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag"># JavaScript 基础知识</a>
+          
             <a href="/tags/var/" rel="tag"># var</a>
           
             <a href="/tags/let/" rel="tag"># let</a>
@@ -514,11 +528,7 @@
           
             <a href="/tags/%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="tag"># 变量作用域</a>
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
             <a href="/tags/JavaScript%E5%8F%98%E9%87%8F/" rel="tag"># JavaScript变量</a>
-          
-            <a href="/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag"># JavaScript 基础知识</a>
           
         </div>
       
@@ -647,7 +657,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">108</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -699,7 +709,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Var-变量"><span class="nav-number">1.</span> <span class="nav-text">Var 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let-命令"><span class="nav-number">2.</span> <span class="nav-text">Let 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不存在变量提升"><span class="nav-number">2.2.</span> <span class="nav-text">不存在变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暂时性死区（TDZ-Temporal-Dead-Zone）"><span class="nav-number">2.3.</span> <span class="nav-text">暂时性死区（TDZ / Temporal Dead Zone）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深入理解-Hoisting"><span class="nav-number">2.3.1.</span> <span class="nav-text">深入理解 Hoisting</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Var-变量"><span class="nav-number">1.</span> <span class="nav-text">Var 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let-命令"><span class="nav-number">2.</span> <span class="nav-text">Let 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不存在变量提升"><span class="nav-number">2.2.</span> <span class="nav-text">不存在变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暂时性死区（TDZ-Temporal-Dead-Zone）"><span class="nav-number">2.3.</span> <span class="nav-text">暂时性死区（TDZ &#x2F; Temporal Dead Zone）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深入理解-Hoisting"><span class="nav-number">2.3.1.</span> <span class="nav-text">深入理解 Hoisting</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

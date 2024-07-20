@@ -123,15 +123,20 @@
 
 
 
-<meta name="description" content="==相等运算符 ==相等运算符比较两个值是否相等，在比较前将两个被比较的值转换为相同类型。在转换后（等式的一边或两边都可能被转换），然后再做比较 ——（来自MDN）  1234567891011121314console.log(1 == true); &#x2F;&#x2F; trueconsole.log(&amp;apos;1&amp;apos; == true); &#x2F;&#x2F; trueconsole.log(1 == &amp;apos;1&amp;apos;); &#x2F;&#x2F; truecon">
-<meta name="keywords" content="JavaScript,前端,前端基础,ES6">
+<meta name="description" content="&#x3D;&#x3D;相等运算符 &#x3D;&#x3D;相等运算符比较两个值是否相等，在比较前将两个被比较的值转换为相同类型。在转换后（等式的一边或两边都可能被转换），然后再做比较 ——（来自MDN）  1234567891011121314console.log(1 &#x3D;&#x3D; true); &#x2F;&#x2F; trueconsole.log(&#39;1&#39; &#x3D;&#x3D; true); &#x2F;&#x2F; trueconsole.log(1 &#x3D;&#x3D; &#39;1&#39;); &#x2F;&#x2F; truecon">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript中==和===以及Object.is()方法的区别">
-<meta property="og:url" content="http:&#x2F;&#x2F;imooldy.com&#x2F;2020&#x2F;07&#x2F;26&#x2F;JavaScript%E4%B8%AD-%E5%92%8C-%E4%BB%A5%E5%8F%8AObject-is-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB&#x2F;index.html">
+<meta property="og:title" content="JavaScript中&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;以及Object.is()方法的区别">
+<meta property="og:url" content="http://imooldy.com/2020/07/26/JavaScript%E4%B8%AD-%E5%92%8C-%E4%BB%A5%E5%8F%8AObject-is-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Chace Tse">
-<meta property="og:description" content="==相等运算符 ==相等运算符比较两个值是否相等，在比较前将两个被比较的值转换为相同类型。在转换后（等式的一边或两边都可能被转换），然后再做比较 ——（来自MDN）  1234567891011121314console.log(1 == true); &#x2F;&#x2F; trueconsole.log(&amp;apos;1&amp;apos; == true); &#x2F;&#x2F; trueconsole.log(1 == &amp;apos;1&amp;apos;); &#x2F;&#x2F; truecon">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2024-07-17T13:45:18.258Z">
+<meta property="og:description" content="&#x3D;&#x3D;相等运算符 &#x3D;&#x3D;相等运算符比较两个值是否相等，在比较前将两个被比较的值转换为相同类型。在转换后（等式的一边或两边都可能被转换），然后再做比较 ——（来自MDN）  1234567891011121314console.log(1 &#x3D;&#x3D; true); &#x2F;&#x2F; trueconsole.log(&#39;1&#39; &#x3D;&#x3D; true); &#x2F;&#x2F; trueconsole.log(1 &#x3D;&#x3D; &#39;1&#39;); &#x2F;&#x2F; truecon">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-26T07:58:07.000Z">
+<meta property="article:modified_time" content="2024-07-20T13:06:47.332Z">
+<meta property="article:author" content="Chace Tse">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="前端基础">
+<meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
 
 
@@ -178,7 +183,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -635,7 +640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">108</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -687,7 +692,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相等运算符"><span class="nav-number">1.</span> <span class="nav-text">==相等运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#严格比较运算"><span class="nav-number">2.</span> <span class="nav-text">===严格比较运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-is"><span class="nav-number">3.</span> <span class="nav-text">Object.is()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相等运算符、-全等（严格比较）运算符、Object-is-的区别"><span class="nav-number">4.</span> <span class="nav-text">==相等运算符、===全等（严格比较）运算符、Object.is()的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相等运算符"><span class="nav-number">1.</span> <span class="nav-text">&#x3D;&#x3D;相等运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#严格比较运算"><span class="nav-number">2.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;严格比较运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-is"><span class="nav-number">3.</span> <span class="nav-text">Object.is()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相等运算符、-全等（严格比较）运算符、Object-is-的区别"><span class="nav-number">4.</span> <span class="nav-text">&#x3D;&#x3D;相等运算符、&#x3D;&#x3D;&#x3D;全等（严格比较）运算符、Object.is()的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
           </div>
         </section>
