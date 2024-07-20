@@ -9,10 +9,10 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "4.0.0"
+    "version": "4.2.1"
   },
   "node": {
-    "version": "13.7.0"
+    "version": "22.5.1"
   },
   "dependencies": {
     "hexo": "^4.0.0",
