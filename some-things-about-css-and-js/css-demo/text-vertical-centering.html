@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Multi-line text vertical centering solution.</title>
+  <style>
+      * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: rgba(43, 43, 43, 1);
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    p {
+      font-size: 14px;
+    }
+    .multi-line-container {
+      color: #fff;
+      text-align: center;
+    }
+    .box-text {
+      position: relative;
+      width: 270px;
+      height: 370px;
+      margin: 10px auto;
+      border: 1px solid #fff;
+    }
+    .title {
+      margin: 10px 0;
+      color: #fff;
+      font-size: 28px;
+      line-height: 36px;
+      text-transform: capitalize;
+    }
+    /*!
+     * For IE6、IE7+ Empty Element and Inline-Block Element
+    */
+    .empty-inline-block {
+      font-size: 0;
+      letter-spacing: 0;
+    }
+    .empty-inline-block .hook {
+      overflow: hidden;
+      display: inline-block;
+      *zoom: 1; /* for IE6 */
+      *display: inline;  /* for IE7*/
+      vertical-align: middle;
+      width: 1px;
+      height: 100%;
+      margin-left: -8px;
+      line-height: 999em;
+      font-size: 0;
+    }
+    .empty-inline-block p {
+      display: inline-block;
+      *zoom: 1; /* for IE6 */
+      *display: inline;  /* for IE7*/
+      vertical-align: middle;
+    }
+    /*! 
+     * For IE6、IE7+ Absolute postion and Relative position
+    */
+    .position-middle {
+      position: absolute;
+      top: 50%;
+    }
+    .position-inner {
+      position: relative;
+      top: -50%;
+    }
+    /*! 
+     * For IE8+ Table-Cell
+    */
+    .table {
+      display: table;
+    }
+    .table-cell {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    /*!
+     * For IE9+ Transform Layout
+    */
+    .transform-inner {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    /*!
+     * For IE9+ Flex Layout
+    */
+    .flex {
+      display: flex;
+      align-items: center;
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <div class="multi-line-container">
+    <h2 class="title">multi-line text vertical center solution one (support for IE6, IE7+)</h2>
+    <div class="box-text empty-inline-block">
+      <span class="hook"></span>
+      <p>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text..</p>
+    </div>
+    <!-- /empty-inline-block -->
+    <h2 class="title">multi-line text vertical center solution two (support for IE6, IE7+)</h2>
+    <div class="box-text position">
+      <div class="position-middle">
+        <p class="position-inner">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text..</p>
+      </div>
+      <!-- /position -->
+    </div>
+    <!-- /outer -->
+    <h2 class="title">multi-line text vertical center solution three (support for IE8+)</h2>
+    <div class="box-text table">
+      <p class="table-cell">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text..</p>
+    </div>
+    <!-- /table -->
+    <h2 class="title">multi-line text vertical center solution four (support for IE9+)</h2>
+    <div class="box-text transform">
+      <p class="transform-inner">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text..</p>
+    </div>
+    <!-- /transform -->
+    <h2 class="title">multi-line text vertical center solution four (support for IE9+)</h2>
+    <div class="box-text flex">
+      <p class="flex-inner">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text..</p>
+    </div>
+    <!-- /flex -->
+  </div>
+  <!-- /multi-line-container -->
+</body>
+</html>

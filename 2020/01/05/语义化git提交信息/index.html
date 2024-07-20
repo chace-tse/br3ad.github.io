@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端开发,Git相关,commits,git-commits," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="如何语义化你的git提交信息？例子 123456feat: add hat wobble^--^ ^------------^| || +-&gt; Summary in present tense.|+-------&gt; Type: chore, docs, feat, fix, refactor, style, or test.  Git Commit message 的格式每次提交，Co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="语义化git提交信息">
+<meta property="og:url" content="http://imooldy.com/2020/01/05/%E8%AF%AD%E4%B9%89%E5%8C%96git%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF/index.html">
+<meta property="og:site_name" content="Chace Tse">
+<meta property="og:description" content="如何语义化你的git提交信息？例子 123456feat: add hat wobble^--^ ^------------^| || +-&gt; Summary in present tense.|+-------&gt; Type: chore, docs, feat, fix, refactor, style, or test.  Git Commit message 的格式每次提交，Co">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-05T12:05:20.000Z">
+<meta property="article:modified_time" content="2024-07-20T13:06:47.328Z">
+<meta property="article:author" content="Chace Tse">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="Git相关">
+<meta property="article:tag" content="commits">
+<meta property="article:tag" content="git-commits">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://imooldy.com/2020/01/05/语义化git提交信息/"/>
+
+
+
+
+
+  <title>语义化git提交信息 | Chace Tse</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chace Tse<span class="site-title-sub"> 的博客</span></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-building"></i> <br />
+            
+            Projects
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-movies">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-film"></i> <br />
+            
+            Movies
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-reading">
+          <a href="/reading/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Reading
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imooldy.com/2020/01/05/%E8%AF%AD%E4%B9%89%E5%8C%96git%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chace Tse">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my_photo_1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chace Tse">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">语义化git提交信息</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-05T20:05:20+08:00">
+                2020-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/05/%E8%AF%AD%E4%B9%89%E5%8C%96git%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/01/05/语义化git提交信息/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="如何语义化你的git提交信息？"><a href="#如何语义化你的git提交信息？" class="headerlink" title="如何语义化你的git提交信息？"></a>如何语义化你的git提交信息？</h2><p><strong>例子</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">feat: add hat wobble</span><br><span class="line">^--^ ^------------^</span><br><span class="line">| |</span><br><span class="line">| +-&gt; Summary in present tense.</span><br><span class="line">|</span><br><span class="line">+-------&gt; Type: chore, docs, feat, fix, refactor, style, or test.</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-Commit-message-的格式"><a href="#Git-Commit-message-的格式" class="headerlink" title="Git Commit message 的格式"></a><code>Git Commit message</code> 的格式</h2><p><strong>每次提交，Commit message 都包括三个部分：Header，Body 和 Footer</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="built_in">type</span>&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line">// 空一行</span><br><span class="line">&lt;body&gt;</span><br><span class="line">// 空一行</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h2><p><strong><code>feat</code></strong>: 新功能(A new feature)<br><strong><code>fix</code></strong>: 修复bug(A bug fix)<br><strong><code>docs</code></strong>: 修改文档(Documentation only changes)<br><strong><code>style</code></strong>: 格式（不影响代码运行的变动,空格、格式、缺少分号等）(Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)<br><strong><code>refactor</code></strong>: 重构(既不是新功能，也不是修复bug的代码变动)(A code change that neither fixes a bug nor adds a feature)<br><strong><code>perf</code></strong>: 代码性能提升(A code change that improves performance)<br><strong><code>test</code></strong>: 增加测试模块，不涉及生产环境的代码(Adding missing or correcting existing tests)<br><strong><code>chore</code></strong>: 更新核心模块，包配置文件，不涉及生产环境的代码；(Changes to the build process or auxiliary tools and libraries such as documentation generation)</p>
+<h2 id="Git-commit-模板"><a href="#Git-commit-模板" class="headerlink" title="Git commit 模板"></a><code>Git commit</code> 模板</h2><h2 id="相关工具"><a href="#相关工具" class="headerlink" title="相关工具"></a>相关工具</h2><ul>
+<li><a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener">Commitizen</a>：一个撰写合格 Commit message 的工具</li>
+<li><a href="https://github.com/conventional-changelog-archived-repos/validate-commit-msg" target="_blank" rel="noopener">validate-commit-msg</a>：用于检查 Node 项目的 Commit message 是否符合格式</li>
+<li><a href="https://github.com/conventional-changelog/conventional-changelog" target="_blank" rel="noopener">conventional-change log</a>：生成 Change log 的工具</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="noopener"><em>阮一峰-Commit message 和 Change log 编写指南</em></a><br><a href="https://github.com/angular/angular/commits/master" target="_blank" rel="noopener"><em>Github Angular Repositories commits message</em></a><br><a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines" target="_blank" rel="noopener"><em>Angular 团队的规范</em></a><br><a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener"><em>Conventional Commits</em></a><br><a href="https://www.colabug.com/2019/0616/6449643/" target="_blank" rel="noopener"><em>git 工作流和git commit规范</em></a><br><a href="https://github.com/semantic-release/semantic-release" target="_blank" rel="noopener"><em>Github semantic-release</em></a><br><a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener"><em>Github Commitizen/cz-cli</em></a><br><a href="https://www.zhihu.com/question/21209619" target="_blank" rel="noopener"><em>如何写好 Git commit log?</em></a><br><a href="https://zhuanlan.zhihu.com/p/34223150" target="_blank" rel="noopener"><em>优雅的提交你的 Git Commit Message</em></a><br><a href="http://karma-runner.github.io/0.10/dev/git-commit-msg.html" target="_blank" rel="noopener"><em>Git Commit Msg</em></a><br><a href="https://seesparkbox.com/foundry/semantic_commit_messages" target="_blank" rel="noopener"><em>Semantic Commit Messages</em></a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
+          
+            <a href="/tags/Git%E7%9B%B8%E5%85%B3/" rel="tag"># Git相关</a>
+          
+            <a href="/tags/commits/" rel="tag"># commits</a>
+          
+            <a href="/tags/git-commits/" rel="tag"># git-commits</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/18/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%9C%A8VS-Code%E5%88%B7Leetcode%E7%AE%97%E6%B3%95%E9%A2%98%E5%BA%93%EF%BC%9F/" rel="next" title="如何优雅的在VS Code刷Leetcode算法题库？">
+                <i class="fa fa-chevron-left"></i> 如何优雅的在VS Code刷Leetcode算法题库？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/07/%E8%B0%88%E8%B0%88%E5%AF%B9javascript%E4%B8%ADthis%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3/" rel="prev" title="谈谈对JavaScript中this、call()、apply()、bind()的理解">
+                谈谈对JavaScript中this、call()、apply()、bind()的理解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2020/01/05/语义化git提交信息/"
+           data-title="语义化git提交信息" data-url="http://imooldy.com/2020/01/05/%E8%AF%AD%E4%B9%89%E5%8C%96git%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+      
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/my_photo_1.png"
+                alt="Chace Tse" />
+            
+              <p class="site-author-name" itemprop="name">Chace Tse</p>
+              <p class="site-description motion-element" itemprop="description">Talk less, listen more, and do more.</p>
+          </div>
+          <nav class="site-state motion-element">
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+          </nav>
+          
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tochacexie@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chace-tse" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/835876986" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.douban.com/people/moldy_bread/" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-user"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+          
+          
+          
+
+        </div>
+      </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何语义化你的git提交信息？"><span class="nav-number">1.</span> <span class="nav-text">如何语义化你的git提交信息？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Commit-message-的格式"><span class="nav-number">2.</span> <span class="nav-text">Git Commit message 的格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type"><span class="nav-number">3.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-commit-模板"><span class="nav-number">4.</span> <span class="nav-text">Git commit 模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关工具"><span class="nav-number">5.</span> <span class="nav-text">相关工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      <!--/noindex-->
+      
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chace Tse</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

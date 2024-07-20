@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS POP Dialog</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <script src="../../lib/jquery/jquery-3.1.1.min.js"></script>
+  <style>
+    * {
+      -ms-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    /*!
+     * Pop Control
+    */
+    .pop-control {
+      position: relative;
+      width: 500px;
+      margin: 20px auto;
+      text-align: center;
+    }
+    .btn-switch {
+      display: inline-block;
+      vertical-align: top;
+      width: 100px;
+      height: 30px;
+      padding: 0 8px;
+      line-height: 30px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 6px;
+      color: #fff;
+      background: #0850d0;
+    }
+    /*!
+     * Pop Mask Background
+    */
+    .pop-mask-bg {
+      display: none;
+      position:absolute;
+      left:0;
+      top:0;
+      width: 100%;
+      height: 100%;
+      z-index:1000;
+      filter: alpha(opacity=80);
+      opacity:0.8;
+      background-color:#000;
+    }
+    /*!
+     * Pop Content
+    */
+    .pop-content {
+      z-index: 1001;
+      position: absolute;
+      width: 708px;
+      height: 560px;
+      left: 50% !important;
+      top: 50% !important;
+      margin-top: -280px !important;
+      margin-left: -354px !important;
+      padding: 120px 58px 0;
+      text-align: center;
+      color: #000;
+      border-radius: 5px;
+      box-shadow: 3px 5px 65px 0 rgba(68, 186, 210, .75);
+      background: #fff;
+    }
+    .pop-content .pop-info {
+      font-size: 30px;
+      line-height: 48px;
+      color: #343231;
+      text-align: left;
+      margin-bottom: 85px;
+    }
+    .pop-content .form-group {
+      display: inline-block;
+      text-align: center;
+      font-size: 0;
+    }
+    .form-group .btn {
+      display: inline-block;
+      vertical-align: top;
+      width: 180px;
+      height: 63px;
+      line-height: 63px;
+      font-size: 30px;
+      color: #fff;
+      background: #44bad2;
+      text-align: center;
+      box-shadow: 3px 5px 0 0 #c8d7df;
+    }
+    .form-group > button + button {
+      margin-left: 108px;
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <h2 class="title">CSS pop dialog.</h2>
+  <section class="pop-control">
+    <button type="button" id="BtnSwitch" class="btn-switch">Click Me!</button>
+  </section>
+  <!-- /pop-control -->
+  <div class="pop-mask-bg" id="popMask"></div>
+  <form class="pop-content" id="popForm" style="display: none;">
+    <p class="pop-info">我们会从参加“有奖征文”活动的用户中选取一些优秀的信件分享给同事们，以激励大家的斗志。所以当您可以选择是否参加“有奖征文”活动。</p>
+    <div class="form-group">
+      <button type="submit" id="BtnSend" class="btn">是</button>
+      <button type="button" id="BtnCancel" class="btn">否</button>
+    </div>
+  </form>
+  <!-- /pop-content -->
+  <script>
+    $(function() {
+      $('#BtnSwitch').click(function() {
+        // For Switch Button Code
+        $('#popForm').center();
+        $('#popMask').show();
+        $('#popForm').fadeIn();
+      });
+      $('#BtnSend').click(function() {
+        // For Submit Code
+        $('#popForm').hide();
+        $('#popMask').hide();
+      });
+      $('#BtnCancel').click(function() {
+        // For Cancel Code
+        $('#popForm').hide();
+        $('#popMask').hide();
+      });
+      $('#popMask').click(function() {
+        // For Pop Mask Code
+        $('#popForm').hide();
+        $('#popMask').hide();
+      });
+      jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+          left_position = 0 + $(window).scrollLeft();
+        }
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+          top_position = 0 + $(window).scrollTop();
+        }
+        if (!loaded) {
+          obj.css({
+            'position': 'absolute'
+          });
+          obj.css({
+            'top': ($(window).height() - $('#popForm').height()) * 0.5,
+            'left': left_position
+          });
+          $(window).bind('resize', function() {
+            obj.center(!loaded);
+          });
+          $(window).bind('scroll', function() {
+            obj.center(!loaded);
+          });
+
+        } else {
+          obj.stop();
+          obj.css({
+            'position': 'absolute'
+          });
+          obj.animate({
+            'top': top_position
+          }, 200, 'linear');
+        }
+      };
+    });
+  </script>
+</body>
+</html>

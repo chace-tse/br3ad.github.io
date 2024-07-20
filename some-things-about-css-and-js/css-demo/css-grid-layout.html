@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Grid Layout.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(43, 43, 43, 1);
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    /*!
+     * Title 
+    */
+    .title {
+      padding: 1em 0;
+      font-size: 2em;
+      color: #fff;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    /*!
+     * CSS Gird Layout
+     */
+    .p {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 100vh;
+    }
+    .n {
+      background-color: #a0ddce;
+    }
+    .t {
+      background-color: #f6d02e;
+    }
+    .s {
+      background-color: #6a7a8a;
+    }
+    .f {
+      background-color: #52abe5;
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <h2 class="title">CSS grid layout.</h2>
+  <section class="p">
+    <div class="n"></div>
+    <div class="t"></div>
+    <div class="s"></div>
+    <div class="f"></div>
+  </section>
+  <!-- /p -->
+</body>
+</html>

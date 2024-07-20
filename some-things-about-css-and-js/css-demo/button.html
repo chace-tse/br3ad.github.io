@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The effect of an element.</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff;
+    }
+    .title {
+      color: #000;
+    }
+    /*!
+      * Button 
+    */
+    .button {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 150px;
+      height: 50px;
+      line-height: 50px;
+      font-weight: 500;
+      font-size: 14px;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      overflow: hidden;
+      text-transform: uppercase;
+      background-color: #000;
+    }
+    .button:after {
+      position: absolute;
+      display: block;
+      width: 25px;
+      height: 25px;
+      border-radius: 100%;
+      content: " ";
+      top: 50%;
+      right: -13px;
+      margin-top: -13px;
+      background-color: #fff;
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <h2 class="title">The effect of an element.</h2>
+  <button class="button">button</button>
+</body>
+</html>

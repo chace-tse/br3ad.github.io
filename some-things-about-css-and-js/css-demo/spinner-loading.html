@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Spinner Loading</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    /*!
+     * Spinner Loading
+    */
+    .spinner-loading {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 40px;
+      text-align: center;
+      font-size: 10px;
+    }
+    .spinner-loading > li {
+      display: inline-block;
+      width: 6px;
+      height: 100%;
+      background-color: #fff;
+      -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+      animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    }
+    .spinner-loading > li.rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s;
+    }
+    .spinner-loading > li.rect3 {
+      -webkit-animation-delay: -1s;
+      animation-delay: -1s;
+    }
+    .spinner-loading > li.rect4 {
+      -webkit-animation-delay: -.9s;
+      animation-delay: -.9s;
+    }
+    .spinner-loading > li.rect5 {
+      -webkit-animation-delay: -.8s;
+      animation-delay: -.8s;
+    }
+    @-webkit-keyframes sk-stretchdelay {
+      0%,
+      40%,
+      100% {
+        -webkit-transform: scaleY(.4);
+      }
+      20% {
+        -webkit-transform: scaleY(1);
+      }
+    }
+    @keyframes sk-stretchdelay {
+      0%,
+      40%,
+      100% {
+      transform: scaleY(.4);
+        -webkit-transform: scaleY(.4);
+      }
+      20% {
+      transform: scaleY(1);
+        -webkit-transform: scaleY(1);
+      }
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <h2 class="title">CSS spinner loading.</h2>
+  <ul class="spinner-loading">
+    <li class="rect1"></li>
+    <li class="rect2"></li>
+    <li class="rect3"></li>
+    <li class="rect4"></li>
+    <li class="rect5"></li>
+  </ul>
+  <!-- /spinner-loading -->
+</body>
+</html>

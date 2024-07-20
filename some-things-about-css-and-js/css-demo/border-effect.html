@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Border Effect</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    /*!
+     * Use An element implements a border effect.
+    */
+    .border-effect {
+      text-align: center;
+    }
+    h3 {
+      padding: 10px 0;
+      text-align: center;
+      font-size: 26px;
+      color: white;
+      text-transform: capitalize;
+    }
+    /*!
+     * Box
+    */
+    .box {
+      position: relative;
+      margin: 0 auto 25px;
+      width: 200px;
+      height: 60px;
+      background-color: #ddd;
+    }
+    /*!
+     * Border Method
+    */
+    .box-1 {
+      width: 195px;
+      border-left: 5px solid deeppink;
+    }
+    /*!
+     * Pseudo Element Method
+    */
+    .box-2::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 60px;
+      background-color: deeppink;
+    }
+    /*!
+     * Outer Box-shadow Method
+    */
+    .box-3 {
+      width: 195px;
+      box-shadow: -5px 0 0 0 deeppink;
+    }
+    /*!
+     * Inner Box-shadow Method
+    */
+    .box-4 {
+      box-shadow: inset 5px 0 0 0 deeppink;
+    }
+    /*!
+     * CSS3 Filter Drop-shadow Method
+    */
+    .box-5 {
+      width: 195px;
+      filter: drop-shadow(-5px 0 0 deeppink);
+    }
+    /*!
+     * CSS3 Background LinearGradient Method
+    */
+    .box-6 {
+      background-image: linear-gradient(
+        90deg,
+        deeppink 0px,
+        deeppink 5px,
+        transparent 5px
+      );
+    }
+    /*!
+     * Outline Method
+    */
+    .box-7 {
+      position: relative;
+      left: -95px;
+      display: inline-block;
+      vertical-align: middle;
+      outline: 5px solid deeppink;
+      width: auto;
+      height: 50px;
+    }
+    .box-7::before {
+      content: "";
+      position: absolute;
+      width: 195px;
+      top: -5px;
+      right: -5px;
+      bottom: -5px;
+      left: 0;
+      background: #ddd;
+    }
+    /*!
+     * Scroll Method
+    */
+    .box-8 {
+      width: 200px;
+      background-color: deeppink;
+      overflow-y: scroll;
+    }
+    .box-8::-webkit-scrollbar {
+      width: 195px;
+      background-color: #ddd;
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <div class="border-effect">
+    <h2 class="title">an element implements a border effect.</h2>
+    <h3>1、user border.</h3>
+    <div class="box box-1"></div>
+    <h3>2、user pseudo elements before or after.</h3>
+    <div class="box box-2"></div>
+    <h3>3、user outer box-shadow</h3>
+    <div class="box box-3"></div>
+    <h3>4、user inner box-shadow inset</h3>
+    <div class="box box-4"></div>
+    <h3>5、user drop-shadow.</h3>
+    <div class="box box-5"></div>
+    <h3>6、user lineargradient.</h3>
+    <div class="box box-6"></div>
+    <h3>7、user outline.</h3>
+    <div class="box box-7"></div>
+    <h3>8、scroll bar.</h3>
+    <div class="box box-8"></div>
+  </div>
+  <!-- /border-effect -->
+</body>
+</html>
