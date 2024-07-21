@@ -22,7 +22,6 @@ category:
 **推送到远程仓库：**
 > *git push origin [branch name]*
 
-
 ## 参考内容
 
 > + [*How can I Remove .DS_Store files from a Git repository?*](https://stackoverflow.com/questions/107701/how-can-i-remove-ds-store-files-from-a-git-repository)
