@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习CSS布局</title>
+  <link rel="stylesheet" href="../css/layout.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/layout-code.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../images/css_layout_logo.png">
+</head>
+<body>
+  <div class="logo">
+    <a href="javascript:;"><img src="../images/css_layout_logo.png"><span>学习CSS布局</span></a>
+  </div>
+  <!-- /logo -->
+  <div class="container">
+    <h1>盒模型</h1>
+    <p class="content">在我们讨论宽度的时候，我们应该讲下与它相关的另外一个重点知识：<em>盒模型</em>。当你设置了元素的宽度，实际展现的元素却超出你的设置：这是因为元素的边框和内边距会撑开元素。看下面的例子，两个相同宽度的元素显示的实际宽度却不一样。</p>
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.simple</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">width</span><span class="p">:</span>&nbsp;<span class="m">500px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">margin</span><span class="p">:</span>&nbsp;<span class="m">20px</span>&nbsp;<span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span></br>
+<span class="nc">.fancy</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">width</span><span class="p">:</span>&nbsp;<span class="m">500px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">margin</span><span class="p">:</span>&nbsp;<span class="m">20px</span>&nbsp;<span class="nb">auto</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">padding</span><span class="p">:</span>&nbsp;<span class="m">50px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">border-width</span><span class="p">:</span>&nbsp;<span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+    </figure>
+    <!-- /highlight -->
+    <div class="simple elem">
+      <span class="label">&lt;div class="simple"&gt;</span>
+      <p>我小一些...</p>
+      <span class="endlabel">&lt;/div&gt;</span>
+    </div>
+    <!-- /simple -->
+    <div class="fancy elem">
+      <span class="label">&lt;div class="fancy"&gt;</span>
+      <p>我比它大</p>
+      <span class="endlabel">&lt;/div&gt;</span>
+    </div>
+    <!-- /fancy -->
+    <p class="content">以前有一个代代相传的解决方案是通过数学计算。CSS开发者需要用比他们实际想要的宽度小一点的宽度，需要减去内边距和边框的宽度。值得庆幸地是你不需要再这么做了...</p>
+    <div class="nav-wrapper">
+      <a href="max-width.html" class="nav prev">上一页</a><a href="box-sizing.html" class="nav next">下一页</a>
+    </div>
+    <!-- /nav-wrapper -->
+    <footer class="footer">
+      <span>5 / 19</span>
+    </footer>
+    <!-- /footer -->
+  </div>
+  <!-- /container -->
+</body>
+</html>

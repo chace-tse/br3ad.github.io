@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习CSS布局</title>
+  <link rel="stylesheet" href="../css/layout.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/layout-code.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../images/css_layout_logo.png">
+  <style>
+    .main {
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+    <div class="logo">
+      <a href="javascript:;"><img src="../images/css_layout_logo.png"><span>学习CSS布局</span></a>
+    </div>
+    <!-- /logo -->
+    <div class="container">
+      <h1>max-width</h1>
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#main</span>&nbsp;<span class="p">{</span>&nbsp;
+&nbsp;&nbsp;<span class="nl">max-width</span><span class="p">:</span>&nbsp;<span class="m">600px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">margin</span><span class="p">:</span>&nbsp;<span class="m">0</span>&nbsp;<span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+      </figure>
+      <!-- /  highlight -->
+      <div class="main elem">
+        <span class="label">&lt;div id="main"&gt;</span>
+        <p>在这种情况下使用 <code>max-width</code> 替代 <code>width</code> 可以使浏览器更好地处理小窗口的情况。这点在移动设备上显得尤为重要，调整下浏览器窗口大小检查下吧！</p>
+        <p>顺便提下，<a href="http://caniuse.com/#search=max-width">所有的主流浏览器</a>包括IE7+在内都支持 max-width ，所以放心大胆的用吧。</p>
+        <span class="endlabel">&lt;/div&gt;</span>
+      </div>
+      <!-- /main -->
+      <div class="nav-wrapper">
+        <a href="margin-auto.html" class="nav prev">上一页</a><a href="box-model.html" class="nav next">下一页</a>
+      </div>
+      <!-- /nav-wrapper -->
+      <footer class="footer">
+        <span>4 / 19</span>
+      </footer>
+      <!-- /footer -->
+    </div>
+</body>
+</html>

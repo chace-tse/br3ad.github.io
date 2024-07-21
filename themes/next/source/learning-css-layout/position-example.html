@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习CSS布局</title>
+  <link rel="stylesheet" href="../css/layout.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/layout-code.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../images/css_layout_logo.png">
+  <style>
+    body {
+      margin-bottom: 120px;
+    }
+    .container .container {
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <a href="javascript:;"><img src="../images/css_layout_logo.png"><span>学习CSS布局</span></a>
+  </div>
+  <!-- /logo -->
+  <div class="container">
+    <h1>position例子</h1>
+    <p class="content">通过具体的例子可以帮助我们更好地理解“<code>position</code>”。下面是一个真正的页面布局。</p>
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.container</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">position</span><span class="p">:</span>&nbsp;<span class="nb">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">nav</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">position</span><span class="p">:</span>&nbsp;<span class="nb">absolute</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">left</span><span class="p">:</span>&nbsp;<span class="m">0px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">width</span><span class="p">:</span>&nbsp;<span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">section</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="c">/* position is static by default */</span>
+&nbsp;&nbsp;<span class="nl">margin-left</span><span class="p">:</span>&nbsp;<span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">footer</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">position</span><span class="p">:</span>&nbsp;<span class="nb">fixed</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">bottom</span><span class="p">:</span>&nbsp;<span class="m">0</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">left</span><span class="p">:</span>&nbsp;<span class="m">0</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">height</span><span class="p">:</span>&nbsp;<span class="m">70px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">background-color</span><span class="p">:</span>&nbsp;<span class="no">white</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">width</span><span class="p">:</span>&nbsp;<span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">body</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">margin-bottom</span><span class="p">:</span>&nbsp;<span class="m">120px</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+    </figure>
+    <!-- /highlight -->
+    <div class="container elem">
+      <span class="label">&lt;div class="container"&gt;</span>
+      <nav class="elem elem-red">
+        <span class="label">&lt;nav&gt;</span>
+        <ul>
+          <li><a href="position-example.html">Home</a></li>
+          <li><a href="position-example.html">Taco Menu</a></li>
+          <li><a href="position-example.html">Draft List</a></li>
+          <li><a href="position-example.html">Hours</a></li>
+          <li><a href="position-example.html">Directions</a></li>
+          <li><a href="position-example.html">Contact</a></li>
+        </ul>
+        <span class="endlabel">&lt;/nav&gt;</span>
+      </nav>
+      <!-- /nav -->
+      <section class="elem elem-green">
+        <span class="label">&lt;section&gt;</span>
+        <p><code>section</code> 的 <code>margin-left</code> 样式确保了有足够的空间容纳 <code>nav</code> 元素。</p>
+        <span class="endlabel">&lt;/section&gt;</span>
+      </section>
+      <section class="elem elem-green ipsum">
+        <span class="label">&lt;section&gt;</span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p>
+        <span class="endlabel">/&lt;section&gt;</span>
+      </section>
+      <section class="elem elem-green">
+        <span class="label">&lt;section&gt;</span>
+        <p>注意观察当你调整浏览器窗口时发生了什么。效果很赞！</p>
+        <span class="endlabel">&lt;/section&gt;</span>
+      </section>
+      <footer class="footer elem elem-orange">
+        <span class="label">&lt;footer&gt;</span>
+        <p>如果你使用了一个固定定位的页眉或页脚，确保有足够的空间来显示它们！我在 <code>body</code> 上面加了 <code>margin-bottom</code> 。          </p>
+        <span class="endlabel">&lt;/footer&gt;</span>
+      </footer>
+    </div>
+    <!-- /container -->
+    <p class="content">这个例子在容器比<code>nav</code>元素高的时候可以正常工作。如果容器比<code>nav</code>元素低，那么<code>nav</code>会溢出到容器的外面。之后我们会讨论下其他布局技术，它们都各有优劣。</p>
+    <div class="nav-wrapper">
+      <a href="position.html" class="nav prev">上一页</a><a href="float.html" class="nav next">下一页</a>
+    </div>
+    <!-- /nav-wrapper -->
+    <footer class="footer">
+      <span>8 / 19</span>
+    </footer>
+    <!-- /footer -->
+  </div>
+  <!-- /container -->
+</body>
+</html>
