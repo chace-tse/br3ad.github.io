@@ -1,0 +1,507 @@
+@charset "UTF-8";
+
+/*!
+  * Resume For Chace Tse
+  * Author: @Chacetse
+  * Update：2024 / 07 / 19
+  * Tel: 13671012707
+  * @Email: tochacexie[at]gmail.com
+  * @Github: https://github.com/chace-tse
+  * @Sina Weibo：https://weibo.com/835876986
+  * @Instagram：https://www.instagram.com/chace_xie/
+*/
+
+
+/*!
+ * Reset Style 
+*/
+html {
+    -ms-touch-action: none;
+
+}
+body {
+    color: #000;
+    font-size: 14px;
+    background-color: #f1f1f1;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+}
+div,
+td,
+button,
+input,
+select,
+textarea {
+    text-align: left;
+}
+body,
+div,
+img,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+fieldset,
+table,
+pre,
+th,
+td,
+dl,
+dt,
+dd,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+img {
+    border: 0;
+    vertical-align: middle;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+ul li {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+}
+caption,
+th {
+    text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1.1em;
+    vertical-align: baseline;
+    *zoom: 1;
+}
+input,
+textarea,
+select,
+button {
+    font-size: 14px;
+    font-family: "MicroSoft YaHei";
+    *vertical-align: middle;
+}
+input[type=radio],
+input[type=checkbox] {
+    vertical-align: middle;
+}
+textarea {
+    overflow: auto;
+    resize: none;
+}
+a:focus,
+button:focus {
+    outline-style: none;
+    outline-width: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+
+/*!
+ * Global Style 
+*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    background-color: #ededed;
+}
+h1,
+h2 {
+    font-family: 'Bree Serif', serif;
+    font-weight: normal;
+}
+h1 {
+    font-size: 2em;
+    margin: 1.5em 0;
+    text-align: center;
+}
+h2 {
+    font-family: 'Bree Serif', serif;
+    margin: 1.2em 0;
+    font-weight: normal;
+    font-size: 1.5em;
+}
+p {
+    margin: 1em 0;
+    font-size: 1em;
+}
+p code,
+li code {
+    background-color: #ececec;
+}
+
+/*!
+ * Logo Style 
+*/
+.logo {
+    text-align: center;
+    padding: 1em 0;
+}
+
+.logo a {
+    color: #414142;
+    position: relative;
+}
+
+.logo img {
+    max-width: 100%;
+}
+
+.logo span {
+    color: #000;
+    font-size: 2em;
+    vertical-align: middle;
+    font-family: 'Bree Serif', serif;
+    margin-left: .5em;
+}
+
+/*!
+ * Container
+*/
+.container {
+    padding: 1em;
+    margin: 0 0 1em 0;
+    background-color: #fff;
+}
+
+/*!
+  * Content Style
+*/
+.content {
+    margin: 1em auto;
+    max-width: 600px;
+}
+
+/*!
+ * Main Style 
+*/
+.main {
+    width: 600px;
+    margin: 0 auto;
+}
+.main a:link,
+.content a:link, 
+nav.elem > ul > li > a:link {
+    color: #d64078;
+    text-decoration: none;
+}
+
+.main a:visited,
+.content a:visited,
+nav.elem > ul > li > a:visited {
+    color: #d64078;
+}
+
+.main a:hover,
+.content a:hover,
+nav.elem > ul > li > a:hover {
+    text-decoration: underline;
+}
+
+.main a:active,
+.content a:active,
+nav.elem > ul > li > a:active {
+    background-color: black;
+    color: white;
+}
+
+
+/*!
+ * highlight Style 
+*/
+.highlight {
+    max-width: 600px;
+    margin: 2em auto;
+    line-height: 1.2em;
+    direction: ltr;
+    font-size: 16px;
+}
+.language-css,
+.language-html {
+    display: block;
+    text-shadow: 1px 1px 0 black;
+    background-color: #333333;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#000000));
+    /* Safari 4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #333333, #000000);
+    /* Chrome 10+, Safari 5.1+, iOS 5+ */
+    background-image: -moz-linear-gradient(top, #333333, #000000);
+    /* Firefox 3.6-15 */
+    background-image: -o-linear-gradient(top, #333333, #000000);
+    /* Opera 11.10-12.00 */
+    background-image: linear-gradient(to bottom, #333333, #000000);
+    /* Firefox 16+, IE10, Opera 12.50+ */
+    color: white;
+    padding: 1em;
+    border-color: rgba(255, 255, 255, 0.3);
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    white-space: pre;
+}
+.language-html:before {
+    content: "html";
+    float: right;
+    color: black;
+    text-shadow: -1px 1px 0 #666; /* \m/ */
+    font-size: 1.5em;
+}
+.language-css:before {
+    content: "css";
+    float: right;
+    color: black;
+    text-shadow: -1px 1px 0 #666;
+    /* \m/ */
+    font-size: 1.5em;
+}
+
+/*!
+  * Elem Style
+*/
+.elem {
+    border: solid #6ac5ac 3px;
+    position: relative;
+}
+.elem p {
+    padding: 0 1em;
+    margin: 1em 0;
+}
+.label,
+.endlabel {
+    position: absolute;
+    background-color: #6ac5ac;
+    color: #414142;
+    line-height: 1em;
+}
+.label {
+    top: 0;
+    left: 0;
+    padding: 0 3px 3px 0;
+}
+.endlabel {
+    right: 0;
+    bottom: 0;
+    padding: 3px 0 0 3px;
+}
+.elem-inline .label,
+.elem-inline .endlabel {
+    position: static;
+}
+.elem-red {
+    border: solid #d64078 3px;
+}
+.elem-red > .label, 
+.elem-red > .endlabel {
+    color: white;
+    background-color: #d64078;
+}
+.elem-green {
+    border: solid #fdc72f 3px
+}
+.elem-green > .label, 
+.elem-green > .endlabel {
+    background-color: #fdc72f;
+}
+.elem-orange {
+    border: solid #96c02e 3px;
+}
+.elem-orange > .label, 
+.elem-orange > .endlabel {
+    background-color: #96c02e;
+}
+
+/*!
+ * simple Style 
+*/
+.simple {
+    width: 500px;
+    margin: 20px auto;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.fancy {
+    width: 500px;
+    margin: 20px auto;
+    padding: 50px;   
+    border-width: 10px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/*!
+ * Position Style 
+*/
+.relative1 {
+    position: relative;
+}
+.relative2 {
+    position: relative;
+    top: -20px;
+    left: 20px;
+    background-color: white;
+    width: 500px;
+}
+.relative {
+    position: relative;
+    width: 600px;
+    height: 400px;
+}
+.absolute {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    width: 300px;
+    height: 200px;
+}
+
+/*!
+ * Position example
+*/
+nav.elem {
+    position: absolute;
+    left: 0;
+    width: 200px;
+}
+nav.elem > ul {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+}
+nav.elem > ul > li {
+    list-style-type: disc;
+}
+nav.elem > ul > li > a {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+}
+section.elem {
+    font-size: 16px;
+    margin-left: 186px;
+}
+section.elem.ipsum p {
+    font-weight: 500;
+    line-height: 1.5;
+}
+.ipsum {
+    color: #734161;
+    background-color: #eee;
+}
+
+footer.elem {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 90px;
+    background-color: white;
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+}
+
+/* 
+ * Float Style 
+*/
+.content img {
+    float: right;
+    max-width: 100%;
+    margin: 0 0 1em 1em;
+}
+
+/*!
+ * Nav Style 
+*/
+.nav-wrapper {
+    padding: 20px 0;
+    font-size: 0;
+    text-align: center;
+}
+.nav-wrapper a.nav {
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+    width: 12em;
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+    border: solid #b03060 1px;
+    border-bottom: solid #b03060 4px;
+    background-color: #b03060;
+    text-shadow: 0px 2px 0 #b03060;
+    text-decoration: none;
+    -webkit-transition: all 0.1s ease-out;
+    -moz-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+}
+.nav-wrapper a.nav:hover {
+    background-color: #c63b6f;
+}
+.nav-wrapper a.hav:active {
+    border-bottom: solid #b03060 1px;
+    top: 4px;
+    -webkit-transition: all 0 ease-out;
+    -moz-transition: all 0 ease-out;
+    -o-transition: all 0 ease-out;
+    transition: all 0 ease-out;
+}
+.nav-wrapper a.nav:before {
+    height: 5px;
+    width: 100%;
+    background: white;
+    position: absolute;
+    content: "";
+    top: -6px;
+    left: 0;
+}
+.nav-wrapper .nav+.nav {
+    margin-left: 25px;
+}
+
+/*!
+ * Footer Style 
+*/
+.footer {
+    text-align: center;
+}
