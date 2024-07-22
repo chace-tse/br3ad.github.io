@@ -169,6 +169,18 @@ li code {
     background-color: #ececec;
 }
 
+/*
+    * Clearfix 
+    *   
+*/
+.clearfix:after {
+    content: '.';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
 /*!
  * Logo Style 
 */
@@ -412,13 +424,13 @@ nav.elem > ul > li {
     list-style-type: disc;
 }
 nav.elem > ul > li > a {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 24px;
-    font-weight: 500;
+    font-weight: 400;
 }
 section.elem {
     font-size: 16px;
-    margin-left: 186px;
+    margin-left: 200px;
 }
 section.elem.ipsum p {
     font-weight: 500;
@@ -446,7 +458,7 @@ footer.elem {
 .content img {
     float: right;
     max-width: 100%;
-    margin: 0 0 1em 1em;
+    /* margin: 0 0 1em 1em; */
 }
 
 /*!

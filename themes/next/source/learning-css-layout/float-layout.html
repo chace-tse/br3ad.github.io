@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="../css/layout.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/layout-code.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="../images/css_layout_logo.png">
+  <style>
+    .clearfix nav.elem {
+      position: static;
+      float: left;
+    }
+  </style>
 </head>
 <body>
   <div class="logo">
@@ -15,8 +21,46 @@
   </div>
   <!-- /logo -->
   <div class="container">
+    <h1>浮动布局例子</h1>
+    <p class="content">完全使用 <code>float</code> 来实现页面的布局是很常见的。这里有一个我之前用 <code>position</code> 实现的布局例子，这次我使用 <code>float</code> 实现了它。</p>
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">nav</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">float</span><span class="p">:</span>&nbsp;<span class="nb">left</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">width</span><span class="p">:</span>&nbsp;<span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">section</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">margin-left</span><span class="p">:</span>&nbsp;<span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+    </figure>
+    <!-- /highlight -->
+    <div class="clearfix elem">
+      <span class="label">&lt;div class="clearfix"&gt;</span>
+      <nav class="elem elem-red">
+        <span class="label">&lt;nav&gt;</span>
+        <ul>
+          <li><a href="float-layout.html">Home</a></li>
+          <li><a href="float-layout.html">Taco Menu</a></li>
+          <li><a href="float-layout.html">Draft List</a></li>
+          <li><a href="float-layout.html">Hours</a></li>
+          <li><a href="float-layout.html">Directions</a></li>
+          <li><a href="float-layout.html">Contact</a></li>
+        </ul>
+        <span class="endlabel">&lt;/div&gt;</span>
+      </nav>
+      <!-- /nav -->
+      <section class="elem elem-green">
+        <span class="label">&lt;section&gt;</span>
+        <p>这个例子和之前那个外观一模一样。请注意我们在容器上做了“清除浮动”。原本在这个例子中是不需要的，但是当 <code>nav</code> 比非浮动的内容还要高时就需要了。</p>
+        <span class="endlabel">&lt;/section&gt;</span>
+      </section>
+      <section class="elem elem-green ipsum">
+        <span class="label">&lt;section&gt;</span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p>
+        <span class="endlabel">&lt;/section&gt;</span>
+      </section>
+    </div>
+    <!-- /clearfix -->
     <div class="nav-wrapper">
-      <a href="clearfix.html" class="nav prev">上一页</a><a href="javascript:;" class="nav next">下一页</a>
+      <a href="clearfix.html" class="nav prev">上一页</a><a href="percent.html" class="nav next">下一页</a>
     </div>
     <!-- /nav-wrapper -->
     <footer class="footer">
