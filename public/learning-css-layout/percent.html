@@ -8,6 +8,19 @@
   <link rel="stylesheet" href="../css/layout.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/layout-code.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="../images/css_layout_logo.png">
+  <style>
+    nav.elem {
+      float: left;
+      width: 25%;
+    }
+    section.elem {
+      margin-left: 25%;
+    }
+    .container .container {
+      margin: 0;
+      padding: 0; 
+    }
+  </style>
 <meta name="generator" content="Hexo 4.2.1"></head>
 <body>
   <div class="logo">
@@ -29,8 +42,50 @@
       <p>你甚至还能同时使用 <code>min-width</code> 和 <code>max-width</code> 来限制图片的最大或最小宽度！</p>
       <span class="endlabel">&lt;/article&gt;</span>
     </article>
+    <!-- /article -->
+    <div class="content">
+      <h2>百分比宽度布局</h2>
+      <p class="content">你可以用百分比做布局，但是这需要更多的工作。在下面的例子中，当窗口宽度很窄时 <code>nav</code> 的内容会以一种不太友好的方式被包裹起来。总而言之，选一种最合适你的内容的方式。</p>
+    </div>
+    <!-- /content -->
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">nav</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">float</span><span class="p">:</span>&nbsp;<span class="nb">left</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">width</span><span class="p">:</span>&nbsp;<span class="m">25%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">section</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">margin-left</span><span class="p">:</span>&nbsp;<span class="m">25%</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+    </figure>
+    <!-- /highlight -->
+    <div class="container elem">
+      <span class="label">&lt;div class="container"&gt;</span>
+      <nav class="elem elem-red">
+        <span class="label">&lt;nav&gt;</span>
+        <ul>
+          <li><a href="percent.html">Home</a></li>
+          <li><a href="percent.html">Taco Menu</a></li>
+          <li><a href="percent.html">Draft List</a></li>
+          <li><a href="percent.html">Hours</a></li>
+          <li><a href="percent.html">Directions</a></li>
+          <li><a href="percent.html">Contact</a></li>
+        </ul>
+        <span class="endlabel">&lt;/nav&gt;</span>
+      </nav>
+      <!-- /nav -->
+      <section class="elem elem-green">
+        <span class="label">&lt;section&gt;</span>
+        <p>当布局很窄时， <code>nav</code> 就会被挤扁。更糟糕的是，你不能在 <code>nav</code> 上使用 <code>min-width</code> 来修复这个问题，因为右边的那列是不会遵守它的。</p>
+        <span class="endlabel">&lt;/section&gt;</span>
+      </section>
+      <section class="elem elem-green ipsum">
+        <span class="label">&lt;section&gt;</span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p>
+        <span class="endlabel">&lt;/section&gt;</span>
+      </section>
+    </div>
+    <!-- /container -->
     <div class="nav-wrapper">
-      <a href="float-layout.html" class="nav prev">上一页</a><a href="javascript:;" class="nav next">下一页</a>
+      <a href="float-layout.html" class="nav prev">上一页</a><a href="media-queries.html" class="nav next">下一页</a>
     </div>
     <!-- /nav-wrapper -->
     <footer class="footer">
