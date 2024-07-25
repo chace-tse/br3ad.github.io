@@ -92,14 +92,14 @@ index_with_subtitle: false
 # Value before `||` delimeter is the target link.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
-  home: /|| home
-  archives: /archives/|| archive
-  categories: /categories/|| th
+  首页: /|| home
+  归档: /archives/|| archive
+  # categories: /categories/|| th
   #tags: /tags/|| tags
-  projects: /projects/|| building
-  movies: /movies/|| film
-  reading: /reading/|| book
-  about: /resume/|| user
+  项目: /projects/|| building
+  电影: /movies/|| film
+  阅读: /reading/|| book
+  简历: /resume/|| user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -123,7 +123,7 @@ scheme: Mist
 # Sidebar Settings
 # ---------------------------------------------------------------
 
-# Social Links.
+# Social Links. 社交平台链接
 # Usage: `Key: permalink || icon`
 # Key is the link label showing to end users.
 # Value before `||` delimeter is the target permalink.
@@ -133,7 +133,7 @@ social:
   GitHub: https://github.com/chace-tse || github
   微博: https://weibo.com/835876986 || weibo
   豆瓣: https://www.douban.com/people/moldy_bread/ || user
-  #Instagram: https://www.instagram.com/chacexxie/ || instagram
+  Instagram: https://www.instagram.com/chace_xie/ || instagram
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
 
@@ -150,10 +150,10 @@ links_layout: block
 #links:
   #Title: http://example.com/
 
-# Sidebar Avatar
+# Sidebar Avatar 侧边栏头像
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: /images/my_photo_1.png
+avatar: /images/my_photo_1.png 
 
 # Table Of Contents in the Sidebar
 toc:
