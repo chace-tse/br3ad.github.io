@@ -24,11 +24,3 @@ layout: "reading"
 
 ## Booklist / 书单
 ---
-
-**Bill Gates(比尔·盖茨)在他的个人网站[*Gates Notes*](https://www.gatesnotes.com/About-Bill-Gates/Holiday-Books-2019?WT.mc_id=20191210192113_EOYBooks2019_BG-LI&WT.tsrc=BGLI&linkId=78697290)上分享了五本书来享受这个冬天。**
-
-+ [*《An American Marriage, by Tayari Jones》*](https://book.douban.com/subject/27145297/)
-+ [*《These Truths, by Jill Lepores》*](https://book.douban.com/subject/30326555/)
-+ [*《Growth, by Vaclav Smil》*](https://book.douban.com/subject/34835317/)
-+ [*《Prepared, by Diane Tavenner》*](https://book.douban.com/subject/34864978/)
-+ [*《Why We Sleep, by Matthew Walker》*](https://book.douban.com/subject/30443263/)

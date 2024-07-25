@@ -1,14 +1,15 @@
 ---
-title: The Projects Page
-date: 2019-11-27 16:14:50
+title: 项目页面
+date: 2024-07-25 14:53:08
 type: projects
 category: projects
 layout: "projects"
 ---
 
-## CSS
+## 一些关于CSS和JS的Demo实现
+---
 
-### CSS Demo
+### CSS
 
 **一些Codepen Demo效果，及常见的CSS布局解决方案**
 + [*CSS 一个简单的Pop Model效果*](../some-things-about-css-and-js/css-demo/css-pop-dialog.html)
@@ -50,8 +51,31 @@ layout: "projects"
 + [*粘性页脚（页脚始终保持在底部）03*](../some-things-about-css-and-js/css-demo/sticky-page-footer-layout-3.html)
 + [*粘性页脚（页脚始终保持在底部）04*](../some-things-about-css-and-js/css-demo/sticky-page-footer-layout-4.html)
 
-## JavaScript
+### JavaScript
 
-### 常见的一些JavaScript算法Demo
+#### 常见的一些JavaScript算法
 
 + [*JavaScript 字符串回文实现*](../some-things-about-css-and-js/js-demo/javascript-palindrome.html)
+
+## 学习CSS布局
+---
+
++ [*没有布局*](../learning-css-layout/index.html)
++ [*display属性*](../learning-css-layout/display.html)
++ [*margin-auto*](../learning-css-layout/margin-atuo.html)
++ [*max-width*](../learning-css-layout/max-width.html)
++ [*盒模型*](../learning-css-layout/box-model.html)
++ [*box-sizing*](../learning-css-layout/box-sizing.html)
++ [*position*](../learning-css-layout/position.html)
++ [*position-example*](../learning-css-layout/position-example.html)
++ [*float*](../learning-css-layout/float.html)
++ [*clear*](../learning-css-layout/clear.html)
++ [*clearfix*](../learning-css-layout/clearfix.html)
++ [*浮动布局例子*](../learning-css-layout/float-layout.html)
++ [*百分比宽度*](../learning-css-layout/percent.html)
++ [*媒体查询*](../learning-css-layout/media-queries.html)
++ [*inline-block*](../learning-css-layout/inline-block.html)
++ [*inline-block 布局*](../learning-css-layout/inline-block-layout.html)
++ [*column*](../learning-css-layout/column.html)
++ [*flexbox*](../learning-css-layout/flexbox.html)
++ [*css框架*](../learning-css-layout/frameworks.html)
