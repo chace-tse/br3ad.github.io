@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习CSS布局</title>
+  <link rel="stylesheet" href="../css/layout.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/layout-code.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../images/css_layout_logo.png">
+  <style>
+    .simple,
+    .fancy {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <a href="javascript:;"><img src="../images/css_layout_logo.png"><span>学习CSS布局</span></a>
+  </div>
+  <!-- /logo -->
+  <div class="container">
+    <h1>box-sizing</h1>
+    <p class="content">人们慢慢的意识到传统的盒子模型不直接，所以他们新增了一个叫做 <code>box-sizing</code> 的CSS属性。当你设置一个元素为 <code>box-sizing: border-box;</code> 时，此元素的内边距和边框不再会增加它的宽度。这里有一个与前一页相同的例子，唯一的区别是两个元素都设置了 <code>box-sizing: border-box;</code> ：</p>
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.simple</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">width</span><span class="p">:</span>&nbsp;<span class="m">500px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">margin</span><span class="p">:</span>&nbsp;<span class="m">20px</span>&nbsp;<span class="nb">auto</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">-webkit-box-sizing</span><span class="p">:</span>&nbsp;<span class="n">border-box</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nl">-moz-box-sizing</span><span class="p">:</span>&nbsp;<span class="n">border-box</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nl">box-sizing</span><span class="p">:</span>&nbsp;<span class="n">border-box</span><span class="p">;</span>
+<span class="nc">.fancy</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">width</span><span class="p">:</span>&nbsp;<span class="m">500px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">margin</span><span class="p">:</span>&nbsp;<span class="m">20px</span>&nbsp;<span class="nb">auto</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">padding</span><span class="p">:</span>&nbsp;<span class="m">50px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">border</span><span class="p">:</span>&nbsp;<span class="nb">solid</span>&nbsp;<span class="no">blue</span>&nbsp;<span class="m">10px</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">-webkit-box-sizing</span><span class="p">:</span>&nbsp;<span class="n">border-box</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<span class="nl">-moz-box-sizing</span><span class="p">:</span>&nbsp;<span class="n">border-box</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nl">box-sizing</span><span class="p">:</span>&nbsp;<span class="n">border-box</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+    </figure>
+    <!-- /highlight -->
+    <div class="simple elem">
+      <span class="label">&lt;div class="simple"&gt;</span>
+      <p>我们现在一样大小了！</p>
+      <span class="endlabel">&lt;/div&gt;</span>
+    </div>
+    <!-- /simple -->
+    <div class="fancy elem">
+      <span class="label">&lt;div class="fancy"&gt;</span>
+      <p> 万岁！ </p>
+      <span class="endlabel">&lt;/div&gt;</span>
+    </div>
+    <!-- /fancy -->
+    <p class="content">既然没有比这更好的方法，一些CSS开发者想要页面上所有的元素都有如此表现。所以开发者们把以下CSS代码放在他们页面上：</p>
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">*</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">-webkit-box-sizing</span><span class="p">:</span>&nbsp;<span class="n">border-box</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nl">-moz-box-sizing</span><span class="p">:</span>&nbsp;<span class="n">border-box</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nl">box-sizing</span><span class="p">:</span>&nbsp;<span class="n">border-box</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+    </figure>
+    <!-- /highlight -->
+    <p class="content">这样可以确保所有的元素都会用这种更直观的方式排版。</p>
+    <p class="content">不过 <code>box-sizing</code> 是个很新的属性，目前你还应该像我上面例子中那样使用 <code>-webkit-</code> 和 <code>-moz-</code> 前缀。这可以启用特定浏览器实验中的特性。同时记住它是支持<a href="http://caniuse.com/#search=box-sizing">IE8+</a>的。</p>
+    <div class="nav-wrapper">
+      <a href="box-model.html" class="nav prev">上一页</a><a href="position.html" class="nav next">下一页</a>
+    </div>
+    <!-- /nav-wrapper -->
+    <footer class="footer">
+      <span>6 / 19</span>
+    </footer>
+    <!-- /footer -->
+  </div>
+  <!-- /container -->
+</body>
+</html>

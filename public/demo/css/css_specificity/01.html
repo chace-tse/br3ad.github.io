@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Specificity</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100%;
+      height: 100vh;
+      text-transform: capitalize;
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+    h1 {color: red;}
+    body h1 { color: green;}
+
+    h2.grape {color: purple;}
+    h2 {color: silver;}
+
+    html > body table tr[id="totals"] td ul > li {color: maroon;}
+    li#answer {color: navy;}
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <h1>this is heading 1.</h1>
+  <h2 class="grape">this is heading 2.</h2>
+  <table>
+    <tr id="totals">
+      <td>
+        <ul>
+          <li id="answer">this is contents of the list.</li>
+        </ul>
+      </td>
+    </tr>
+    <!-- /totals -->
+  </table>
+</body>
+</html>

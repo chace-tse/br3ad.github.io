@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS variable width block element horizontally centered vertically.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+
+    h1 {
+      font-size: 26px;
+      padding: 10px 0;
+      margin: 10px 0;
+      color: #264a6d;
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 20px;
+      color: #5d647e;
+      padding: 10px 0;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    /*!
+     * Elements Container
+    */
+    .elements-container {
+      overflow: hidden;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /*!
+     * Text Careful
+    */
+    .txt-careful {
+      color: #c9394a;
+      font-size: 18px;
+      padding: 0 3px;
+      color: #fff;
+      background-color: #0f547e;
+      border-radius: 5px;
+    }
+
+    /**!
+     * Box element
+    */
+    .box {
+      min-height: 200px;
+      background-color: #696b6d;
+    }
+
+    /*!
+     * Use Flex Layout
+    */
+    .flex {
+      -webkit-display: flex;
+      display: flex;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    /*!
+     * Use CSS Table Cell Layout
+    */
+    .table {
+      display: table;
+      width: 100%;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .table-cell {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0;
+    }
+
+    .table-cell img {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+
+    /*!
+     * Use Position Absolute + Transform Layout
+    */
+    .transform {
+      position: relative;
+    }
+
+    .transform img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /*!
+     * Use Inline-Block + Empty Element Layout
+    */
+    .inline-block {
+      position: relative;
+      text-align: center;
+      /* parent element fiexd height */
+      height: 200px;
+      font-size: 0;
+    }
+
+    .inline-block:after {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+      width: 1%;
+    }
+
+    .inline-block img {
+      vertical-align: middle;
+      font-size: 16px;
+    }
+
+    /**!
+     * Use Grid Layout
+    */
+    .grid {
+      display: grid;
+    }
+
+    .grid img {
+      align-self: center;
+      justify-self: center;
+    }
+
+    /*!
+     * Use Table Layout
+    */
+    .table tr td {
+      text-align: center;
+    }
+
+    .table tr td img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /**!
+     * Use Writing-mode Layout
+    */
+    .writing-mode {
+      max-width: 860px;
+      writing-mode: vertical-lr;
+      text-align: center;
+    }
+
+    .writing-mode-inner {
+      writing-mode: horizontal-tb;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      font-size: 0;
+    }
+
+    .writing-mode-inner img {
+      display: inline-block;
+      margin: auto;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    /**!
+     * Use Line-height Layout
+    */
+    .line-height {
+      line-height: 200px;
+      text-align: center;
+      font-size: 0;
+    }
+
+    .line-height img {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CSS variable width block element horizontally centered vertically.</h1>
+  <div class="elements-container">
+    <h2>1、use <span class="txt-careful">flex</span> layout.</h2>
+    <div class="box flex">
+      <img src="../../images/qqlogo_2x.png" alt="flex布局实现水平垂直居中">
+    </div>
+    <!-- /flex -->
+    <h6>2、use <span class="txt-careful">table</span> layout.</h6>
+    <table class="box table">
+      <tr>
+        <td><img src="../../images/qqlogo_2x.png" alt="grid 布局实现水平垂直居中"></td>
+      </tr>
+    </table>
+    <!-- /table-->
+    <h3>3、use <span class="txt-careful">CSS table-cell</span> layout.</h3>
+    <div class="box table">
+      <div class="table-cell">
+        <img src="../../images/qqlogo_2x.png" alt="CSS table-cell布局实现水平垂直居中">
+      </div>
+    </div>
+    <!-- /table -->
+    <h4>4、use <span class="txt-careful">position absolute</span> + CSS3 <span class="txt-careful">transform</span>
+      layout.</h4>
+    <div class="box transform">
+      <img src="../../images/qqlogo_2x.png" alt="绝对定位+transform布局实现水平垂直居中">
+    </div>
+    <!-- /transform -->
+    <h5>5、use <span class="txt-careful">inline-block</span> + <span class="txt-careful">empty element</span> layout.
+    </h5>
+    <div class="box inline-block">
+      <img src="../../images/qqlogo_2x.png" alt="inline-block + 空元素布局实现水平垂直居中">
+    </div>
+    <!-- /inline-block-->
+    <h6>6、use <span class="txt-careful">grid</span> layout.</h6>
+    <div class="box grid">
+      <img src="../../images/qqlogo_2x.png" alt="grid 布局实现水平垂直居中">
+    </div>
+    <!-- /grid-->
+    <h6>7、use <span class="txt-careful">writing-mode</span> layout.</h6>
+    <div class="box writing-mode">
+      <div class="writing-mode-inner">
+        <img src="../../images/qqlogo_2x.png" alt="writing-mode 布局实现水平垂直居中">
+      </div>
+    </div>
+    <!-- /writing-mode-->
+    <h6>8、use <span class="txt-careful">line-height</span> layout.</h6>
+    <div class="box line-height">
+      <img src="../../images/qqlogo_2x.png" alt="line-height 布局实现水平垂直居中">
+    </div>
+    <!-- /line-height-->
+  </div>
+  <!-- /elements-container -->
+</body>
+
+</html>

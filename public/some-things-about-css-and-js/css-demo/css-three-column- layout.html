@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Three-column Layout.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      padding: 15px 0;
+      text-align: center;
+      font-size: 28px;
+      color: #000;
+      line-height: 1;
+      font-weight: 600;
+    }
+    h2 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+      font-size: 26px;
+      color: #000;
+      line-height: 1;
+      font-weight: 500;
+    }
+    ol {
+      padding: 1em;
+      margin: 1em;
+    }
+    .wrapper {
+      overflow: hidden;
+    }
+    .layout .wrapper > div {
+      min-height: 100px;
+      color: #333;
+      text-align: center;
+    }
+    .layout .wrapper > div > p {
+      color: #000;
+      line-height: 1;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 3px 0;
+    }
+    /* 
+      * For Float Layout.
+    */
+    .layout.float .left {
+      float: left;
+      width: 300px;
+      background: red;
+    }
+    .layout.float .center {
+      background: yellow;
+    }
+    .layout.float .right {
+      float: right;
+      width: 300px;
+      background: blue;
+    }
+    /* 
+      * For Absolute Layout.
+    */
+    .layout.absolute .wrapper {
+      height: 100px;
+    }
+    .layout.absolute .left {
+      position: absolute;
+      left: 0;
+      width: 300px;
+      background: red;
+    }
+    .layout.absolute .center {
+      position: absolute;
+      left: 300px;
+      right: 300px;
+      background-color: yellow;
+    }
+    .layout.absolute .right {
+      position: absolute;
+      right: 0;
+      width: 300px;
+      background: blue;
+    }
+    /* 
+      * For Flex Layout.
+    */
+    .layout.flex .wrapper {
+      width: 100%;
+      min-height: 100px;
+      display: flex;
+    }
+    .layout.flex .left {
+      width: 300px;
+      background: red;
+    }
+    .layout.flex .center {
+      flex: 1;
+      background: yellow;
+    }
+    .layout.flex .right {
+      width: 300px;
+      background: blue;
+    }
+    /* 
+      * For Table Layout.
+    */
+    .layout.table .wrapper {
+      display: table;
+      width: 100%;
+      min-height: 100px;
+    }
+    .layout.table .left {
+      display: table-cell;
+      width: 300px;
+      background: red;
+    }
+    .layout.table .center {
+      display: table-cell;
+      background: yellow;
+    }
+    .layout.table .right {
+      display: table-cell;
+      width: 300px;
+      background: blue;
+    }
+    /* 
+      * For Grid Layout.
+    */
+    .layout.grid .wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 300px auto 300px;
+      grid-template-rows: 100px;
+    }
+    .layout.grid .left {
+      background: red;
+    }
+    .layout.grid .center {
+      background: yellow;
+    }
+    .layout.grid .right {
+      background: blue;
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <h1>CSS Three-column Layout.</h1>
+  <section class="layout float">
+    <h2>CSS Float Layout To Achieve Three-column Layout.</h2>
+    <article class="wrapper">
+      <div class="left">Left</div>
+      <!-- /left -->
+      <div class="right">Right</div>
+      <!-- /right -->
+      <div class="center">
+        <p>1.The middle part of the float layout.</p>
+        <p>2.The middle part of the float layout.</p>
+      </div>
+      <!-- /center -->
+    </article>
+  </section>
+  <!-- /float -->
+  <section class="layout absolute">
+    <h2>CSS Absolute Layout To Achieve Three-column Layout.</h2>
+    <article class="wrapper">
+      <div class="left">Left</div>
+      <!-- /left -->
+      <div class="center">
+        <p>1.The middle part of the absolute layout.</p>
+        <p>2.The middle part of the absolute layout.</p>
+      </div>
+      <!-- /center -->
+      <div class="right">Right</div>
+      <!-- /right -->
+    </article>
+    <!-- /wrapper -->
+  </section>
+  <!-- /absolute -->
+  <section class="layout flex">
+    <h2>CSS Flex Layout To Achieve Three-column Layout.</h2>
+    <article class="wrapper">
+      <div class="left">Left</div>
+      <!-- /left -->
+      <div class="center">
+        <p>1.The middle part of the flex layout.</p>
+        <p>2.The middle part of the flex layout.</p>
+      </div>
+      <!-- /center -->
+      <div class="right">Right</div>
+      <!-- /right -->
+    </article>
+    <!-- /wrapper -->
+  </section>
+  <!-- /flex -->
+  <section class="layout table">
+    <h2>CSS Table Layout To Achieve Three-column Layout.</h2>
+    <article class="wrapper">
+      <div class="left">Left</div>
+      <!-- /left -->
+      <div class="center">
+        <p>1.The middle part of the table layout.</p>
+        <p>2.The middle part of the table layout.</p>
+      </div>
+      <!-- /center -->
+      <div class="right">Right</div>
+      <!-- /right -->
+    </article>
+    <!-- /wrapper -->
+  </section>
+  <!-- /table -->
+  <section class="layout grid">
+    <h2>CSS Grid Layout To Achieve Three-column Layout.</h2>
+    <article class="wrapper">
+        <div class="left">Left</div>
+      <div class="center">
+        <p>1.The middle part of the grid layout.</p>
+        <p>2.The middle part of the grid layout.</p>
+      </div>
+      <!-- /center -->
+      <div class="right">Right</div>
+      <!-- /right -->
+    </article>
+    <!-- /wrapper -->
+  </section>
+  <!-- /grid -->
+  <p>题目：假设高度已知，请写出三栏布局，其中左栏、右栏宽度各为 300px，中间自适应。</p>
+  <p>解答：可以有很多种布局方式，这里列出五种：float布局，absolute布局，flex布局，table布局，grid布局，代码如下：</p>
+  <ol>
+    <li>每种方案的优缺点？</li>
+    <li>如果高度不固定，实践中一般用哪种？</li>
+    <li>以上几种方案的兼容性如何？</li>
+  </ol>
+</body>
+</html>

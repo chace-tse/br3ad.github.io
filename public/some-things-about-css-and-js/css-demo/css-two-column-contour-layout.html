@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Two-column contour layout.</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    .p > div {
+      color: white;
+      text-align: center;
+      background: gray;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      text-align: center;
+      font-size: 18px;
+      margin: 10px auto;
+      color: #fff;
+      text-transform: capitalize;
+    }
+    p {
+      width: 100%;
+      padding: 10px 0;
+      color: #fff;
+      clear: both;
+      overflow: hidden;
+      font-size: 16px;
+      text-align: center;
+    }
+    .txt-careful {
+      padding: 0 3px;
+      color: #fff;
+      background-color: #0f547e;
+      border-radius: 5px;
+    }
+    .sidebar-1 {
+      width: 300px;
+      height: 200px;
+      line-height: 200px;
+      text-transform: capitalize;
+    }
+    .sidebar-2 {
+      width: 300px;
+      height: 140px;
+      line-height: 140px;
+      text-transform: capitalize;
+    }
+    .main {
+      margin-left: 310px;
+      height: 350px;
+      line-height: 350px;
+      text-transform: capitalize;
+    }
+    /*!
+     * Float Layout
+    */
+    .a {
+      float: left;
+    }
+    .b {
+      float: left;
+      clear: left;
+      margin-top: 10px;
+    }
+    /*!
+     * Absolute Layout
+    */
+    .absolute {
+      position: relative;
+    }
+    .c {
+      position: absolute;
+      top: 0;
+    }
+    .d {
+      position: absolute;
+      top: 210px;
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <h2 class="title">two-column contour layout</h2>
+  <p>要求：使用3个div实现两列等高，左侧内容区域上下间隔10像素,右侧自适应距离左侧10像素</p>
+  <h1>1、use <span class="txt-careful">float</span> layout.</h1>
+  <div class="float p">
+    <div class="a sidebar-1">sidebar-1</div>
+    <div class="b sidebar-2">sidebar-2</div>
+    <div class="main">main</div>
+  </div>
+  <!-- /float -->
+  <h2>2、use <span class="txt-careful">position absolute</span> layout</h2>
+  <div class="absolute p">
+    <div class="c sidebar-1">sidebar-1</div>
+    <div class="d sidebar-2">sidebar-2</div>
+    <div class="main">main</div>
+  </div>
+  <!-- /absolute -->
+</body>
+</html>

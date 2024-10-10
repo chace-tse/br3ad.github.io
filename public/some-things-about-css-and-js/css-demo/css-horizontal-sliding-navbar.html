@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS to achieve horizontal sliding navbar.</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-text-size-adjust: 100%;
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+      margin: 10em 20em;
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    }
+    @media (max-width: 767px) {
+      body {
+        margin: 15em 3em;
+      }
+    }
+    /*!
+     * Navbar 
+    */
+    .navbar {
+      width: 100%;
+      padding: 1em 0;
+      overflow: hidden;
+      overflow-x: scroll;
+      white-space: nowrap;
+      text-align: center;
+      border-radius: .5em;
+      background: rgba(151, 142, 142, 0.5);
+    }
+    .navbar::-webkit-scrollbar {
+      display: none
+    }
+    .navbar > .item {
+      display: inline-block;
+      margin: 0 .55em;
+      text-align: center;
+    }
+    .navbar > .item > a {
+      display: block;
+      color: #f2f2f2;
+      padding: .357em .571em;
+      border-radius: .35em;
+      font-size: 1em;
+      text-decoration: none;
+      background-color: #6593a8;
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <h2 class="title">CSS to achieve horizontal sliding navbar.</h2>
+  <ul class="navbar">
+    <li class="item"><a href="javascript:;">1</a></li>
+    <li class="item"><a href="javascript:;">2</a></li>
+    <li class="item"><a href="javascript:;">3</a></li>
+    <li class="item"><a href="javascript:;">4</a></li>
+    <li class="item"><a href="javascript:;">5</a></li>
+    <li class="item"><a href="javascript:;">6</a></li>
+    <li class="item"><a href="javascript:;">7</a></li>
+    <li class="item"><a href="javascript:;">8</a></li>
+    <li class="item"><a href="javascript:;">9</a></li>
+    <li class="item"><a href="javascript:;">10</a></li>
+    <li class="item"><a href="javascript:;">11</a></li>
+    <li class="item"><a href="javascript:;">12</a></li>
+    <li class="item"><a href="javascript:;">13</a></li>
+    <li class="item"><a href="javascript:;">14</a></li>
+    <li class="item"><a href="javascript:;">15</a></li>
+    <li class="item"><a href="javascript:;">16</a></li>
+    <li class="item"><a href="javascript:;">17</a></li>
+    <li class="item"><a href="javascript:;">18</a></li>
+    <li class="item"><a href="javascript:;">19</a></li>
+    <li class="item"><a href="javascript:;">20</a></li>
+  </ul>
+</body>
+</html>

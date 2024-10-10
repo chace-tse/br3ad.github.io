@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>how to keep footers at the bottom of the page(3).</title>
+  <style>
+    /*!
+     * How To Keep Footers At The Bottom Of The Page （Three）
+     * Support Browser：IE6+、Mozilla、Webkit、Opera、
+    */
+    * {
+      padding: 0;  
+      margin: 0;
+    }
+    html,body {
+      height: 100%;
+      text-align: center;
+      font-size: 1.25em;
+    }
+    /*!
+     * Page-wrap
+    */
+    .page-wrap {
+      min-height: 100%;
+      height: auto !important;
+      height: 100%; /* For IE6 */
+      margin-bottom: -150px; /* Equal to footer height */
+      text-transform: capitalize;
+    }
+    .page-wrap:after {
+      display: block;
+      content: "";
+      height: 150px; /* Equal to footer height */
+    }
+    /*!
+     * Footer
+    */
+    .footer {
+      color: #fff;
+      height: 150px;
+      line-height: 150px;
+      background: #494949;
+      text-transform: capitalize;
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <!-- with Fixed Footer Height -->
+  <div class="page-wrap">
+    <div class="header">sticky footer</div>
+    <div class="content">with fixed footer height</div>
+  </div>
+  <!-- /page-wrap -->
+  <div class="footer">footer section</div>
+  <!-- /footer -->
+</body>
+</html>

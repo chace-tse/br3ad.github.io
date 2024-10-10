@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS3 text shadow</title>
+  <link href="../../css/css-content-formatting.css" rel="stylesheet">
+  <style>
+    /*! 
+      * CSS3 Text Shadow
+    */
+    /*!
+     * container
+    */
+    .container {
+      margin: 0 auto;
+      font-size: 2em;
+      line-height: 100%;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .container h2 {
+      padding: .9em 0;
+      margin: 0;
+    }
+    /*!
+     * text-neon
+    */
+    .text-neon {
+      color: #fff;
+      background-color: #000;
+      text-shadow: #fff 0 0 15px, #fff 0 0 25px, #ff00de 0 0 30px, #ff00de 0 0 40px, #f0f 0 0 50px, #f0f 0 0 60px;
+    }
+    /*!
+     * text-inset
+    */
+    .text-inset {
+      color: rgba(83, 90, 97, .69);
+      background-color: rgba(194, 193, 197, .55);
+      text-shadow: 1px 1px 0 #fafbfc;
+    }
+    /*!
+     * text-blur
+    */
+    .text-blur {
+      color: transparent;
+      background-color: #a3a2cd;
+      text-shadow: #ff7d22 0 0 10px, #ff7d22 0 0 15px, #ff7d22 0 0 20px, #ff7d22 0 0 25px;
+    }
+    /*!
+     * text-stroke
+    */
+    .text-stroke {
+      color: #666;
+      background-color: #2a4f57;
+      text-shadow: 1px 1px 0 #f00, -1px -1px 0 #f00;
+    }
+    /*!
+     * text-3d
+    */
+    .text-3d {
+      color: #fff;
+      background-color: #6cfafc;
+      text-shadow: -1px -1px rgba(51, 133, 204, .7), -2px -2px rgba(51, 133, 204, .7), -3px -3px rgba(51, 133, 204, .7), -4px -4px rgba(51, 133, 204, .7), -5px -5px rgba(51, 133, 204, .7), -6px -6px rgba(51, 133, 204, .7), -7px -7px rgba(51, 133, 204, .7), -8px -8px rgba(51, 133, 204, .7), -9px -9px rgba(51, 133, 204, .7), -10px -10px rgba(51, 133, 204, .7);
+    }
+    /*!
+     * text-vintage
+    */
+    .text-vintage {
+      color: #ddd;
+      background-color: #666;
+      text-shadow: 7px 7px 0 #666, 8px 8px 0 #ddd;
+    }
+    /*!
+     * text-apple-style
+    */
+    .text-apple-style {
+      color: #000;
+      background-color: #673445;
+      text-shadow: 1px 1px 0 #fff;
+    }
+    /*!
+     * text-emboss
+    */
+    .text-emboss {
+      color: #c5c5c5;
+      background-color: #e08f8f;
+      text-shadow: -1px -1px 0 #fff, 1px 1px 0 #060606;
+    }
+    /*!
+     * text-emboss-blur
+    */
+    .text-emboss-blur {
+      color: transparent;
+      background-color: #0b0a0a;
+      text-shadow: #2d0f00 0 0 5px, -1px 1px #fff, 1px -1px #000;
+    }
+    /*!
+     * text-anaglyphic
+    */
+    .text-anaglyphic {
+      color: rgba(218, 120, 69, .5);
+      background-color: #620e0e;
+      text-shadow: 3px 3px 0 rgba(195, 255, 52, .5);
+    }
+  </style>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <div class="container">
+    <h2 class="text-neon">neon effect</h2>
+    <h2 class="text-inset">inset effect</h2>
+    <h2 class="text-blur">blurytext effect</h2>
+    <h2 class="text-stroke">stroke text effect</h2>
+    <h2 class="text-3d">3D text effect</h2>
+    <h2 class="text-vintage">vintage retro</h2>
+    <h2 class="text-apple-style">apple style effect</h2>
+    <h2 class="text-emboss">photoshop emboss effect</h2>
+    <h2 class="text-emboss-blur">emboss and bluryt text</h2>
+    <h2 class="text-anaglyphic">anaglyphic text effect</h2>
+  </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/layout.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/layout-code.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../images/css_layout_logo.png">
+  <title>学习CSS布局</title>
+  <style>
+    .three-column {
+      padding: 1em;
+      -moz-column-count: 3;
+      -moz-column-gap: 1em;
+      -webkit-column-count: 3;
+      -webkit-column-gap: 1em;
+      column-count: 3;
+      column-gap: 1em;
+    }
+    section.elem {
+      margin-left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <a href="javascript:;"><img src="../images/css_layout_logo.png"><span>学习CSS布局</span></a>
+  </div>
+  <!-- /logo -->
+  <div class="container">
+    <h1>column</h1>
+    <p class="content">这里有一系列新的CSS属性，可以帮助你很轻松的实现文字的多列布局。让我们瞧瞧：</p>
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.three-column</span>&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;<span class="nl">padding</span><span class="p">:</span>&nbsp;<span class="m">1em</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">-moz-column-count</span><span class="p">:</span>&nbsp;<span class="m">3</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">-moz-column-gap</span><span class="p">:</span>&nbsp;<span class="m">1em</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">-webkit-column-count</span><span class="p">:</span><span class="m">3</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">-webkit-column-gap</span><span class="p">:</span>&nbsp;<span class="m">1em</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">column-count</span><span class="p">:</span>&nbsp;<span class="m">3</span><span class="p">;</span>
+&nbsp;&nbsp;<span class="nl">column-gap</span><span class="p">:</span>&nbsp;<span class="m">1em</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+    </figure>
+    <!-- /highlight -->
+    <div class="content">
+      <section class="elem three-column ipsum">
+        <span class="label">&lt;div class="three-column"&gt;</span>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</div>
+        <span class="endlabel">&lt;/div"&gt;</span>
+      </section>
+      <!-- /three-column -->
+    </div>
+    <!-- /content -->
+    <p class="content">CSS columns是很新的标准，所以你需要使用前缀，并且它不被<a href="http://caniuse.com/#search=column" target="_blank">IE9及以下和Opera Mini</a>支持。还有许多和 column 相关的属性，<a href="http://www.quirksmode.org/css/multicolumn.html" target="_blank">点击这里了解更多</a>。否则让我们讨论下一个主题。</p>
+    <div class="nav-wrapper">
+      <a href="inline-block-layout.html" class="nav prev">上一页</a><a href="flexbox.html" class="nav next">下一页</a>
+    </div>
+    <!-- /nav-wrapper -->
+    <footer class="footer">
+      <span>17 / 19</span>
+    </footer>
+    <!-- /footer -->
+  </div>
+  <!-- /container -->
+</body>
+</html>
