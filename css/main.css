@@ -1825,7 +1825,11 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
+<<<<<<< HEAD
   background: #fffa5d;
+=======
+  background: #3361ff;
+>>>>>>> 1dda81a385a34fb300567fd8dce671e8136be957
 }
 .links-of-blogroll {
   font-size: 13px;
